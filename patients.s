@@ -1,0 +1,1 @@
+P_20160325_7PMg	John	Smith	Male	1978-08-30	37	500 600 700	john.smith@example.pl	Warsaw	02-093	20/20	20/20	This is an example, imaginary patient.#n%Medical history: none.#n%Medications: none.#n%General observations: none.

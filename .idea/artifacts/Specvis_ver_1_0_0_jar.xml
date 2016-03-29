@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Specvis-ver-1.0.0:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Specvis_ver_1_0_0_jar</output-path>
+    <root id="archive" name="Specvis-ver-1.0.0.jar">
+      <element id="module-output" name="Specvis-ver-1.0.0" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/Java JARS/commons-math3-3.5/commons-math3-3.5.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Copyright 2014-2016 Piotr Dzwiniel
+
+This file is part of Specvis.
+
+Specvis is free software; you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 3 of the License,
+or (at your option) any later version.
+
+Specvis is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Specvis; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+-->
+        
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.fixationandother.procedure.BasicProcedureSettingsController">
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" prefHeight="85.0" prefWidth="200.0" spacing="25.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
+            <children>
+                <Button id="orangeButton" layoutX="785.0" layoutY="31.0" mnemonicParsing="false" onAction="#setOnActionForCancelButton" prefHeight="40.0" prefWidth="100.0" stylesheets="@../../MainStylesheet.css" text="Cancel">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="25.0" />
+                    </HBox.margin>
+                </Button>
+                <Button id="greenButton" mnemonicParsing="false" onAction="#setOnActionForSaveButton" prefHeight="40.0" prefWidth="100.0" stylesheets="@../../MainStylesheet.css" text="Save">
+                    <HBox.margin>
+                        <Insets right="25.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+    </bottom>
+   <center>
+      <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="278.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <CheckBox id="checkBox" fx:id="checkBox" mnemonicParsing="false" prefHeight="40.0" prefWidth="20.0" stylesheets="@../../MainStylesheet.css" />
+                  <Label prefHeight="40.0" prefWidth="440.0" text="Spread values logarithmically.">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="360.0" text="Length of the tested brightness vector">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField id="textField" fx:id="textField" alignment="CENTER" prefHeight="40.0" prefWidth="100.0" stylesheets="@../../MainStylesheet.css" text="9">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="470.0" text="(length must be equal to 5 + 4n, eg. 9, 13, 17, 21, 25 etc.)" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
