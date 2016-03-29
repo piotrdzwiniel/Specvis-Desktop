@@ -16,6 +16,8 @@ Specvis main advantages are:
   <li>It stores information about patients and theire results;</li>
   <li>It allows for loading custom settings templates;</li>
   <li>It presents results from the test in a readable and intuitve graphic form;</li>
+  <li>It enables testing of the patient's visual field for different wavelengths of the electromagnetic wave;</li>
+  <li>It enables testing the whole patient's visual field due to the possibility of adjusting the fixation point location;</li>
   <li>It was validated on patients with glaucoma and compared with Medmont M700 perimeter;</li>
 </ul>
 
