@@ -35,9 +35,9 @@ public class TEST {
 
     public static void main(String[] args) {
 
-        ArrayList<Double> arrayList = logspace(10, 100, 9);
+        ArrayList<Double> arrayList = logspace(11, 100, 17);
         for (double d : arrayList) {
-            System.out.println(round(d, 1));
+            System.out.println(round(d, 0));
         }
     }
 

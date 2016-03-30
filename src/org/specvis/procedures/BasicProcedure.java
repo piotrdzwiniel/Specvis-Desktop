@@ -172,7 +172,7 @@ public class BasicProcedure extends Stage {
     private boolean spreadValuesLogarithmically;
     private int visualFieldTestBrightnessVectorLength;
     private int[] brightnessValuesToTest;
-    private boolean isMsgAfterFixLossDisplayedOnTheScreen;
+    //private boolean isMsgAfterFixLossDisplayedOnTheScreen;
     private boolean wasReminderMsgAfterFixLossShown;
     private ArrayList<BasicProcedureStimulus> stimuliList;
     private ArrayList<Integer> activeStimuliIndices;
@@ -439,7 +439,7 @@ public class BasicProcedure extends Stage {
             brightnessValuesToTest[i] = (int) d;
         }
 
-        isMsgAfterFixLossDisplayedOnTheScreen = false;
+        //isMsgAfterFixLossDisplayedOnTheScreen = false;
         wasReminderMsgAfterFixLossShown = false;
 
         stimuliList = createListOfStimuli();
@@ -581,10 +581,10 @@ public class BasicProcedure extends Stage {
                                 }
                             } else {
                                 if (fixationMonitorTimeline != null) {
-                                    if (isMsgAfterFixLossDisplayedOnTheScreen) {
-                                        // displayPane.getChildren().remove(1);
-                                        isMsgAfterFixLossDisplayedOnTheScreen = false;
-                                    }
+//                                    if (isMsgAfterFixLossDisplayedOnTheScreen) {
+//                                        displayPane.getChildren().remove(1);
+//                                        isMsgAfterFixLossDisplayedOnTheScreen = false;
+//                                    }
                                     fixationMonitorTimeline.play();
                                     procedureController.setColorForCircle(Color.web("#33FF33"));
                                     procedureController.setTextForLabel("Running");
@@ -1177,7 +1177,7 @@ public class BasicProcedure extends Stage {
                             procedureController.setColorForCircle(Color.web("#FFAA00"));
                             procedureController.setTextForLabel("Fix loss");
 
-                            isMsgAfterFixLossDisplayedOnTheScreen = true;
+                            //isMsgAfterFixLossDisplayedOnTheScreen = true;
                             wasReminderMsgAfterFixLossShown = true;
 
                             fixationMonitorTimeline.pause();
@@ -1198,8 +1198,10 @@ public class BasicProcedure extends Stage {
                             procedureController.setColorForCircle(Color.web("#FFAA00"));
                             procedureController.setTextForLabel("Fix loss");
 
-                            isMsgAfterFixLossDisplayedOnTheScreen = true;
+                            //isMsgAfterFixLossDisplayedOnTheScreen = true;
                             wasReminderMsgAfterFixLossShown = true;
+
+                            System.out.println("Fixx Loss");
 
                             fixationMonitorTimeline.pause();
                         }
@@ -1209,7 +1211,9 @@ public class BasicProcedure extends Stage {
         });
         fixationMonitorTimeline.getKeyFrames().add(intervalBetweenStimuli);
 
-        KeyFrame runNextTimeline = new KeyFrame(Duration.millis(interval + 10), event -> {
+        // TODO: WATCH OUT!
+        int unsafeInterval = 100; // Watch out on this. If it is equal to 10 procedure might go insane. 100 is a safe value.
+        KeyFrame runNextTimeline = new KeyFrame(Duration.millis(interval + unsafeInterval), event -> {
             runNextTimelineAfterShowingMsgAfterFixLoss();
         });
 
@@ -1250,6 +1254,7 @@ public class BasicProcedure extends Stage {
                         }
                         break;
                 }
+                // nextTimeline.stop();
                 fixationMonitorTimeline.stop();
                 runStimulusTimeline();
             }
