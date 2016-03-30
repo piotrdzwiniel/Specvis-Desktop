@@ -289,7 +289,7 @@ public class PatientResultsMapController implements Initializable {
         }
 
         switch (fixationMonitorTechnique) {
-            case "Blindspot":
+            case "blindspot":
 
                 labelFixationPoint = new Label("F");
                 labelFixationPoint.setMinSize(widthForLabelFixPointAndFixMonitor, heightForLabelFixPointAndFixMonitor);
@@ -309,7 +309,7 @@ public class PatientResultsMapController implements Initializable {
 
                 for (int i = 0; i < patientResultsInfo.size(); i++) {
                     String[] str = patientResultsInfo.get(i).split(": ");
-                    if (str[0].equals("Blindspot distance from fixation point (°)")) {
+                    if (str[0].equals("Blindspot distance from fixation point (\u00b0)")) {
                         String[] bsDistance = str[1].split("/");
                         blindspotDistanceFromFixPointX = Double.valueOf(bsDistance[0]);
                         blindspotDistanceFromFixPointY = Double.valueOf(bsDistance[1]);
@@ -338,42 +338,11 @@ public class PatientResultsMapController implements Initializable {
 
                 if (isCorrectionForSphericityCheckBoxChecked) {
 
-                    double screenWidth = 0;
-                    double screenHeight = 0;
+                    double ax = blindspotDistanceFromFixPointX * pixelsForOneDegreeX;
+                    double ay = blindspotDistanceFromFixPointY * pixelsForOneDegreeY;
 
-                    for (int i = 0; i < patientResultsInfo.size(); i++) {
-                        String[] str = patientResultsInfo.get(i).split(": ");
-                        if (str[0].equals("Screen size (mm)")) {
-                            String[] screenSize = str[1].split("/");
-                            screenWidth = Double.valueOf(screenSize[0]);
-                            screenHeight = Double.valueOf(screenSize[1]);
-
-                            break;
-                        }
-                    }
-
-                    double r = 0;
-
-                    for (int i = 0; i < patientResultsInfo.size(); i++) {
-                        String[] str = patientResultsInfo.get(i).split(": ");
-                        if (str[0].equals("Patient distance (mm)")) {
-                            r = Double.valueOf(str[1]);
-
-                            break;
-                        }
-                    }
-
-                    double ax = blindspotDistanceFromFixPointX;
-                    double ay = blindspotDistanceFromFixPointY;
-
-                    double mx = functions.calculateOppositeAngle(ax, r);
-                    double my = functions.calculateOppositeAngle(ay, r);
-
-                    double mxPixels = functions.millimitersToPixels(mx, contour2DMap.getPrefWidth(), screenWidth);
-                    double myPixels = functions.millimitersToPixels(my, contour2DMap.getPrefHeight(), screenHeight);
-
-                    double fixationMonitorLocationX = centerOfTheGridX + mxPixels - (widthForLabelFixPointAndFixMonitor / 2);
-                    double fixationMonitorLocationY = centerOfTheGridY + myPixels - (heightForLabelFixPointAndFixMonitor / 2);
+                    double fixationMonitorLocationX = centerOfTheGridX + ax - (widthForLabelFixPointAndFixMonitor / 2);
+                    double fixationMonitorLocationY = centerOfTheGridY + ay - (heightForLabelFixPointAndFixMonitor / 2);
 
                     labelFixationMonitor.setLayoutX(fixationMonitorLocationX);
                     labelFixationMonitor.setLayoutY(fixationMonitorLocationY);
@@ -391,7 +360,7 @@ public class PatientResultsMapController implements Initializable {
                 contour2DMap.getChildren().add(labelFixationMonitor);
 
                 break;
-            case "Fixation point change":
+            case "fixation point change":
                 labelFixationPoint = new Label("F+M");
                 labelFixationPoint.setMinSize(widthForLabelFixPointAndFixMonitor, heightForLabelFixPointAndFixMonitor);
                 labelFixationPoint.setMaxSize(widthForLabelFixPointAndFixMonitor, heightForLabelFixPointAndFixMonitor);
@@ -448,7 +417,7 @@ public class PatientResultsMapController implements Initializable {
         ArrayList<Double> isoValues = contour2DMap.getArrayListOfIsoValues();
 
         ArrayList<Double> colorbarValues = functions.linspace(isoValues.get(0), isoValues.get(isoValues.size() - 1), colorbarStep, false);
-        ArrayList<Double> colorbarPositionsX = functions.linspace(2, colorBarBottomRow.getPrefWidth() + 2, colorbarStep, false);
+        ArrayList<Double> colorbarPositionsX = functions.linspace(2, colorBarBottomRow.getPrefWidth() - 2, colorbarStep, false);
 
         for (int i = 0; i < colorbarValues.size(); i++) {
             colorbarValues.set(i, functions.round(colorbarValues.get(i), 1));

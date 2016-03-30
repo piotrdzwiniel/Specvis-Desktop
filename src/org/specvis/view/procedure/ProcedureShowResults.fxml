@@ -1,25 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-Copyright 2014-2016 Piotr Dzwiniel
-
-This file is part of Specvis.
-
-Specvis is free software; you can redistribute it
-and/or modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 3 of the License,
-or (at your option) any later version.
-
-Specvis is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with Specvis; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
--->
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -59,8 +39,17 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
                   <Pane id="displayPane" fx:id="displayPane" maxHeight="500.0" maxWidth="550.0" minHeight="500.0" minWidth="550.0" prefHeight="500.0" prefWidth="550.0" stylesheets="@../MainStylesheet.css" />
                   <VBox prefHeight="50.0" prefWidth="554.0">
                      <children>
-                        <HBox id="displayPane" fx:id="colorBarTopRow" alignment="CENTER" prefHeight="25.0" prefWidth="554.0" stylesheets="@../MainStylesheet.css" />
-                        <Pane fx:id="colorBarBottomRow" prefHeight="25.0" prefWidth="554.0" />
+                        <HBox alignment="CENTER">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox id="displayPane" fx:id="colorBarTopRow" alignment="CENTER" prefHeight="25.0" prefWidth="500.0" stylesheets="@../MainStylesheet.css" />
+                                    <Pane fx:id="colorBarBottomRow" prefHeight="25.0" prefWidth="500.0" />
+                                 </children>
+                              </VBox>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="50.0" rotate="90.0" text="dB" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                </children>

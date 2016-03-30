@@ -273,19 +273,12 @@ public class ProcedureShowResultsController implements Initializable {
 
                 if (StartApplication.getSpecvisData().getStimulusAndBackground().isCorrectionForSphericityCheckBoxChecked()) {
 
-                    double r = StartApplication.getSpecvisData().getScreenAndLuminanceScale().getPatientDistanceFromTheScreen();
 
-                    double ax = blindspotDistanceFromFixPointX;
-                    double ay = blindspotDistanceFromFixPointY;
+                    double ax = blindspotDistanceFromFixPointX * pixelsForOneDegreeX;
+                    double ay = blindspotDistanceFromFixPointY * pixelsForOneDegreeY;
 
-                    double mx = functions.calculateOppositeAngle(ax, r);
-                    double my = functions.calculateOppositeAngle(ay, r);
-
-                    double mxPixels = functions.millimitersToPixels(mx, contour2DMap.getPrefWidth(), StartApplication.getSpecvisData().getScreenAndLuminanceScale().getScreenWidth());
-                    double myPixels = functions.millimitersToPixels(my, contour2DMap.getPrefHeight(), StartApplication.getSpecvisData().getScreenAndLuminanceScale().getScreenHeight());
-
-                    double fixationMonitorLocationX = centerOfTheGridX + mxPixels - (widthForLabelFixPointAndFixMonitor / 2);
-                    double fixationMonitorLocationY = centerOfTheGridY + myPixels - (heightForLabelFixPointAndFixMonitor / 2);
+                    double fixationMonitorLocationX = centerOfTheGridX + ax - (widthForLabelFixPointAndFixMonitor / 2);
+                    double fixationMonitorLocationY = centerOfTheGridY + ay - (heightForLabelFixPointAndFixMonitor / 2);
 
                     labelFixationMonitor.setLayoutX(fixationMonitorLocationX);
                     labelFixationMonitor.setLayoutY(fixationMonitorLocationY);
@@ -360,7 +353,7 @@ public class ProcedureShowResultsController implements Initializable {
         ArrayList<Double> isoValues = contour2DMap.getArrayListOfIsoValues();
 
         ArrayList<Double> colorbarValues = functions.linspace(isoValues.get(0), isoValues.get(isoValues.size() - 1), colorbarStep, false);
-        ArrayList<Double> colorbarPositionsX = functions.linspace(2, colorBarBottomRow.getPrefWidth() + 2, colorbarStep, false);
+        ArrayList<Double> colorbarPositionsX = functions.linspace(2, colorBarBottomRow.getPrefWidth() - 2, colorbarStep, false);
 
         for (int i = 0; i < colorbarValues.size(); i++) {
             colorbarValues.set(i, functions.round(colorbarValues.get(i), 1));
