@@ -25,7 +25,7 @@ Specvis main advantages are:
 
 <img src="https://github.com/bluevoxel/Specvis-ver-1.0.0/raw/master/downloadable_content/screenshots/figure_17.jpg" width="80%">
 
-<b>Figure 1.</b> The results of 27 year old healthy male who took part in the Specvis "Basic" procedure test for each eye. The graphical maps are drawn directly from the application in the form in which they are actually displayed. Marker "F" is located in the fixation point location. Marker "M" is located in assumed blind spot location. The "dots" on x-axis and y-axis indicates the 10 degree steps.
+<b>Figure 1.</b> The results of 27 year old healthy male who took part in the Specvis "Basic" procedure test for each eye. The graphical maps are drawn directly from the application in the form in which they are actually displayed. Marker "F" is located in the fixation point location. Marker "M" is located in the assumed blind spot location. The "dots" on x-axis and y-axis indicates the 10 degree steps counting from the fixation point.
 
 <hr>
 
