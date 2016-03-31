@@ -5,7 +5,7 @@ Specvis is a scientifically validated free and open-source application for human
 <h1>About Specvis</h1>
 
 Specvis is a desktop application allowing the user to test one's visual field. Specvis working principles are similar to those
-of automated static perimetry. That means, it is able to estimate the minimum luminance required for the detection of a ligth
+of automated static perimetry. That means, it is able to estimate the minimum luminance required for the detection of a light
 stimulus throughout examined visual field.
 
 Specvis main advantages are:
