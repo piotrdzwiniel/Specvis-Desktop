@@ -4,8 +4,8 @@ Specvis is a scientifically validated free and open-source application for human
 
 <h1>About Specvis</h1>
 
-Specvis is a desktop application allowing the user to test one's visual field. Specvis working principles are similar to those
-of automated static perimetry. That means, it is able to estimate the minimum luminance required for the detection of a ligth
+Specvis is a free and open-source desktop application written by Piotr Dzwiniel allowing the user to test one's visual field. Specvis working principles are similar to those
+of automated static perimetry. That means, it is able to estimate the minimum luminance required for the detection of a light
 stimulus throughout examined visual field.
 
 Specvis main advantages are:
@@ -25,7 +25,7 @@ Specvis main advantages are:
 
 <img src="https://github.com/bluevoxel/Specvis-ver-1.0.0/raw/master/downloadable_content/screenshots/figure_17.jpg" width="80%">
 
-<b>Figure 1.</b> The results of 27 year old healthy male who took part in the Specvis "Basic" procedure test for each eye. The graphical maps are drawn directly from the application in the form in which they are actually displayed. Marker "F" is located in the fixation point location. Marker "M" is located in assumed blind spot location. The "dots" on x-axis and y-axis indicates the 10 degree steps.
+<b>Figure 1.</b> The results of 27 year old healthy male who took part in the Specvis "Basic" procedure test for each eye. The graphical maps are drawn directly from the application in the form in which they are actually displayed. Marker "F" is located in the fixation point location. Marker "M" is located in the assumed blind spot location. The "dots" on x-axis and y-axis indicates the 10 degree steps counting from the fixation point.
 
 <hr>
 
@@ -56,5 +56,19 @@ Specvis main advantages are:
 <img src="https://github.com/bluevoxel/Specvis-ver-1.0.0/raw/master/downloadable_content/screenshots/figure_16.png" width="80%">
 
 <b>Figure 6.</b> Patient results displayed as graphical map of the patient's visual field sensitivity.
+
+<hr>
+
+<h1>How can I cite Specvis?</h1>
+
+If you use Specvis in your research, please cite the paper given below:
+
+<ul>
+    <li style="color: #FF2E2E;">In the near future this text will morph into a reference to the publication.</li>
+</ul>
+
+Why I ask you to cite Specvis? Well, to be honest, citing it gives me some credit for its creation and motivate me to continue its development. But citing it is also important for a different reason - if you had found Specvis useful, it would be desirable to share knowledge about it with others, so Specvis can get to as many people as possible and serve well wherever it's needed.
+
+Piotr Dzwiniel.
 
 
