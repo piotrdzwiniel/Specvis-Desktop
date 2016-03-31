@@ -425,15 +425,15 @@ public class PatientResultsMapController implements Initializable {
 
         for (int i = 0; i < colorbarValues.size(); i++) {
 
-            Circle circle = new Circle(colorbarPositionsX.get(i), 5, 2);
+            Circle circle = new Circle(colorbarPositionsX.get(i), 10, 2);
             circle.setFill(Color.BLACK);
             colorBarBottomRow.getChildren().add(circle);
 
             Label valueCell = new Label();
             valueCell.setPrefSize(25, 25);
-            valueCell.setStyle("-fx-font-size: 10px;");
+            valueCell.setStyle("-fx-font-size: 12px;");
             valueCell.setText(String.valueOf(colorbarValues.get(i)));
-            valueCell.setAlignment(Pos.BOTTOM_CENTER);
+            valueCell.setAlignment(Pos.CENTER);
             valueCell.setLayoutX(colorbarPositionsX.get(i) - (valueCell.getPrefWidth() / 2));
             valueCell.setLayoutY(valueCell.getPrefHeight() / 2);
             colorBarBottomRow.getChildren().add(valueCell);
