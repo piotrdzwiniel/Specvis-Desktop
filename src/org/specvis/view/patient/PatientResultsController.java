@@ -298,9 +298,7 @@ public class PatientResultsController implements Initializable {
             PatientResults patientResults = (PatientResults) tableView.getSelectionModel().getSelectedItem();
             String id = patientResults.getId();
 
-            if (StartApplication.getSpecvisData().getPatient().getResultsInfo() == null) {
-                StartApplication.getSpecvisData().getPatient().setResultsInfo(getPatientResultsInfo(new File("Results/" + StartApplication.getSpecvisData().getPatient().getId() + "/" + id + "/session_info.txt")));
-            }
+            StartApplication.getSpecvisData().getPatient().setResultsInfo(getPatientResultsInfo(new File("Results/" + StartApplication.getSpecvisData().getPatient().getId() + "/" + id + "/session_info.txt")));
 
             File file = new File("Results/" + StartApplication.getSpecvisData().getPatient().getId() + "/" + id + "/session_data.txt");
             double[][] sessionDataFileContent = getPatientResultsData(file);
