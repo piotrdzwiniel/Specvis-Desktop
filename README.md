@@ -57,4 +57,18 @@ Specvis main advantages are:
 
 <b>Figure 6.</b> Patient results displayed as graphical map of the patient's visual field sensitivity.
 
+<hr>
+
+<h1>How can I cite Specvis?</h1>
+
+If you use Specvis in your research, please cite the paper given below:
+
+<ul>
+    <li style="color: #FF2E2E;">In the near future this text will morph into a reference to the publication.</li>
+</ul>
+
+Why I ask you to cite Specvis? Well, to be honest, citing it gives me some credit for its creation and motivate me to continue its development. But citing it is also important for a different reason - if you had found Specvis useful, it would be desirable to share knowledge about it with others, so Specvis can get to as many people as possible and serve well wherever it's needed.
+
+Piotr Dzwiniel.
+
 
