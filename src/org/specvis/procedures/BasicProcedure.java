@@ -172,11 +172,13 @@ public class BasicProcedure extends Stage {
     private boolean spreadValuesLogarithmically;
     private int visualFieldTestBrightnessVectorLength;
     private int[] brightnessValuesToTest;
-    //private boolean isMsgAfterFixLossDisplayedOnTheScreen;
     private boolean wasReminderMsgAfterFixLossShown;
     private ArrayList<BasicProcedureStimulus> stimuliList;
     private ArrayList<Integer> activeStimuliIndices;
     private Shape fixationMonitorShape;
+
+    private int falsePositiveIndicator_PositiveAnswer;
+    private int falsePositiveIndicator_FalseAnswer;
 
     private Parent createContent() {
 
@@ -439,12 +441,14 @@ public class BasicProcedure extends Stage {
             brightnessValuesToTest[i] = (int) d;
         }
 
-        //isMsgAfterFixLossDisplayedOnTheScreen = false;
         wasReminderMsgAfterFixLossShown = false;
 
         stimuliList = createListOfStimuli();
         activeStimuliIndices = new ArrayList<>();
         activeStimuliIndices.addAll(stimuliList.stream().map(BasicProcedureStimulus::getIndex).collect(Collectors.toList()));
+
+        falsePositiveIndicator_PositiveAnswer = 0;
+        falsePositiveIndicator_FalseAnswer = 0;
 
         /**
          * INIT WINDOW
@@ -510,6 +514,9 @@ public class BasicProcedure extends Stage {
                 if (ke.getCode() == KeyCode.valueOf(keyAnswerToStimulus)) {
                     if (procedureIsRunning) {
                         if (permissionToAnswer) {
+
+                            falsePositiveIndicator_PositiveAnswer += 1;
+
                             if (fixationMonitorTechnique.equals("None")) {
                                 for (int i = 0; i < currentlyDisplayedStimulus.getAnswers().length; i++) {
                                     if (currentlyDisplayedStimulus.getAnswers()[i] == 0) {
@@ -530,6 +537,8 @@ public class BasicProcedure extends Stage {
                                 }
                             }
                             permissionToAnswer = false;
+                        } else {
+                            falsePositiveIndicator_FalseAnswer += 1;
                         }
                     }
                 } else if (ke.getCode() == KeyCode.valueOf(keyPauseProcedure)) {
@@ -1585,6 +1594,13 @@ public class BasicProcedure extends Stage {
                     procedureController.addTextToTextArea("Positive fixation monitor checks: " + positiveFixationMonitorChecks + "\n");
                     procedureController.addTextToTextArea("Fixation monitor accuracy (%): " + fixationMonitorAccuracyInPercentages + "\n\n");
                 }
+
+                int falsePositive_Positive = falsePositiveIndicator_PositiveAnswer;
+                int falsePositive_False = falsePositiveIndicator_FalseAnswer;
+
+                double falsePositiveAnswers = functions.round(((double) falsePositive_False / (falsePositive_Positive + falsePositive_False)) * 100, 2);
+
+                procedureController.addTextToTextArea("False-positive answers (%): " + falsePositiveAnswers + " (" + falsePositive_False + "f/" + falsePositive_Positive + "p" + ")" + "\n\n");
 
                 long timeOfTheEndOfTheProcedure = System.currentTimeMillis();
                 String procedureDuration = functions.totalTime(timeOfTheStartOfTheProcedure, timeOfTheEndOfTheProcedure);
