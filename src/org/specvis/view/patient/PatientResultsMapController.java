@@ -97,6 +97,9 @@ public class PatientResultsMapController implements Initializable {
 
     private void drawMap() {
 
+        // Get patient results info.
+        ArrayList<String> patientResultsInfo = StartApplication.getSpecvisData().getPatient().getResultsInfo();
+
         // Prepare dataset.
         double[][] decibelData = StartApplication.getSpecvisData().getPatient().getResultsData();
 
@@ -111,7 +114,30 @@ public class PatientResultsMapController implements Initializable {
         // Create map.
         BorderPane borderPane = new BorderPane();
 
-        contour2DMap = new Contour2DMap(550, 475);
+        double bgLuminance = 0;
+        double stimulusMinLuminance = 0;
+        double stimulusMaxLuminance = 0;
+
+        for (int i = 0; i < patientResultsInfo.size(); i++) {
+            String[] str = patientResultsInfo.get(i).split(": ");
+
+            if (str[0].equals("Stimulus max luminance (cd/m2)")) {
+                stimulusMaxLuminance = Double.valueOf(str[1]);
+            }
+
+            if (str[0].equals("Stimulus min luminance (cd/m2)")) {
+                stimulusMinLuminance = Double.valueOf(str[1]);
+            }
+
+            if (str[0].equals("Background luminance (cd/m2)")) {
+                bgLuminance = Double.valueOf(str[1]);
+                break;
+            }
+        }
+
+
+        double maxDBValue = functions.decibelsValue(stimulusMaxLuminance, stimulusMinLuminance, bgLuminance, 2);
+        contour2DMap = new Contour2DMap(550, 475, -1, maxDBValue);
 
         contour2DMap.setMinSize(550, 475);
         contour2DMap.setPrefSize(550, 475);
@@ -138,8 +164,6 @@ public class PatientResultsMapController implements Initializable {
 
         double centerOfTheGridX = 0;
         double centerOfTheGridY = 0;
-
-        ArrayList<String> patientResultsInfo = StartApplication.getSpecvisData().getPatient().getResultsInfo();
 
         double involvedVisualFieldX = 0;
         double involvedVisualFieldY = 0;

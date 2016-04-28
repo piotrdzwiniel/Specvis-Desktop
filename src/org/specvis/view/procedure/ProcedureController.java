@@ -117,6 +117,10 @@ public class ProcedureController implements Initializable {
         textArea.appendText("Background brightness (%): " + specvisData.getStimulusAndBackground().getBackgroundBrightness() + "\n");
         textArea.appendText("Background luminance (cd/m2): " + specvisData.getStimulusAndBackground().getBackgroundLuminance() + "\n\n");
 
+        double minDB = functions.decibelsValue(specvisData.getStimulusAndBackground().getStimulusMaxLuminance(), specvisData.getStimulusAndBackground().getStimulusMaxLuminance(), specvisData.getStimulusAndBackground().getBackgroundLuminance(), 2);
+        double maxDB = functions.decibelsValue(specvisData.getStimulusAndBackground().getStimulusMaxLuminance(), specvisData.getStimulusAndBackground().getStimulusMinLuminance(), specvisData.getStimulusAndBackground().getBackgroundLuminance(), 2);
+        textArea.appendText("Decibel range (dB): " + minDB + "/" + maxDB + "\n\n");
+
         textArea.appendText("Fixation point location (\u00b0): " + specvisData.getFixationAndOther().getFixationPointLocationX() + "/" + specvisData.getFixationAndOther().getFixationPointLocationY() + "\n");
         textArea.appendText("Fixation point color: " + StartApplication.getFunctions().toHexCode(specvisData.getFixationAndOther().getFixationPointColor()) + "\n");
         textArea.appendText("Fixation point luminance (cd/m2): " + specvisData.getFixationAndOther().getFixationPointLuminance() + "\n");

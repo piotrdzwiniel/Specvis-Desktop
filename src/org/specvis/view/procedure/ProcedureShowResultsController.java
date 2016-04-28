@@ -119,7 +119,8 @@ public class ProcedureShowResultsController implements Initializable {
         // Create map.
         BorderPane borderPane = new BorderPane();
 
-        contour2DMap = new Contour2DMap(550, 475);
+        double maxDBValue = functions.decibelsValue(StartApplication.getSpecvisData().getStimulusAndBackground().getStimulusMaxLuminance(), StartApplication.getSpecvisData().getStimulusAndBackground().getStimulusMinLuminance(), StartApplication.getSpecvisData().getStimulusAndBackground().getBackgroundLuminance(), 2);
+        contour2DMap = new Contour2DMap(550, 475, -1, maxDBValue);
 
         contour2DMap.setMinSize(550, 475);
         contour2DMap.setPrefSize(550, 475);

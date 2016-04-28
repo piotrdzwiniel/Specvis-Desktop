@@ -46,23 +46,26 @@ public class Contour2DMap extends Pane {
     private ArrayList<Color> colorScale;
     private ArrayList<Double> arrayListOfIsoValues;
 
+    private double minDataValue;
+    private double maxDataValue;
+
     public Contour2DMap() {
 
     }
 
-    public Contour2DMap(double sizeX, double sizeY) {
+    public Contour2DMap(double sizeX, double sizeY, double minDataValue, double maxDataValue) {
 
         this.sizeX = sizeX;
         this.sizeY = sizeY;
+
+        this.minDataValue = minDataValue;
+        this.maxDataValue = maxDataValue;
     }
 
     public void draw() {
 
         ArrayList<ArrayList<Double>> temporalData = new ArrayList<>();
         BicubicInterpolator bicubicInterpolator = new BicubicInterpolator();
-
-        double minDataValue = findMin(data);
-        double maxDataValue = findMax(data);
 
         for (int i = 0; i < data.length * interpolationFactor; i++) {
             double idx = i * (1.0 / interpolationFactor);
@@ -82,16 +85,14 @@ public class Contour2DMap extends Pane {
             temporalData.add(row);
         }
 
-        double[][] interpolatedData = new double[temporalData.size()][temporalData.get(0).size()];
+        int correction = interpolationFactor - 1;
+        double[][] interpolatedData = new double[temporalData.size() - correction][temporalData.get(0).size() - correction];
 
         for (int i = 0; i < interpolatedData.length; i++) {
             for (int j = 0; j < interpolatedData[i].length; j++) {
                 interpolatedData[i][j] = temporalData.get(i).get(j);
             }
         }
-
-        minDataValue = findMin(interpolatedData);
-        maxDataValue = findMax(interpolatedData);
 
         double[] isoValues = arange(minDataValue, maxDataValue, isoFactor);
         arrayListOfIsoValues = new ArrayList<>();
