@@ -1,4 +1,4 @@
-# Specvis-ver-1.0.0
+# Specvis-ver-1.0.1
 <h4>Under GNU GPLv3 license (or later)</h4>
 Specvis is a scientifically validated free and open-source application for human visual field examination.  Website: http://neurovision.nencki.gov.pl/specvis/index.html. On the aforementioned website one can find dedicated blog, recent documentation and video tutorials.
 
