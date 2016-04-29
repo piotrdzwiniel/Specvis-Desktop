@@ -1598,9 +1598,15 @@ public class BasicProcedure extends Stage {
                 int falsePositive_Positive = falsePositiveIndicator_PositiveAnswer;
                 int falsePositive_False = falsePositiveIndicator_FalseAnswer;
 
-                double falsePositiveAnswers = functions.round(((double) falsePositive_False / (falsePositive_Positive + falsePositive_False)) * 100, 2);
+                double falsePositiveAnswers;
 
-                procedureController.addTextToTextArea("False-positive answers (%): " + falsePositiveAnswers + " (" + falsePositive_False + "f/" + falsePositive_Positive + "p" + ")" + "\n\n");
+                try {
+                    falsePositiveAnswers = functions.round(((double) falsePositive_False / (falsePositive_Positive + falsePositive_False)) * 100, 2);
+
+                    procedureController.addTextToTextArea("False-positive answers (%): " + falsePositiveAnswers + " (" + falsePositive_False + "f/" + falsePositive_Positive + "p" + ")" + "\n\n");
+                }catch (NumberFormatException ex) {
+                    procedureController.addTextToTextArea("False-positive answers (%): " + "NaN" + " (" + falsePositive_False + "f/" + falsePositive_Positive + "p" + ")" + "\n\n");
+                }
 
                 long timeOfTheEndOfTheProcedure = System.currentTimeMillis();
                 String procedureDuration = functions.totalTime(timeOfTheStartOfTheProcedure, timeOfTheEndOfTheProcedure);

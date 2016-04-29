@@ -47,6 +47,29 @@
             <children>
                 <VBox id="vBoxWhite" alignment="CENTER" prefHeight="200.0" prefWidth="450.0" spacing="10.0" stylesheets="@../MainStylesheet.css" HBox.hgrow="ALWAYS">
                     <children>
+                  <HBox alignment="CENTER" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="220.0" text="Decibel range (dB)">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField id="textField" fx:id="textFieldMinDecibelRange" editable="false" prefHeight="40.0" prefWidth="85.0" stylesheets="@../MainStylesheet.css">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField id="textField" fx:id="textFieldMaxDecibelRange" editable="false" prefHeight="40.0" prefWidth="85.0" stylesheets="@../MainStylesheet.css">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
                         <HBox alignment="CENTER" prefWidth="200.0">
                             <children>
                                 <Label prefHeight="40.0" prefWidth="220.0" text="Stim. max. bright. (%)">
@@ -54,7 +77,7 @@
                                         <Font size="20.0" />
                                     </font>
                                 </Label>
-                                <Spinner id="spinner" fx:id="spinnerStimulusMaxBrightness" editable="true" initialValue="100" max="100" min="1" onKeyReleased="#setValueForTextFieldStimulusMaxLuminance" onMousePressed="#setValueForTextFieldStimulusMaxLuminance" prefHeight="40.0" prefWidth="180.0" stylesheets="@../MainStylesheet.css" />
+                                <Spinner id="spinner" fx:id="spinnerStimulusMaxBrightness" editable="true" initialValue="100" max="100" min="2" onKeyReleased="#setValueForTextFieldStimulusMaxLuminance" onMousePressed="#setValueForTextFieldStimulusMaxLuminance" prefHeight="40.0" prefWidth="180.0" stylesheets="@../MainStylesheet.css" />
                             </children>
                         </HBox>
                         <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefWidth="200.0">
@@ -79,7 +102,7 @@
                                         <Font size="20.0" />
                                     </font>
                                 </Label>
-                                <Spinner id="spinner" fx:id="spinnerStimulusMinBrightness" editable="true" initialValue="10" max="100" min="1" onKeyReleased="#setValueForTextFieldStimulusMinLuminance" onMousePressed="#setValueForTextFieldStimulusMinLuminance" prefHeight="40.0" prefWidth="180.0" stylesheets="@../MainStylesheet.css" />
+                                <Spinner id="spinner" fx:id="spinnerStimulusMinBrightness" editable="true" initialValue="10" max="99" min="1" onKeyReleased="#setValueForTextFieldStimulusMinLuminance" onMousePressed="#setValueForTextFieldStimulusMinLuminance" prefHeight="40.0" prefWidth="180.0" stylesheets="@../MainStylesheet.css" />
                             </children>
                         </HBox>
                         <HBox alignment="CENTER" layoutX="10.0" layoutY="210.0" prefWidth="200.0">
@@ -176,7 +199,7 @@
                                         <Font size="20.0" />
                                     </font>
                                 </Label>
-                                <Spinner id="spinner" fx:id="spinnerBackgroundBrightness" editable="true" initialValue="0" max="100" min="0" onKeyReleased="#setValueForTextFieldBackgroundLuminance" onMousePressed="#setValueForTextFieldBackgroundLuminance" prefHeight="40.0" prefWidth="180.0" stylesheets="@../MainStylesheet.css" />
+                                <Spinner id="spinner" fx:id="spinnerBackgroundBrightness" editable="true" initialValue="0" max="98" min="0" onKeyReleased="#setValueForTextFieldBackgroundLuminance" onMousePressed="#setValueForTextFieldBackgroundLuminance" prefHeight="40.0" prefWidth="180.0" stylesheets="@../MainStylesheet.css" />
                             </children>
                         </HBox>
                         <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefWidth="200.0">

@@ -50,6 +50,12 @@ public class StimulusAndBackgroundController implements Initializable {
     private LuminanceScale luminanceScaleForBackground;
 
     @FXML
+    private TextField textFieldMinDecibelRange;
+
+    @FXML
+    private TextField textFieldMaxDecibelRange;
+
+    @FXML
     private Spinner<Integer> spinnerStimulusMaxBrightness;
 
     @FXML
@@ -118,6 +124,8 @@ public class StimulusAndBackgroundController implements Initializable {
         setValueForTextFieldStimulusMinLuminance();
         setValueForTextFieldBackgroundLuminance();
 
+        calculateDecibelRange();
+
         setLookForPanePreview();
     }
 
@@ -141,6 +149,25 @@ public class StimulusAndBackgroundController implements Initializable {
         }
     }
 
+    private void calculateDecibelRange() {
+
+        boolean minStiLumEmpty = textFieldStimulusMinLuminance.getText().isEmpty();
+        boolean maxStiLumEmpty = textFieldStimulusMaxLuminance.getText().isEmpty();
+        boolean bgLumEmpty = textFieldBackgroundLuminance.getText().isEmpty();
+
+        if (!minStiLumEmpty && !maxStiLumEmpty && !bgLumEmpty) {
+            double stimulusMinLuminance = Double.valueOf(textFieldStimulusMinLuminance.getText());
+            double stimulusMaxLuminance = Double.valueOf(textFieldStimulusMaxLuminance.getText());
+            double backgroundLuminance = Double.valueOf(textFieldBackgroundLuminance.getText());
+
+            double minDB = functions.decibelsValue(stimulusMaxLuminance, stimulusMaxLuminance, backgroundLuminance, 2);
+            double maxDB = functions.decibelsValue(stimulusMaxLuminance, stimulusMinLuminance, backgroundLuminance, 2);
+
+            textFieldMinDecibelRange.setText(String.valueOf(minDB));
+            textFieldMaxDecibelRange.setText(String.valueOf(maxDB));
+        }
+    }
+
     private void setItemsForComboBoxStimulusShape() {
         ObservableList<String> observableList = FXCollections.observableArrayList("Ellipse", "Polygon");
         comboBoxStimulusShape.setItems(observableList);
@@ -154,6 +181,14 @@ public class StimulusAndBackgroundController implements Initializable {
 
     @FXML
     private void setValueForTextFieldStimulusMaxLuminance() {
+
+        int maxStimulusBrightness = spinnerStimulusMaxBrightness.getValue();
+        int minStimulusBrightness = spinnerStimulusMinBrightness.getValue();
+
+        if (maxStimulusBrightness <= minStimulusBrightness) {
+            spinnerStimulusMaxBrightness.getValueFactory().setValue(minStimulusBrightness + 1);
+        }
+
         int brightness = Integer.valueOf(spinnerStimulusMaxBrightness.getValue().toString());
         double luminance = luminanceScaleForStimulus.getFittedLuminanceForEachBrightnessValue()[brightness];
 
@@ -163,11 +198,26 @@ public class StimulusAndBackgroundController implements Initializable {
 
         textFieldStimulusMaxLuminance.setText(String.valueOf(functions.round(luminance, 2)));
 
+        calculateDecibelRange();
+
         setLookForPanePreview();
     }
 
     @FXML
     private void setValueForTextFieldStimulusMinLuminance() {
+
+        int minStimulusBrightness = spinnerStimulusMinBrightness.getValue();
+        int maxStimulusBrightness = spinnerStimulusMaxBrightness.getValue();
+        int backgroundBrightness = spinnerBackgroundBrightness.getValue();
+
+        if (minStimulusBrightness >= maxStimulusBrightness) {
+            spinnerStimulusMinBrightness.getValueFactory().setValue(maxStimulusBrightness - 1);
+        }
+
+        if (minStimulusBrightness <= backgroundBrightness) {
+            spinnerStimulusMinBrightness.getValueFactory().setValue(backgroundBrightness + 1);
+        }
+
         int brightness = Integer.valueOf(spinnerStimulusMinBrightness.getValue().toString());
         double luminance = luminanceScaleForStimulus.getFittedLuminanceForEachBrightnessValue()[brightness];
 
@@ -176,6 +226,8 @@ public class StimulusAndBackgroundController implements Initializable {
         }
 
         textFieldStimulusMinLuminance.setText(String.valueOf(functions.round(luminance, 2)));
+
+        calculateDecibelRange();
     }
 
     @FXML
@@ -192,6 +244,14 @@ public class StimulusAndBackgroundController implements Initializable {
 
     @FXML
     private void setValueForTextFieldBackgroundLuminance() {
+
+        int minStimulusBrightness = spinnerStimulusMinBrightness.getValue();
+        int backgroundBrightness = spinnerBackgroundBrightness.getValue();
+
+        if (backgroundBrightness >= minStimulusBrightness) {
+            spinnerBackgroundBrightness.getValueFactory().setValue(minStimulusBrightness - 1);
+        }
+
         int brightness = Integer.valueOf(spinnerBackgroundBrightness.getValue().toString());
         double luminance = luminanceScaleForBackground.getFittedLuminanceForEachBrightnessValue()[brightness];
 
@@ -200,6 +260,8 @@ public class StimulusAndBackgroundController implements Initializable {
         }
 
         textFieldBackgroundLuminance.setText(String.valueOf(functions.round(luminance, 2)));
+
+        calculateDecibelRange();
 
         setLookForPanePreview();
     }
