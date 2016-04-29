@@ -110,7 +110,7 @@ public class PatientResultsController implements Initializable {
             String eye = arrayList.get(6).split(":")[1].replaceAll("\\s+", "");
             String visualField = arrayList.get(10).split(":")[1].replaceAll("\\s+", "");
             String procedure = arrayList.get(2).split(":")[1].replaceAll("\\s+", "");
-            String fixationMonitor = arrayList.get(35).split(": ")[1];
+            String fixationMonitor = arrayList.get(37).split(": ")[1];
             String testDuration = arrayList.get(arrayList.size() - 2).split(": ")[1];
 
             patientResults = new PatientResults(id, date, eye, visualField, procedure, fixationMonitor, testDuration);
