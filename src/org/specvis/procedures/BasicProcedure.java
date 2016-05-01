@@ -152,8 +152,8 @@ public class BasicProcedure extends Stage {
     private ArrayList<Boolean> answersToFixationMonitor;
     private double pixelsForOneDegreeX;
     private double pixelsForOneDegreeY;
-    private double centerOfTheGridX;
-    private double centerOfTheGridY;
+    private double centerOfTheGridInPixelsX;
+    private double centerOfTheGridInPixelsY;
 
     /* Local fields -> procedure timelines */
     private Timeline procedureTimeline;
@@ -209,7 +209,7 @@ public class BasicProcedure extends Stage {
         double radiusX = (fixationPointSizeX / 2) * pixelsForOneDegreeX;
         double radiusY = (fixationPointSizeY / 2) * pixelsForOneDegreeY;
 
-        Ellipse ellipse = new Ellipse(centerOfTheGridX, centerOfTheGridY, radiusX, radiusY);
+        Ellipse ellipse = new Ellipse(centerOfTheGridInPixelsX, centerOfTheGridInPixelsY, radiusX, radiusY);
         ellipse.setFill(fixationPointColor);
         ellipse.setStroke(fixationPointColor);
 
@@ -230,7 +230,7 @@ public class BasicProcedure extends Stage {
                 double radiusX = (fixationPointSizeX * 1.5) * pixelsForOneDegreeX;
                 double radiusY = (fixationPointSizeY * 1.5) * pixelsForOneDegreeY;
 
-                Ellipse ellipse = new Ellipse(centerOfTheGridX, centerOfTheGridY, radiusX, radiusY);
+                Ellipse ellipse = new Ellipse(centerOfTheGridInPixelsX, centerOfTheGridInPixelsY, radiusX, radiusY);
                 ellipse.setFill(Color.TRANSPARENT);
                 ellipse.setStroke(fixationPointColor);
                 ellipse.setStrokeWidth(4);
@@ -250,14 +250,14 @@ public class BasicProcedure extends Stage {
                 double angleForB = Math.toRadians(30);
                 double angleForC = Math.toRadians(150);
 
-                double xA = centerOfTheGridX + twoThirdOfTheTriangleHeightX * Math.cos(angleForA);
-                double yA = centerOfTheGridY - twoThirdOfTheTriangleHeightY * Math.sin(angleForA);
+                double xA = centerOfTheGridInPixelsX + twoThirdOfTheTriangleHeightX * Math.cos(angleForA);
+                double yA = centerOfTheGridInPixelsY - twoThirdOfTheTriangleHeightY * Math.sin(angleForA);
 
-                double xB = centerOfTheGridX + twoThirdOfTheTriangleHeightX * Math.cos(angleForB);
-                double yB = centerOfTheGridY - twoThirdOfTheTriangleHeightY * Math.sin(angleForB);
+                double xB = centerOfTheGridInPixelsX + twoThirdOfTheTriangleHeightX * Math.cos(angleForB);
+                double yB = centerOfTheGridInPixelsY - twoThirdOfTheTriangleHeightY * Math.sin(angleForB);
 
-                double xC = centerOfTheGridX + twoThirdOfTheTriangleHeightX * Math.cos(angleForC);
-                double yC = centerOfTheGridY - twoThirdOfTheTriangleHeightY * Math.sin(angleForC);
+                double xC = centerOfTheGridInPixelsX + twoThirdOfTheTriangleHeightX * Math.cos(angleForC);
+                double yC = centerOfTheGridInPixelsY - twoThirdOfTheTriangleHeightY * Math.sin(angleForC);
 
                 Polygon polygon = new Polygon();
                 polygon.getPoints().addAll(xA, yA, xB, yB, xC, yC);
@@ -273,7 +273,7 @@ public class BasicProcedure extends Stage {
                 double sizeX = (fixationPointSizeX * 3) * pixelsForOneDegreeX;
                 double sizeY = (fixationPointSizeY * 3) * pixelsForOneDegreeY;
 
-                Rectangle rectangle = new Rectangle(centerOfTheGridX - (sizeX / 2), centerOfTheGridY - (sizeY / 2), sizeX, sizeY);
+                Rectangle rectangle = new Rectangle(centerOfTheGridInPixelsX - (sizeX / 2), centerOfTheGridInPixelsY - (sizeY / 2), sizeX, sizeY);
                 rectangle.setFill(Color.TRANSPARENT);
                 rectangle.setStroke(fixationPointColor);
                 rectangle.setStrokeWidth(4);
@@ -416,8 +416,8 @@ public class BasicProcedure extends Stage {
 
         pixelsForOneDegreeX = screenResolutionX / involvedVisualFieldX;
         pixelsForOneDegreeY = screenResolutionY / involvedVisualFieldY;
-        centerOfTheGridX = (screenResolutionX / 2) + (pixelsForOneDegreeX * fixationPointLocationX);
-        centerOfTheGridY = (screenResolutionY / 2) + (pixelsForOneDegreeY * fixationPointLocationY);
+        centerOfTheGridInPixelsX = (screenResolutionX / 2) + (pixelsForOneDegreeX * fixationPointLocationX);
+        centerOfTheGridInPixelsY = (screenResolutionY / 2) + (pixelsForOneDegreeY * fixationPointLocationY);
 
         /* Local fields -> procedure state indicators */
         procedureIsStarted = false;
@@ -629,169 +629,194 @@ public class BasicProcedure extends Stage {
             int stimulusIndexIterator = 0;
 
             // Prepare stimuli for Quarter 0.
-            double ax = distanceBetweenStimuliInDegreesX / 2;
-            double ay = distanceBetweenStimuliInDegreesY / 2;
+            double angleX = distanceBetweenStimuliInDegreesX / 2;
+            double angleY = distanceBetweenStimuliInDegreesY / 2;
 
             double r = StartApplication.getSpecvisData().getScreenAndLuminanceScale().getPatientDistanceFromTheScreen();
 
-            double mx = functions.calculateOppositeAngle(ax, r);
-            double my = functions.calculateOppositeAngle(ay, r);
+            double oppAngleInMmX = functions.calculateOppositeAngle(angleX, r);
+            double oppAngleInMmY = functions.calculateOppositeAngle(angleY, r);
 
-            double mxPixels = functions.millimitersToPixels(mx, screenResolutionX, screenWidthInMM);
-            double myPixels = functions.millimitersToPixels(my, screenResolutionY, screenHeightInMM);
+            double oppAngleInPixelsX = functions.millimitersToPixels(oppAngleInMmX, screenResolutionX, screenWidthInMM);
+            double oppAngleInPixelsY = functions.millimitersToPixels(oppAngleInMmY, screenResolutionY, screenHeightInMM);
 
-            double tempLocationX = centerOfTheGridX - mxPixels;
-            double tempLocationY = centerOfTheGridY - myPixels;
+            double tempLocationX = centerOfTheGridInPixelsX - oppAngleInPixelsX;
+            double tempLocationY = centerOfTheGridInPixelsY - oppAngleInPixelsY;
+
+            double[] correctedStimulusSizeInPixelsXY = new double[] {
+                    stimulusSizeInDegreesX * pixelsForOneDegreeX,
+                    stimulusSizeInDegreesY * pixelsForOneDegreeY
+            };
 
             while (tempLocationX >= 0) {
                 while (tempLocationY >= 0) {
 
-                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY);
+//                    double[] correctedStimulusSizeInPixelsXY = calculateCorrectedStimulusSizeInPixelsXY(
+//                            angleX, angleY, stimulusSizeInDegreesX, stimulusSizeInDegreesY, screenResolutionX, screenResolutionY,
+//                            screenWidthInMM, screenHeightInMM, r
+//                    );
+
+                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY, correctedStimulusSizeInPixelsXY);
 
                     arrayList.add(basicProcedureStimulus);
 
-                    ay += distanceBetweenStimuliInDegreesY;
-                    my = functions.calculateOppositeAngle(ay, r);
-                    myPixels = functions.millimitersToPixels(my, screenResolutionY, screenHeightInMM);
+                    angleY += distanceBetweenStimuliInDegreesY;
+                    oppAngleInMmY = functions.calculateOppositeAngle(angleY, r);
+                    oppAngleInPixelsY = functions.millimitersToPixels(oppAngleInMmY, screenResolutionY, screenHeightInMM);
 
-                    tempLocationY = centerOfTheGridY - myPixels;
+                    tempLocationY = centerOfTheGridInPixelsY - oppAngleInPixelsY;
                     stimulusIndexIterator += 1;
                 }
 
-                ax += distanceBetweenStimuliInDegreesX;
-                mx = functions.calculateOppositeAngle(ax, r);
-                mxPixels = functions.millimitersToPixels(mx, screenResolutionX, screenWidthInMM);
+                angleX += distanceBetweenStimuliInDegreesX;
+                oppAngleInMmX = functions.calculateOppositeAngle(angleX, r);
+                oppAngleInPixelsX = functions.millimitersToPixels(oppAngleInMmX, screenResolutionX, screenWidthInMM);
 
-                tempLocationX = centerOfTheGridX - mxPixels;
+                tempLocationX = centerOfTheGridInPixelsX - oppAngleInPixelsX;
 
-                ay = distanceBetweenStimuliInDegreesY / 2;
-                my = functions.calculateOppositeAngle(ay, r);
-                myPixels = functions.millimitersToPixels(my, screenResolutionY, screenHeightInMM);
+                angleY = distanceBetweenStimuliInDegreesY / 2;
+                oppAngleInMmY = functions.calculateOppositeAngle(angleY, r);
+                oppAngleInPixelsY = functions.millimitersToPixels(oppAngleInMmY, screenResolutionY, screenHeightInMM);
 
-                tempLocationY = centerOfTheGridY - myPixels;
+                tempLocationY = centerOfTheGridInPixelsY - oppAngleInPixelsY;
             }
 
             // Prepare stimuli for Quarter 1.
-            ax = distanceBetweenStimuliInDegreesX / 2;
-            ay = distanceBetweenStimuliInDegreesY / 2;
+            angleX = distanceBetweenStimuliInDegreesX / 2;
+            angleY = distanceBetweenStimuliInDegreesY / 2;
 
-            mx = functions.calculateOppositeAngle(ax, r);
-            my = functions.calculateOppositeAngle(ay, r);
+            oppAngleInMmX = functions.calculateOppositeAngle(angleX, r);
+            oppAngleInMmY = functions.calculateOppositeAngle(angleY, r);
 
-            mxPixels = functions.millimitersToPixels(mx, screenResolutionX, screenWidthInMM);
-            myPixels = functions.millimitersToPixels(my, screenResolutionY, screenHeightInMM);
+            oppAngleInPixelsX = functions.millimitersToPixels(oppAngleInMmX, screenResolutionX, screenWidthInMM);
+            oppAngleInPixelsY = functions.millimitersToPixels(oppAngleInMmY, screenResolutionY, screenHeightInMM);
 
-            tempLocationX = centerOfTheGridX + mxPixels;
-            tempLocationY = centerOfTheGridY - myPixels;
+            tempLocationX = centerOfTheGridInPixelsX + oppAngleInPixelsX;
+            tempLocationY = centerOfTheGridInPixelsY - oppAngleInPixelsY;
 
             while (tempLocationX <= screenResolutionX) {
                 while (tempLocationY >= 0) {
 
-                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY);
+//                    double[] correctedStimulusSizeInPixelsXY = calculateCorrectedStimulusSizeInPixelsXY(
+//                            angleX, angleY, stimulusSizeInDegreesX, stimulusSizeInDegreesY, screenResolutionX, screenResolutionY,
+//                            screenWidthInMM, screenHeightInMM, r
+//                    );
+
+                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY, correctedStimulusSizeInPixelsXY);
 
                     arrayList.add(basicProcedureStimulus);
 
-                    ay += distanceBetweenStimuliInDegreesY;
-                    my = functions.calculateOppositeAngle(ay, r);
-                    myPixels = functions.millimitersToPixels(my, screenResolutionY, screenHeightInMM);
+                    angleY += distanceBetweenStimuliInDegreesY;
+                    oppAngleInMmY = functions.calculateOppositeAngle(angleY, r);
+                    oppAngleInPixelsY = functions.millimitersToPixels(oppAngleInMmY, screenResolutionY, screenHeightInMM);
 
-                    tempLocationY = centerOfTheGridY - myPixels;
+                    tempLocationY = centerOfTheGridInPixelsY - oppAngleInPixelsY;
                     stimulusIndexIterator += 1;
                 }
 
-                ax += distanceBetweenStimuliInDegreesX;
-                mx = functions.calculateOppositeAngle(ax, r);
-                mxPixels = functions.millimitersToPixels(mx, screenResolutionX, screenWidthInMM);
+                angleX += distanceBetweenStimuliInDegreesX;
+                oppAngleInMmX = functions.calculateOppositeAngle(angleX, r);
+                oppAngleInPixelsX = functions.millimitersToPixels(oppAngleInMmX, screenResolutionX, screenWidthInMM);
 
-                tempLocationX = centerOfTheGridX + mxPixels;
+                tempLocationX = centerOfTheGridInPixelsX + oppAngleInPixelsX;
 
-                ay = distanceBetweenStimuliInDegreesY / 2;
-                my = functions.calculateOppositeAngle(ay, r);
-                myPixels = functions.millimitersToPixels(my, screenResolutionY, screenHeightInMM);
+                angleY = distanceBetweenStimuliInDegreesY / 2;
+                oppAngleInMmY = functions.calculateOppositeAngle(angleY, r);
+                oppAngleInPixelsY = functions.millimitersToPixels(oppAngleInMmY, screenResolutionY, screenHeightInMM);
 
-                tempLocationY = centerOfTheGridY - myPixels;
+                tempLocationY = centerOfTheGridInPixelsY - oppAngleInPixelsY;
             }
 
             // Prepare stimuli for Quarter 2.
-            ax = distanceBetweenStimuliInDegreesX / 2;
-            ay = distanceBetweenStimuliInDegreesY / 2;
+            angleX = distanceBetweenStimuliInDegreesX / 2;
+            angleY = distanceBetweenStimuliInDegreesY / 2;
 
-            mx = functions.calculateOppositeAngle(ax, r);
-            my = functions.calculateOppositeAngle(ay, r);
+            oppAngleInMmX = functions.calculateOppositeAngle(angleX, r);
+            oppAngleInMmY = functions.calculateOppositeAngle(angleY, r);
 
-            mxPixels = functions.millimitersToPixels(mx, screenResolutionX, screenWidthInMM);
-            myPixels = functions.millimitersToPixels(my, screenResolutionY, screenHeightInMM);
+            oppAngleInPixelsX = functions.millimitersToPixels(oppAngleInMmX, screenResolutionX, screenWidthInMM);
+            oppAngleInPixelsY = functions.millimitersToPixels(oppAngleInMmY, screenResolutionY, screenHeightInMM);
 
-            tempLocationX = centerOfTheGridX + mxPixels;
-            tempLocationY = centerOfTheGridY + myPixels;
+            tempLocationX = centerOfTheGridInPixelsX + oppAngleInPixelsX;
+            tempLocationY = centerOfTheGridInPixelsY + oppAngleInPixelsY;
 
             while (tempLocationX <= screenResolutionX) {
                 while (tempLocationY <= screenResolutionY) {
 
-                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY);
+//                    double[] correctedStimulusSizeInPixelsXY = calculateCorrectedStimulusSizeInPixelsXY(
+//                            angleX, angleY, stimulusSizeInDegreesX, stimulusSizeInDegreesY, screenResolutionX, screenResolutionY,
+//                            screenWidthInMM, screenHeightInMM, r
+//                    );
+
+                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY, correctedStimulusSizeInPixelsXY);
 
                     arrayList.add(basicProcedureStimulus);
 
-                    ay += distanceBetweenStimuliInDegreesY;
-                    my = functions.calculateOppositeAngle(ay, r);
-                    myPixels = functions.millimitersToPixels(my, screenResolutionY, screenHeightInMM);
+                    angleY += distanceBetweenStimuliInDegreesY;
+                    oppAngleInMmY = functions.calculateOppositeAngle(angleY, r);
+                    oppAngleInPixelsY = functions.millimitersToPixels(oppAngleInMmY, screenResolutionY, screenHeightInMM);
 
-                    tempLocationY = centerOfTheGridY + myPixels;
+                    tempLocationY = centerOfTheGridInPixelsY + oppAngleInPixelsY;
                     stimulusIndexIterator += 1;
                 }
 
-                ax += distanceBetweenStimuliInDegreesX;
-                mx = functions.calculateOppositeAngle(ax, r);
-                mxPixels = functions.millimitersToPixels(mx, screenResolutionX, screenWidthInMM);
+                angleX += distanceBetweenStimuliInDegreesX;
+                oppAngleInMmX = functions.calculateOppositeAngle(angleX, r);
+                oppAngleInPixelsX = functions.millimitersToPixels(oppAngleInMmX, screenResolutionX, screenWidthInMM);
 
-                tempLocationX = centerOfTheGridX + mxPixels;
+                tempLocationX = centerOfTheGridInPixelsX + oppAngleInPixelsX;
 
-                ay = distanceBetweenStimuliInDegreesY / 2;
-                my = functions.calculateOppositeAngle(ay, r);
-                myPixels = functions.millimitersToPixels(my, screenResolutionY, screenHeightInMM);
+                angleY = distanceBetweenStimuliInDegreesY / 2;
+                oppAngleInMmY = functions.calculateOppositeAngle(angleY, r);
+                oppAngleInPixelsY = functions.millimitersToPixels(oppAngleInMmY, screenResolutionY, screenHeightInMM);
 
-                tempLocationY = centerOfTheGridY + myPixels;
+                tempLocationY = centerOfTheGridInPixelsY + oppAngleInPixelsY;
             }
 
             // Prepare stimuli for Quarter 3.
-            ax = distanceBetweenStimuliInDegreesX / 2;
-            ay = distanceBetweenStimuliInDegreesY / 2;
+            angleX = distanceBetweenStimuliInDegreesX / 2;
+            angleY = distanceBetweenStimuliInDegreesY / 2;
 
-            mx = functions.calculateOppositeAngle(ax, r);
-            my = functions.calculateOppositeAngle(ay, r);
+            oppAngleInMmX = functions.calculateOppositeAngle(angleX, r);
+            oppAngleInMmY = functions.calculateOppositeAngle(angleY, r);
 
-            mxPixels = functions.millimitersToPixels(mx, screenResolutionX, screenWidthInMM);
-            myPixels = functions.millimitersToPixels(my, screenResolutionY, screenHeightInMM);
+            oppAngleInPixelsX = functions.millimitersToPixels(oppAngleInMmX, screenResolutionX, screenWidthInMM);
+            oppAngleInPixelsY = functions.millimitersToPixels(oppAngleInMmY, screenResolutionY, screenHeightInMM);
 
-            tempLocationX = centerOfTheGridX - mxPixels;
-            tempLocationY = centerOfTheGridY + myPixels;
+            tempLocationX = centerOfTheGridInPixelsX - oppAngleInPixelsX;
+            tempLocationY = centerOfTheGridInPixelsY + oppAngleInPixelsY;
 
             while (tempLocationX >= 0) {
                 while (tempLocationY <= screenResolutionY) {
 
-                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY);
+//                    double[] correctedStimulusSizeInPixelsXY = calculateCorrectedStimulusSizeInPixelsXY(
+//                            angleX, angleY, stimulusSizeInDegreesX, stimulusSizeInDegreesY, screenResolutionX, screenResolutionY,
+//                            screenWidthInMM, screenHeightInMM, r
+//                    );
+
+                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY, correctedStimulusSizeInPixelsXY);
 
                     arrayList.add(basicProcedureStimulus);
 
-                    ay += distanceBetweenStimuliInDegreesY;
-                    my = functions.calculateOppositeAngle(ay, r);
-                    myPixels = functions.millimitersToPixels(my, screenResolutionY, screenHeightInMM);
+                    angleY += distanceBetweenStimuliInDegreesY;
+                    oppAngleInMmY = functions.calculateOppositeAngle(angleY, r);
+                    oppAngleInPixelsY = functions.millimitersToPixels(oppAngleInMmY, screenResolutionY, screenHeightInMM);
 
-                    tempLocationY = centerOfTheGridY + myPixels;
+                    tempLocationY = centerOfTheGridInPixelsY + oppAngleInPixelsY;
                     stimulusIndexIterator += 1;
                 }
 
-                ax += distanceBetweenStimuliInDegreesX;
-                mx = functions.calculateOppositeAngle(ax, r);
-                mxPixels = functions.millimitersToPixels(mx, screenResolutionX, screenWidthInMM);
+                angleX += distanceBetweenStimuliInDegreesX;
+                oppAngleInMmX = functions.calculateOppositeAngle(angleX, r);
+                oppAngleInPixelsX = functions.millimitersToPixels(oppAngleInMmX, screenResolutionX, screenWidthInMM);
 
-                tempLocationX = centerOfTheGridX - mxPixels;
+                tempLocationX = centerOfTheGridInPixelsX - oppAngleInPixelsX;
 
-                ay = distanceBetweenStimuliInDegreesY / 2;
-                my = functions.calculateOppositeAngle(ay, r);
-                myPixels = functions.millimitersToPixels(my, screenResolutionY, screenHeightInMM);
+                angleY = distanceBetweenStimuliInDegreesY / 2;
+                oppAngleInMmY = functions.calculateOppositeAngle(angleY, r);
+                oppAngleInPixelsY = functions.millimitersToPixels(oppAngleInMmY, screenResolutionY, screenHeightInMM);
 
-                tempLocationY = centerOfTheGridY + myPixels;
+                tempLocationY = centerOfTheGridInPixelsY + oppAngleInPixelsY;
             }
         } else {
 
@@ -802,13 +827,18 @@ public class BasicProcedure extends Stage {
             double distanceBetweenStimuliInPixelsY = pixelsForOneDegreeY * distanceBetweenStimuliInDegreesY;
 
             // Prepare stimuli for Quarter 0.
-            double tempLocationX = centerOfTheGridX - (distanceBetweenStimuliInPixelsX / 2);
-            double tempLocationY = centerOfTheGridY - (distanceBetweenStimuliInPixelsY / 2);
+            double tempLocationX = centerOfTheGridInPixelsX - (distanceBetweenStimuliInPixelsX / 2);
+            double tempLocationY = centerOfTheGridInPixelsY - (distanceBetweenStimuliInPixelsY / 2);
+
+            double[] correctedStimulusSizeInPixelsXY = new double[] {
+                    stimulusSizeInDegreesX * pixelsForOneDegreeX,
+                    stimulusSizeInDegreesY * pixelsForOneDegreeY
+            };
 
             while (tempLocationX >= 0) {
                 while (tempLocationY >= 0) {
 
-                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY);
+                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY, correctedStimulusSizeInPixelsXY);
 
                     arrayList.add(basicProcedureStimulus);
 
@@ -817,17 +847,17 @@ public class BasicProcedure extends Stage {
                 }
 
                 tempLocationX -= distanceBetweenStimuliInPixelsX;
-                tempLocationY = centerOfTheGridY - (distanceBetweenStimuliInPixelsY / 2);
+                tempLocationY = centerOfTheGridInPixelsY - (distanceBetweenStimuliInPixelsY / 2);
             }
 
             // Prepare stimuli for Quarter 1.
-            tempLocationX = centerOfTheGridX + (distanceBetweenStimuliInPixelsX / 2);
-            tempLocationY = centerOfTheGridY - (distanceBetweenStimuliInPixelsY / 2);
+            tempLocationX = centerOfTheGridInPixelsX + (distanceBetweenStimuliInPixelsX / 2);
+            tempLocationY = centerOfTheGridInPixelsY - (distanceBetweenStimuliInPixelsY / 2);
 
             while (tempLocationX <= screenResolutionX) {
                 while (tempLocationY >= 0) {
 
-                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY);
+                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY, correctedStimulusSizeInPixelsXY);
 
                     arrayList.add(basicProcedureStimulus);
 
@@ -836,17 +866,17 @@ public class BasicProcedure extends Stage {
                 }
 
                 tempLocationX += distanceBetweenStimuliInPixelsX;
-                tempLocationY = centerOfTheGridY - (distanceBetweenStimuliInPixelsY / 2);
+                tempLocationY = centerOfTheGridInPixelsY - (distanceBetweenStimuliInPixelsY / 2);
             }
 
             // Prepare stimuli for Quarter 2.
-            tempLocationX = centerOfTheGridX + (distanceBetweenStimuliInPixelsX / 2);
-            tempLocationY = centerOfTheGridY + (distanceBetweenStimuliInPixelsY / 2);
+            tempLocationX = centerOfTheGridInPixelsX + (distanceBetweenStimuliInPixelsX / 2);
+            tempLocationY = centerOfTheGridInPixelsY + (distanceBetweenStimuliInPixelsY / 2);
 
             while (tempLocationX <= screenResolutionX) {
                 while (tempLocationY <= screenResolutionY) {
 
-                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY);
+                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY, correctedStimulusSizeInPixelsXY);
 
                     arrayList.add(basicProcedureStimulus);
 
@@ -855,17 +885,17 @@ public class BasicProcedure extends Stage {
                 }
 
                 tempLocationX += distanceBetweenStimuliInPixelsX;
-                tempLocationY = centerOfTheGridY + (distanceBetweenStimuliInPixelsY / 2);
+                tempLocationY = centerOfTheGridInPixelsY + (distanceBetweenStimuliInPixelsY / 2);
             }
 
             // Prepare stimuli for Quarter 3.
-            tempLocationX = centerOfTheGridX - (distanceBetweenStimuliInPixelsX / 2);
-            tempLocationY = centerOfTheGridY + (distanceBetweenStimuliInPixelsY / 2);
+            tempLocationX = centerOfTheGridInPixelsX - (distanceBetweenStimuliInPixelsX / 2);
+            tempLocationY = centerOfTheGridInPixelsY + (distanceBetweenStimuliInPixelsY / 2);
 
             while (tempLocationX >= 0) {
                 while (tempLocationY <= screenResolutionY) {
 
-                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY);
+                    basicProcedureStimulus = initializeStimulus(stimulusIndexIterator, tempLocationX, tempLocationY, correctedStimulusSizeInPixelsXY);
 
                     arrayList.add(basicProcedureStimulus);
 
@@ -874,27 +904,87 @@ public class BasicProcedure extends Stage {
                 }
 
                 tempLocationX -= distanceBetweenStimuliInPixelsX;
-                tempLocationY = centerOfTheGridY + (distanceBetweenStimuliInPixelsY / 2);
+                tempLocationY = centerOfTheGridInPixelsY + (distanceBetweenStimuliInPixelsY / 2);
             }
         }
         return arrayList;
     }
 
-    private BasicProcedureStimulus initializeStimulus(int stimulusIndexIterator, double tempLocationX, double tempLocationY) {
+    /**
+     * Description of the method.
+     *
+     * C - Center of the grid;
+     * D - Center of the stimulus;
+     * A - Left edge of the stimulus;
+     * B - right edge of the stimulus;
+     *
+     * Calculating corrected size of the stimulus X:
+     *
+     * X            X   X   X
+     * C            A   D   B
+     *
+     * 1. Calculate angle between "CA", that is "angleDistanceFromCenterX - (stimulusSizeInDegreesX / 2)".
+     * 2. Calculate angle between "CB", that is "angleDistanceFromCenterX + (stimulusSizeInDegreesX / 2)".
+     * 3. Calculate opposites in pixels for angles "CA" and "CB", eg. respectively "OCA" and "OCB".
+     * 4. Calculate "OCB - OCA". Result is corrected stimulus size in pixels X.
+     *
+     * @param angleDistanceFromCenterX
+     * @param angleDistanceFromCenterY
+     * @param stimulusSizeInDegreesX
+     * @param stimulusSizeInDegreesY
+     * @param patientDistanceFromTheScreenInMM
+     * @return
+     */
+    private double[] calculateCorrectedStimulusSizeInPixelsXY(double angleDistanceFromCenterX, double angleDistanceFromCenterY,
+                                                    double stimulusSizeInDegreesX, double stimulusSizeInDegreesY,
+                                                    int screenResolutionX, int screenResolutionY,
+                                                    int screenWidthInMM, int screenHeightInMM,
+                                                    double patientDistanceFromTheScreenInMM) {
+
+        double[] stimulusSizeInPixelsXY = new double[2];
+
+        // Calculate stimulus size in pixels X.
+        double CA_X = angleDistanceFromCenterX - (stimulusSizeInDegreesX / 2);
+        double CB_X = angleDistanceFromCenterX + (stimulusSizeInDegreesX / 2);
+
+        double OCA_in_MM_X = functions.calculateOppositeAngle(CA_X, patientDistanceFromTheScreenInMM);
+        double OCB_in_MM_X = functions.calculateOppositeAngle(CB_X, patientDistanceFromTheScreenInMM);
+
+        double OCA_in_pixels_X = functions.millimitersToPixels(OCA_in_MM_X, screenResolutionX, screenWidthInMM);
+        double OCB_in_pixels_X = functions.millimitersToPixels(OCB_in_MM_X, screenResolutionX, screenWidthInMM);
+
+        stimulusSizeInPixelsXY[0] = OCB_in_pixels_X - OCA_in_pixels_X;
+
+        // Calculate stimulus size in pixels Y.
+        double CA_Y = angleDistanceFromCenterY - (stimulusSizeInDegreesY / 2);
+        double CB_Y = angleDistanceFromCenterY + (stimulusSizeInDegreesY / 2);
+
+        double OCA_in_MM_Y = functions.calculateOppositeAngle(CA_Y, patientDistanceFromTheScreenInMM);
+        double OCB_in_MM_Y = functions.calculateOppositeAngle(CB_Y, patientDistanceFromTheScreenInMM);
+
+        double OCA_in_pixels_Y = functions.millimitersToPixels(OCA_in_MM_Y, screenResolutionY, screenHeightInMM);
+        double OCB_in_pixels_Y = functions.millimitersToPixels(OCB_in_MM_Y, screenResolutionY, screenHeightInMM);
+
+        stimulusSizeInPixelsXY[1] = OCB_in_pixels_Y - OCA_in_pixels_Y;
+
+        return stimulusSizeInPixelsXY;
+    }
+    
+    private BasicProcedureStimulus initializeStimulus(int stimulusIndexIterator, double tempLocationX, double tempLocationY, double[] correctedStimulusSizeInPixelsXY) {
 
         BasicProcedureStimulus basicProcedureStimulus = new BasicProcedureStimulus();
         basicProcedureStimulus.setIndex(stimulusIndexIterator);
         basicProcedureStimulus.setPositionOnTheScreenInPixelsX(tempLocationX);
         basicProcedureStimulus.setPositionOnTheScreenInPixelsY(tempLocationY);
-        basicProcedureStimulus.setDistanceFromFixPointOnTheFieldOfViewInDegreesX((tempLocationX - centerOfTheGridX) / pixelsForOneDegreeX);
-        basicProcedureStimulus.setDistanceFromFixPointOnTheFieldOfViewInDegreesY((tempLocationY - centerOfTheGridY) / pixelsForOneDegreeY);
+        basicProcedureStimulus.setDistanceFromFixPointOnTheFieldOfViewInDegreesX((tempLocationX - centerOfTheGridInPixelsX) / pixelsForOneDegreeX);
+        basicProcedureStimulus.setDistanceFromFixPointOnTheFieldOfViewInDegreesY((tempLocationY - centerOfTheGridInPixelsY) / pixelsForOneDegreeY);
 
         switch (stimulusShape) {
             case "Ellipse":
-                basicProcedureStimulus.setShape(createEllipseStimulus(tempLocationX, tempLocationY));
+                basicProcedureStimulus.setShape(createEllipseStimulus(tempLocationX, tempLocationY, correctedStimulusSizeInPixelsXY));
                 break;
             case "Polygon":
-                basicProcedureStimulus.setShape(createPolygonStimulus(tempLocationX, tempLocationY));
+                basicProcedureStimulus.setShape(createPolygonStimulus(tempLocationX, tempLocationY, correctedStimulusSizeInPixelsXY));
                 break;
         }
         basicProcedureStimulus.setDisplayTime(stimulusDisplayTime);
@@ -919,11 +1009,14 @@ public class BasicProcedure extends Stage {
         return basicProcedureStimulus;
     }
 
-    private Ellipse createEllipseStimulus(double positionX, double positionY) {
+    private Ellipse createEllipseStimulus(double positionX, double positionY, double[] correctedStimulusSizeInPixelsXY) {
 
         // 1. Calculate stimulus radius in pixels.
-        double stimulusRadiusInPixelsX = (stimulusSizeInDegreesX / 2) * pixelsForOneDegreeX;
-        double stimulusRadiusInPixelsY = (stimulusSizeInDegreesY / 2) * pixelsForOneDegreeY;
+//        double stimulusRadiusInPixelsX = (stimulusSizeInDegreesX / 2) * pixelsForOneDegreeX;
+//        double stimulusRadiusInPixelsY = (stimulusSizeInDegreesY / 2) * pixelsForOneDegreeY;
+
+        double stimulusRadiusInPixelsX = correctedStimulusSizeInPixelsXY[0] / 2;
+        double stimulusRadiusInPixelsY = correctedStimulusSizeInPixelsXY[1] / 2;
 
         // 2. Set color for stimulus.
         double hue = luminanceScaleForStimulus.getHue();
@@ -940,11 +1033,14 @@ public class BasicProcedure extends Stage {
         return ellipse;
     }
 
-    private Polygon createPolygonStimulus(double positionX, double positionY) {
+    private Polygon createPolygonStimulus(double positionX, double positionY, double[] correctedStimulusSizeInPixelsXY) {
 
         // 1. Calculate stimulus radius in pixels.
-        double stimulusSizeInPixelsX = stimulusSizeInDegreesX * pixelsForOneDegreeX;
-        double stimulusSizeInPixelsY = stimulusSizeInDegreesY * pixelsForOneDegreeY;
+//        double stimulusSizeInPixelsX = stimulusSizeInDegreesX * pixelsForOneDegreeX;
+//        double stimulusSizeInPixelsY = stimulusSizeInDegreesY * pixelsForOneDegreeY;
+
+        double stimulusSizeInPixelsX = correctedStimulusSizeInPixelsXY[0];
+        double stimulusSizeInPixelsY = correctedStimulusSizeInPixelsXY[1];
 
         // 2. Calculate stimulus diagonal.
         double diagonal = Math.sqrt(Math.pow(stimulusSizeInPixelsX, 2) + Math.pow(stimulusSizeInPixelsY, 2));
@@ -1095,13 +1191,13 @@ public class BasicProcedure extends Stage {
                     double mxPixels = functions.millimitersToPixels(mx, screenResolutionX, screenWidthInMM);
                     double myPixels = functions.millimitersToPixels(my, screenResolutionY, screenHeightInMM);
 
-                    positionX = centerOfTheGridX + mxPixels;
-                    positionY = centerOfTheGridY + myPixels;
+                    positionX = centerOfTheGridInPixelsX + mxPixels;
+                    positionY = centerOfTheGridInPixelsY + myPixels;
 
                 } else {
 
-                    positionX = centerOfTheGridX + (b_blindspotDistanceFromFixPointX * pixelsForOneDegreeX);
-                    positionY = centerOfTheGridY + (b_blindspotDistanceFromFixPointY * pixelsForOneDegreeY);
+                    positionX = centerOfTheGridInPixelsX + (b_blindspotDistanceFromFixPointX * pixelsForOneDegreeX);
+                    positionY = centerOfTheGridInPixelsY + (b_blindspotDistanceFromFixPointY * pixelsForOneDegreeY);
                 }
 
                 double hue = luminanceScaleForStimulus.getHue();
@@ -1119,7 +1215,7 @@ public class BasicProcedure extends Stage {
                 radiusX = (f_changedFixPointSizeX / 2) * pixelsForOneDegreeX;
                 radiusY = (f_changedFixPointSizeY / 2) * pixelsForOneDegreeY;
 
-                fixationMonitorShape = new Ellipse(centerOfTheGridX, centerOfTheGridY, radiusX, radiusY);
+                fixationMonitorShape = new Ellipse(centerOfTheGridInPixelsX, centerOfTheGridInPixelsY, radiusX, radiusY);
                 fixationMonitorShape.setFill(f_changedFixPointColor);
                 fixationMonitorShape.setStroke(f_changedFixPointColor);
 
@@ -1293,8 +1389,8 @@ public class BasicProcedure extends Stage {
                 msgBoxWidthInPixels = b_msgBackgroundSizeX * pixelsForOneDegreeX;
                 msgBoxHeightInPixels = b_msgBackgroundSizeY * pixelsForOneDegreeY;
 
-                msgBoxLocationX = centerOfTheGridX + (b_msgDistanceFromFixPointX * pixelsForOneDegreeX) - (msgBoxWidthInPixels / 2);
-                msgBoxLocationY = centerOfTheGridY + (b_msgDistanceFromFixPointY * pixelsForOneDegreeY) - (msgBoxHeightInPixels / 2);
+                msgBoxLocationX = centerOfTheGridInPixelsX + (b_msgDistanceFromFixPointX * pixelsForOneDegreeX) - (msgBoxWidthInPixels / 2);
+                msgBoxLocationY = centerOfTheGridInPixelsY + (b_msgDistanceFromFixPointY * pixelsForOneDegreeY) - (msgBoxHeightInPixels / 2);
 
                 textOfTheMsg = b_textOfTheMsg;
                 backgroundColor = functions.toHexCode(b_msgBackgroundColor);
@@ -1308,8 +1404,8 @@ public class BasicProcedure extends Stage {
                 msgBoxWidthInPixels = f_msgBackgroundSizeX * pixelsForOneDegreeX;
                 msgBoxHeightInPixels = f_msgBackgroundSizeY * pixelsForOneDegreeY;
 
-                msgBoxLocationX = centerOfTheGridX + (f_msgDistanceFromFixPointX * pixelsForOneDegreeX) - (msgBoxWidthInPixels / 2);
-                msgBoxLocationY = centerOfTheGridY + (f_msgDistanceFromFixPointY * pixelsForOneDegreeY) - (msgBoxHeightInPixels / 2);
+                msgBoxLocationX = centerOfTheGridInPixelsX + (f_msgDistanceFromFixPointX * pixelsForOneDegreeX) - (msgBoxWidthInPixels / 2);
+                msgBoxLocationY = centerOfTheGridInPixelsY + (f_msgDistanceFromFixPointY * pixelsForOneDegreeY) - (msgBoxHeightInPixels / 2);
 
                 textOfTheMsg = f_textOfTheMsg;
                 backgroundColor = functions.toHexCode(f_msgBackgroundColor);

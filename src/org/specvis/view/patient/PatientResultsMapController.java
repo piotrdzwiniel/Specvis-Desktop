@@ -1,5 +1,6 @@
 package org.specvis.view.patient;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -476,6 +477,7 @@ public class PatientResultsMapController implements Initializable {
 
     @FXML
     private void setOnActionRedrawMapButton() {
+
         drawMap();
         drawColorBar();
     }

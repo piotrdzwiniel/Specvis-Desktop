@@ -1,5 +1,6 @@
 package org.specvis.view.procedure;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -389,6 +390,7 @@ public class ProcedureShowResultsController implements Initializable {
 
     @FXML
     private void setOnActionRedrawMapButton() {
+
         drawMap();
         drawColorBar();
     }

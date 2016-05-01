@@ -78,7 +78,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Spinner id="spinner" fx:id="spinnerInterpolation" editable="true" initialValue="2" max="40" min="1" prefWidth="120.0" stylesheets="@../MainStylesheet.css" />
+                        <Spinner id="spinner" fx:id="spinnerInterpolation" editable="true" initialValue="2" max="20" min="1" prefWidth="120.0" stylesheets="@../MainStylesheet.css" />
                      </children>
                   </HBox>
                   <Separator prefWidth="200.0" />
