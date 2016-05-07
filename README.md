@@ -13,7 +13,7 @@ Specvis main advantages are:
 <ul>
   <li>It is free and open-source;</li>
   <li>It can be run on any modern personal computer with any operation system (Win, Mac, Linux);</li>
-  <li>It stores information about patients and theire results;</li>
+  <li>It stores information about patients and their results;</li>
   <li>It allows for loading custom settings templates;</li>
   <li>It presents results from the test in a readable and intuitve graphic form (eg. <b>Figure 1</b> and <b>Figure 6</b>);</li>
   <li>It enables testing of the patient's visual field for different wavelengths of the electromagnetic wave;</li>
