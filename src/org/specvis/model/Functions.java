@@ -214,7 +214,7 @@ public class Functions {
     }
 
     public double decibelsValue(double maxLuminance, double stimulusLuminance, double backgroundLuminance, int round) {
-        double decibels = 10 * Math.log10(maxLuminance / (stimulusLuminance - backgroundLuminance));
+        double decibels = 10 * Math.log10(maxLuminance / stimulusLuminance);
         return round(decibels, round);
     }
 

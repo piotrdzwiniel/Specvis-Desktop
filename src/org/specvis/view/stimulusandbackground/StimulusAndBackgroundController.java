@@ -160,11 +160,19 @@ public class StimulusAndBackgroundController implements Initializable {
             double stimulusMaxLuminance = Double.valueOf(textFieldStimulusMaxLuminance.getText());
             double backgroundLuminance = Double.valueOf(textFieldBackgroundLuminance.getText());
 
-            double minDB = functions.decibelsValue(stimulusMaxLuminance, stimulusMaxLuminance, backgroundLuminance, 2);
-            double maxDB = functions.decibelsValue(stimulusMaxLuminance, stimulusMinLuminance, backgroundLuminance, 2);
+            try {
+                double minDB = functions.decibelsValue(stimulusMaxLuminance, stimulusMaxLuminance, backgroundLuminance, 2);
+                textFieldMinDecibelRange.setText(String.valueOf(minDB));
+            } catch (NumberFormatException ex) {
+                textFieldMinDecibelRange.setText("NaN");
+            }
 
-            textFieldMinDecibelRange.setText(String.valueOf(minDB));
-            textFieldMaxDecibelRange.setText(String.valueOf(maxDB));
+            try {
+                double maxDB = functions.decibelsValue(stimulusMaxLuminance, stimulusMinLuminance, backgroundLuminance, 2);
+                textFieldMaxDecibelRange.setText(String.valueOf(maxDB));
+            } catch (NumberFormatException ex) {
+                textFieldMaxDecibelRange.setText("NaN");
+            }
         }
     }
 
@@ -208,15 +216,15 @@ public class StimulusAndBackgroundController implements Initializable {
 
         int minStimulusBrightness = spinnerStimulusMinBrightness.getValue();
         int maxStimulusBrightness = spinnerStimulusMaxBrightness.getValue();
-        int backgroundBrightness = spinnerBackgroundBrightness.getValue();
+        //int backgroundBrightness = spinnerBackgroundBrightness.getValue();
 
         if (minStimulusBrightness >= maxStimulusBrightness) {
             spinnerStimulusMinBrightness.getValueFactory().setValue(maxStimulusBrightness - 1);
         }
 
-        if (minStimulusBrightness <= backgroundBrightness) {
-            spinnerStimulusMinBrightness.getValueFactory().setValue(backgroundBrightness + 1);
-        }
+//        if (minStimulusBrightness <= backgroundBrightness) {
+//            spinnerStimulusMinBrightness.getValueFactory().setValue(backgroundBrightness + 1);
+//        }
 
         int brightness = Integer.valueOf(spinnerStimulusMinBrightness.getValue().toString());
         double luminance = luminanceScaleForStimulus.getFittedLuminanceForEachBrightnessValue()[brightness];
@@ -245,12 +253,12 @@ public class StimulusAndBackgroundController implements Initializable {
     @FXML
     private void setValueForTextFieldBackgroundLuminance() {
 
-        int minStimulusBrightness = spinnerStimulusMinBrightness.getValue();
-        int backgroundBrightness = spinnerBackgroundBrightness.getValue();
-
-        if (backgroundBrightness >= minStimulusBrightness) {
-            spinnerBackgroundBrightness.getValueFactory().setValue(minStimulusBrightness - 1);
-        }
+//        int minStimulusBrightness = spinnerStimulusMinBrightness.getValue();
+//        int backgroundBrightness = spinnerBackgroundBrightness.getValue();
+//
+//        if (backgroundBrightness >= minStimulusBrightness) {
+//            spinnerBackgroundBrightness.getValueFactory().setValue(minStimulusBrightness - 1);
+//        }
 
         int brightness = Integer.valueOf(spinnerBackgroundBrightness.getValue().toString());
         double luminance = luminanceScaleForBackground.getFittedLuminanceForEachBrightnessValue()[brightness];
@@ -510,8 +518,17 @@ public class StimulusAndBackgroundController implements Initializable {
         int value2 = Integer.valueOf(spinnerStimulusMaxBrightness.getValue().toString());
 
         if (value2 > value1) {
-            setValuesForStimulusAndBackgroundeFields();
-            StartApplication.setSceneScreenAndLumScale();
+            if (!textFieldMinDecibelRange.getText().equals("NaN") && !textFieldMaxDecibelRange.getText().equals("NaN")) {
+                setValuesForStimulusAndBackgroundeFields();
+                StartApplication.setSceneScreenAndLumScale();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Invalid decibel range.");
+                alert.setContentText("Values of the decibel range can not be NaN. Try to change min and max stimulus " +
+                        "brightness values so the min and max stimulus luminance values are different than 0.");
+                alert.showAndWait();
+            }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
@@ -528,8 +545,17 @@ public class StimulusAndBackgroundController implements Initializable {
         int value2 = Integer.valueOf(spinnerStimulusMaxBrightness.getValue().toString());
 
         if (value2 > value1) {
-            setValuesForStimulusAndBackgroundeFields();
-            StartApplication.setSceneFixationAndOther();
+            if (!textFieldMinDecibelRange.getText().equals("NaN") && !textFieldMaxDecibelRange.getText().equals("NaN")) {
+                setValuesForStimulusAndBackgroundeFields();
+                StartApplication.setSceneFixationAndOther();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Invalid decibel range.");
+                alert.setContentText("Values of the decibel range can not be NaN. Try to change min and max stimulus " +
+                        "brightness values so the min and max stimulus luminance values are different than 0.");
+                alert.showAndWait();
+            }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
