@@ -35,45 +35,7 @@ public class TEST {
 
     public static void main(String[] args) {
 
-        ArrayList<Double> arrayList = logspace(11, 100, 17);
-        for (double d : arrayList) {
-            System.out.println(round(d, 0));
-        }
-    }
-
-    public static ArrayList<Double> linspace(double start, double stop, int n, boolean roundToInt) {
-        ArrayList<Double> result = new ArrayList();
-        double step = (stop-start)/(n-1);
-        for(int i = 0; i <= n-2; i++) {
-            if (roundToInt) {
-                BigDecimal bd = new BigDecimal(start + (i * step));
-                bd = bd.setScale(0, RoundingMode.HALF_UP);
-                result.add(bd.doubleValue());
-            } else {
-                result.add(start + (i * step));
-            }
-        }
-        result.add(stop);
-        return result;
-    }
-
-    public static ArrayList<Double> logspace(double start, double stop, int n) {
-        ArrayList<Double> arrayList = new ArrayList<>();
-
-        n -= 1;
-
-        for (int i = 0; i <= n; i++) {
-            double d = start * Math.pow(stop / start, (double) i / n);
-            arrayList.add(d);
-        }
-
-        return arrayList;
-    }
-
-    public static double round(double value, int places) {
-        if (places < 0) throw new IllegalArgumentException();
-        BigDecimal bd = new BigDecimal(value);
-        bd = bd.setScale(places, RoundingMode.HALF_UP);
-        return bd.doubleValue();
+        double x = (2.32 % 2);
+        System.out.println(x);
     }
 }

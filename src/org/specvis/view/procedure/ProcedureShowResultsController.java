@@ -149,9 +149,18 @@ public class ProcedureShowResultsController implements Initializable {
         double centerOfTheGridX = 0;
         double centerOfTheGridY = 0;
 
+        double involvedVisualFieldX = StartApplication.getSpecvisData().getScreenAndLuminanceScale().getInvolvedVisualFieldX();
+        double involvedVisualFieldY = StartApplication.getSpecvisData().getScreenAndLuminanceScale().getInvolvedVisualFieldY();
+
+        double distanceBetweenStimuliX = StartApplication.getSpecvisData().getStimulusAndBackground().getDistanceBetweenStimuliInDegreesX();
+        double distanceBetweenStimuliY = StartApplication.getSpecvisData().getStimulusAndBackground().getDistanceBetweenStimuliInDegreesY();
+
+        double involvedHalfVisualFieldInMapX = (involvedVisualFieldX / 2) - ((involvedVisualFieldX / 2) % distanceBetweenStimuliX);
+        double involvedHalfVisualFieldInMapY = (involvedVisualFieldY / 2) - ((involvedVisualFieldY / 2) % distanceBetweenStimuliY);
+
         if (showAxes || showFixationPoint) {
-            pixelsForOneDegreeX = contour2DMap.getPrefWidth() / StartApplication.getSpecvisData().getScreenAndLuminanceScale().getInvolvedVisualFieldX();
-            pixelsForOneDegreeY = contour2DMap.getPrefHeight() / StartApplication.getSpecvisData().getScreenAndLuminanceScale().getInvolvedVisualFieldY();
+            pixelsForOneDegreeX = contour2DMap.getPrefWidth() / (involvedHalfVisualFieldInMapX * 2);
+            pixelsForOneDegreeY = contour2DMap.getPrefHeight() / (involvedHalfVisualFieldInMapY * 2);
 
             centerOfTheGridX = (contour2DMap.getPrefWidth() / 2) + (pixelsForOneDegreeX * StartApplication.getSpecvisData().getFixationAndOther().getFixationPointLocationX());
             centerOfTheGridY = (contour2DMap.getPrefHeight() / 2) + (pixelsForOneDegreeY * StartApplication.getSpecvisData().getFixationAndOther().getFixationPointLocationY());

@@ -136,13 +136,15 @@ public class PatientResultsMapController implements Initializable {
             }
         }
 
+        int sizeX = 550;// 550;
+        int sizeY = 475;// 475;
 
         double maxDBValue = functions.decibelsValue(stimulusMaxLuminance, stimulusMinLuminance, bgLuminance, 2);
-        contour2DMap = new Contour2DMap(550, 475, -1, maxDBValue);
+        contour2DMap = new Contour2DMap(sizeX, sizeY, -1, maxDBValue);
 
-        contour2DMap.setMinSize(550, 475);
-        contour2DMap.setPrefSize(550, 475);
-        contour2DMap.setMaxSize(550, 475);
+        contour2DMap.setMinSize(sizeX, sizeY);
+        contour2DMap.setPrefSize(sizeX, sizeY);
+        contour2DMap.setMaxSize(sizeX, sizeY);
 
         contour2DMap.setData(decibelData);
         contour2DMap.setIsoFactor(isoFactor);
@@ -181,6 +183,24 @@ public class PatientResultsMapController implements Initializable {
             }
         }
 
+        double distanceBetweenStimuliX = 0;
+        double distanceBetweenStimuliY = 0;
+
+        for (int i = 0; i < patientResultsInfo.size(); i++) {
+            String[] str = patientResultsInfo.get(i).split(": ");
+
+            if (str[0].equals("Distance between stimuli (\u00b0)")) {
+                String[] distance = str[1].split("/");
+                distanceBetweenStimuliX = Double.valueOf(distance[0]);
+                distanceBetweenStimuliY = Double.valueOf(distance[1]);
+
+                break;
+            }
+        }
+
+        double involvedHalfVisualFieldInMapX = (involvedVisualFieldX / 2) - ((involvedVisualFieldX / 2) % distanceBetweenStimuliX);
+        double involvedHalfVisualFieldInMapY = (involvedVisualFieldY / 2) - ((involvedVisualFieldY / 2) % distanceBetweenStimuliY);
+
         double fixationPointLocationX = 0;
         double fixationPointLocationY = 0;
 
@@ -196,8 +216,8 @@ public class PatientResultsMapController implements Initializable {
         }
 
         if (showAxes || showFixationPoint) {
-            pixelsForOneDegreeX = contour2DMap.getPrefWidth() / involvedVisualFieldX;
-            pixelsForOneDegreeY = contour2DMap.getPrefHeight() / involvedVisualFieldY;
+            pixelsForOneDegreeX = contour2DMap.getPrefWidth() / (involvedHalfVisualFieldInMapX * 2);
+            pixelsForOneDegreeY = contour2DMap.getPrefHeight() / (involvedHalfVisualFieldInMapY * 2);
 
             centerOfTheGridX = (contour2DMap.getPrefWidth() / 2) + (pixelsForOneDegreeX * fixationPointLocationX);
             centerOfTheGridY = (contour2DMap.getPrefHeight() / 2) + (pixelsForOneDegreeY * fixationPointLocationY);
