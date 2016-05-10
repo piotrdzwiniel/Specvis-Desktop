@@ -155,12 +155,20 @@ public class ProcedureShowResultsController implements Initializable {
         double distanceBetweenStimuliX = StartApplication.getSpecvisData().getStimulusAndBackground().getDistanceBetweenStimuliInDegreesX();
         double distanceBetweenStimuliY = StartApplication.getSpecvisData().getStimulusAndBackground().getDistanceBetweenStimuliInDegreesY();
 
-        double involvedHalfVisualFieldInMapX = (involvedVisualFieldX / 2) - ((involvedVisualFieldX / 2) % distanceBetweenStimuliX);
-        double involvedHalfVisualFieldInMapY = (involvedVisualFieldY / 2) - ((involvedVisualFieldY / 2) % distanceBetweenStimuliY);
+        double visualFieldUsedInMapX;
+        double visualFieldUsedInMapY;
+
+        if (StartApplication.getSpecvisData().getStimulusAndBackground().isCorrectionForSphericityCheckBoxChecked()) {
+            visualFieldUsedInMapX = functions.findRealInvolvedVisualFieldWithCorrectionForSphericity(involvedVisualFieldX, StartApplication.getSpecvisData().getFixationAndOther().getFixationPointLocationX(), StartApplication.getSpecvisData().getScreenAndLuminanceScale().getPatientDistanceFromTheScreen(), StartApplication.getSpecvisData().getScreenAndLuminanceScale().getScreenWidth(), distanceBetweenStimuliX);
+            visualFieldUsedInMapY = functions.findRealInvolvedVisualFieldWithCorrectionForSphericity(involvedVisualFieldY, StartApplication.getSpecvisData().getFixationAndOther().getFixationPointLocationY(), StartApplication.getSpecvisData().getScreenAndLuminanceScale().getPatientDistanceFromTheScreen(), StartApplication.getSpecvisData().getScreenAndLuminanceScale().getScreenHeight(), distanceBetweenStimuliY);
+        } else {
+            visualFieldUsedInMapX = functions.findRealInvolvedVisualFieldNormal(involvedVisualFieldX, StartApplication.getSpecvisData().getFixationAndOther().getFixationPointLocationX(),distanceBetweenStimuliX);
+            visualFieldUsedInMapY = functions.findRealInvolvedVisualFieldNormal(involvedVisualFieldY, StartApplication.getSpecvisData().getFixationAndOther().getFixationPointLocationY(), distanceBetweenStimuliY);
+        }
 
         if (showAxes || showFixationPoint) {
-            pixelsForOneDegreeX = contour2DMap.getPrefWidth() / (involvedHalfVisualFieldInMapX * 2);
-            pixelsForOneDegreeY = contour2DMap.getPrefHeight() / (involvedHalfVisualFieldInMapY * 2);
+            pixelsForOneDegreeX = contour2DMap.getPrefWidth() / visualFieldUsedInMapX;
+            pixelsForOneDegreeY = contour2DMap.getPrefHeight() / visualFieldUsedInMapY;
 
             centerOfTheGridX = (contour2DMap.getPrefWidth() / 2) + (pixelsForOneDegreeX * StartApplication.getSpecvisData().getFixationAndOther().getFixationPointLocationX());
             centerOfTheGridY = (contour2DMap.getPrefHeight() / 2) + (pixelsForOneDegreeY * StartApplication.getSpecvisData().getFixationAndOther().getFixationPointLocationY());

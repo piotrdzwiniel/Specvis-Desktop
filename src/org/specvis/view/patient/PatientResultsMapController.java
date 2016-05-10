@@ -136,8 +136,8 @@ public class PatientResultsMapController implements Initializable {
             }
         }
 
-        int sizeX = 550;// 550;
-        int sizeY = 475;// 475;
+        int sizeX = 550;
+        int sizeY = 475;
 
         double maxDBValue = functions.decibelsValue(stimulusMaxLuminance, stimulusMinLuminance, bgLuminance, 2);
         contour2DMap = new Contour2DMap(sizeX, sizeY, -1, maxDBValue);
@@ -198,9 +198,6 @@ public class PatientResultsMapController implements Initializable {
             }
         }
 
-        double involvedHalfVisualFieldInMapX = (involvedVisualFieldX / 2) - ((involvedVisualFieldX / 2) % distanceBetweenStimuliX);
-        double involvedHalfVisualFieldInMapY = (involvedVisualFieldY / 2) - ((involvedVisualFieldY / 2) % distanceBetweenStimuliY);
-
         double fixationPointLocationX = 0;
         double fixationPointLocationY = 0;
 
@@ -215,9 +212,58 @@ public class PatientResultsMapController implements Initializable {
             }
         }
 
+        boolean isCorrectionForSphericityCheckBoxChecked = false;
+
+        for (int i = 0; i < patientResultsInfo.size(); i++) {
+            String[] str = patientResultsInfo.get(i).split(": ");
+            if (str[0].equals("Sphericity correction")) {
+                switch (str[1]) {
+                    case "no":
+                        isCorrectionForSphericityCheckBoxChecked = false;
+                        break;
+                    case "yes":
+                        isCorrectionForSphericityCheckBoxChecked = true;
+                        break;
+                }
+
+                break;
+            }
+        }
+
+        double screenSizeX = 0;
+        double screenSizeY = 0;
+        double patientDistance = 0;
+
+        for (int i = 0; i < patientResultsInfo.size(); i++) {
+            String[] str = patientResultsInfo.get(i).split(": ");
+
+            if (str[0].equals("Screen size (mm)")) {
+                String[] scrSize = str[1].split("/");
+                screenSizeX = Double.valueOf(scrSize[0]);
+                screenSizeY = Double.valueOf(scrSize[1]);
+            }
+
+            if (str[0].equals("Patient distance (mm)")) {
+                patientDistance = Double.valueOf(str[1]);
+
+                break;
+            }
+        }
+
+        double visualFieldUsedInMapX;
+        double visualFieldUsedInMapY;
+
+        if (isCorrectionForSphericityCheckBoxChecked) {
+            visualFieldUsedInMapX = functions.findRealInvolvedVisualFieldWithCorrectionForSphericity(involvedVisualFieldX, fixationPointLocationX, patientDistance, screenSizeX, distanceBetweenStimuliX);
+            visualFieldUsedInMapY = functions.findRealInvolvedVisualFieldWithCorrectionForSphericity(involvedVisualFieldY, fixationPointLocationY, patientDistance, screenSizeY, distanceBetweenStimuliY);
+        } else {
+            visualFieldUsedInMapX = functions.findRealInvolvedVisualFieldNormal(involvedVisualFieldX, fixationPointLocationX, distanceBetweenStimuliX);
+            visualFieldUsedInMapY = functions.findRealInvolvedVisualFieldNormal(involvedVisualFieldY, fixationPointLocationY, distanceBetweenStimuliY);
+        }
+
         if (showAxes || showFixationPoint) {
-            pixelsForOneDegreeX = contour2DMap.getPrefWidth() / (involvedHalfVisualFieldInMapX * 2);
-            pixelsForOneDegreeY = contour2DMap.getPrefHeight() / (involvedHalfVisualFieldInMapY * 2);
+            pixelsForOneDegreeX = contour2DMap.getPrefWidth() / visualFieldUsedInMapX;
+            pixelsForOneDegreeY = contour2DMap.getPrefHeight() / visualFieldUsedInMapY;
 
             centerOfTheGridX = (contour2DMap.getPrefWidth() / 2) + (pixelsForOneDegreeX * fixationPointLocationX);
             centerOfTheGridY = (contour2DMap.getPrefHeight() / 2) + (pixelsForOneDegreeY * fixationPointLocationY);

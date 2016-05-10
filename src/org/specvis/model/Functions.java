@@ -49,6 +49,12 @@ public class Functions {
 
     }
 
+    /**
+     *
+     * @param currentDate
+     * @param numberOfUnspecifiedSymbols
+     * @return
+     */
     public String createIndividualID(String currentDate, int numberOfUnspecifiedSymbols) {
         char[] chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".toCharArray();
         StringBuilder sb = new StringBuilder();
@@ -61,6 +67,10 @@ public class Functions {
         return date + "_" + sb.toString();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCurrentDateYYYYmmDD() {
         Calendar date = new GregorianCalendar();
         String day = Integer.toString(date.get(Calendar.DAY_OF_MONTH));
@@ -75,6 +85,12 @@ public class Functions {
         return year + "-" + month + "-" + day;
     }
 
+    /**
+     *
+     * @param value
+     * @param places
+     * @return
+     */
     public double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
         BigDecimal bd = new BigDecimal(value);
@@ -82,6 +98,11 @@ public class Functions {
         return bd.doubleValue();
     }
 
+    /**
+     *
+     * @param color
+     * @return
+     */
     public String toHexCode(Color color) {
         return String.format("#%02X%02X%02X",
                 (int) (color.getRed() * 255),
@@ -89,6 +110,13 @@ public class Functions {
                 (int) (color.getBlue() * 255));
     }
 
+    /**
+     *
+     * @param coeff
+     * @param x
+     * @return
+     * @throws Exception
+     */
     public double[] poly2D(double[] coeff, double[] x) throws Exception{
         if (coeff.length != 3) {
             throw new Exception("poly2D method can handle only 3 coefficients.");
@@ -101,6 +129,11 @@ public class Functions {
         }
     }
 
+    /**
+     *
+     * @param vectorLength
+     * @return
+     */
     public double[] createBrightnessVector(int vectorLength) {
         double step = 101 / (double) vectorLength;
         double[] brightnessVector = new double[vectorLength];
@@ -110,6 +143,14 @@ public class Functions {
         return brightnessVector;
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param degree
+     * @param reverseCoefficients
+     * @return
+     */
     public double[] fitPolynomialToData(double[] x, double[] y, int degree, boolean reverseCoefficients) {
         WeightedObservedPoints obs = new WeightedObservedPoints();
         for (int i = 0; i < x.length; i++) {
@@ -124,6 +165,11 @@ public class Functions {
         }
     }
 
+    /**
+     *
+     * @param array
+     * @return
+     */
     public double[] reverseDoublePrimitiveArray(double[] array) {
         for(int i = 0; i < array.length / 2; i++) {
             double temp = array[i];
@@ -133,6 +179,12 @@ public class Functions {
         return array;
     }
 
+    /**
+     *
+     * @param arr
+     * @param targetValue
+     * @return
+     */
     public boolean isThisPrimitiveArrayContainsValue(double[] arr, double targetValue) {
         for (double i: arr){
             if(i == targetValue) {
@@ -187,6 +239,14 @@ public class Functions {
         return m * pixelsForOneMillimiter;
     }
 
+    /**
+     *
+     * @param start
+     * @param stop
+     * @param n
+     * @param roundToInt
+     * @return
+     */
     public ArrayList<Double> linspace(double start, double stop, int n, boolean roundToInt) {
         ArrayList<Double> result = new ArrayList();
         double step = (stop-start)/(n-1);
@@ -203,21 +263,47 @@ public class Functions {
         return result;
     }
 
+    /**
+     *
+     * @param min
+     * @param max
+     * @return
+     */
     public int randomInt(int min, int max) {
         Random random = new Random();
         return random.nextInt(max - min + 1) + min;
     }
 
+    /**
+     *
+     * @param constantPart
+     * @param randomPart
+     * @return
+     */
     public int randomInterval(int constantPart, int randomPart) {
         Random randomGenerator = new Random();
         return constantPart + randomGenerator.nextInt(randomPart + 1);
     }
 
+    /**
+     *
+     * @param maxLuminance
+     * @param stimulusLuminance
+     * @param backgroundLuminance
+     * @param round
+     * @return
+     */
     public double decibelsValue(double maxLuminance, double stimulusLuminance, double backgroundLuminance, int round) {
         double decibels = 10 * Math.log10(maxLuminance / stimulusLuminance);
         return round(decibels, round);
     }
 
+    /**
+     *
+     * @param start
+     * @param end
+     * @return
+     */
     public String totalTime(long start, long end) {
         long difference = end - start;
         return String.format("%02d:%02d:%02d",
@@ -269,6 +355,11 @@ public class Functions {
         }
     }
 
+    /**
+     *
+     * @param scaleID
+     * @return
+     */
     public LuminanceScale findExistingLuminanceScaleByID(String scaleID) {
         LuminanceScale luminanceScale = new LuminanceScale();
         try {
@@ -332,6 +423,14 @@ public class Functions {
         return luminanceScale;
     }
 
+    /**
+     *
+     * @param start
+     * @param stop
+     * @param n
+     * @param roundToInt
+     * @return
+     */
     public ArrayList<Double> logspace(double start, double stop, int n, boolean roundToInt) {
         ArrayList<Double> arrayList = new ArrayList<>();
 
@@ -348,6 +447,11 @@ public class Functions {
         return arrayList;
     }
 
+    /**
+     *
+     * @param dir
+     * @return
+     */
     public boolean deleteDir(File dir) {
         if (dir.isDirectory()) {
             String[] children = dir.list();
@@ -394,5 +498,105 @@ public class Functions {
         }
 
         return sortedData;
+    }
+
+    /**
+     *
+     * @param visualField
+     * @param centerPosition
+     * @param distanceBetweenStimuli
+     * @return
+     */
+    public double findRealInvolvedVisualFieldNormal(double visualField, double centerPosition, double distanceBetweenStimuli) {
+
+        double realInvolvedVisualField;
+
+        // 1.
+        double leftHalf = (visualField / 2) + centerPosition;
+        double rightHalf = visualField - leftHalf;
+
+        // 2. Find real visual field.
+        double tempLeftVF = distanceBetweenStimuli / 2;
+        while (true) {
+            if (tempLeftVF + distanceBetweenStimuli > leftHalf) {
+                break;
+            } else {
+                tempLeftVF += distanceBetweenStimuli;
+            }
+        }
+
+        double tempRightVF = distanceBetweenStimuli / 2;
+        while(true) {
+            if (tempRightVF + distanceBetweenStimuli > rightHalf) {
+                break;
+            } else {
+                tempRightVF += distanceBetweenStimuli;
+            }
+        }
+
+        realInvolvedVisualField = tempLeftVF + tempRightVF;
+
+        return realInvolvedVisualField;
+    }
+
+    /**
+     *
+     * @param visualField
+     * @param centerPosition
+     * @param patientDistance
+     * @param screenSize
+     * @param distanceBetweenStimuli
+     * @return
+     */
+    public double findRealInvolvedVisualFieldWithCorrectionForSphericity(double visualField, double centerPosition, double patientDistance, double screenSize, double distanceBetweenStimuli) {
+
+        double realInvolvedVisualField;
+
+        // Define fields.
+        double alpha = distanceBetweenStimuli;
+        double radius = patientDistance;
+        double base = screenSize;
+
+        // 1.
+        double leftHalfVF = (visualField / 2) + centerPosition;
+        double rightHalfVF = visualField - leftHalfVF;
+
+        // 2.
+        double leftHalfBaseInMM = calculateOppositeAngle(leftHalfVF, radius);
+        double rightHalfBaseInMM = calculateOppositeAngle(rightHalfVF, radius);
+
+        // 3.
+        double tempLeftVFinMM = calculateOppositeAngle(alpha / 2, radius);
+        double tempAlphaLeft = alpha / 2;
+        while (true) {
+            double tempCondition = calculateOppositeAngle(tempAlphaLeft + distanceBetweenStimuli, radius);
+            if (tempCondition > leftHalfBaseInMM) {
+                break;
+            } else {
+                tempLeftVFinMM = tempCondition;
+                tempAlphaLeft += distanceBetweenStimuli;
+            }
+        }
+
+        // 4.
+        double tempRightVFinMM = calculateOppositeAngle(alpha / 2, radius);
+        double tempAlphaRight = alpha / 2;
+        while (true) {
+            double tempCondition = calculateOppositeAngle(tempAlphaRight + distanceBetweenStimuli, radius);
+            if (tempCondition > rightHalfBaseInMM) {
+                break;
+            } else {
+                tempRightVFinMM = tempCondition;
+                tempAlphaRight += distanceBetweenStimuli;
+            }
+        }
+
+        // 5.
+        double totalUsedVFinMM = tempLeftVFinMM + tempRightVFinMM;
+
+        // 6.
+        realInvolvedVisualField = 2 * Math.atan2(totalUsedVFinMM / 10, 2 * (radius / 10)) * (180 / Math.PI);
+
+        return realInvolvedVisualField;
     }
 }
