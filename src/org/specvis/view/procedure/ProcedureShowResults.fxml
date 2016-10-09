@@ -130,6 +130,12 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
+                  <Separator layoutX="10.0" layoutY="467.0" prefWidth="200.0" />
+                  <Button id="bodyButton" layoutX="10.0" layoutY="474.0" mnemonicParsing="false" onAction="#setOnActionExportData" prefHeight="40.0" prefWidth="300.0" stylesheets="@../MainStylesheet.css" text="Export data">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </VBox>
          </children>

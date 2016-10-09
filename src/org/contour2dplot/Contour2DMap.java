@@ -49,6 +49,8 @@ public class Contour2DMap extends Pane {
     private double minDataValue;
     private double maxDataValue;
 
+    private double[][] interpolatedData;
+
     public Contour2DMap() {
 
     }
@@ -86,7 +88,7 @@ public class Contour2DMap extends Pane {
         }
 
         int correction = interpolationFactor - 1;
-        double[][] interpolatedData = new double[temporalData.size() - correction][temporalData.get(0).size() - correction];
+        interpolatedData = new double[temporalData.size() - correction][temporalData.get(0).size() - correction];
 
         for (int i = 0; i < interpolatedData.length; i++) {
             for (int j = 0; j < interpolatedData[i].length; j++) {
@@ -316,5 +318,9 @@ public class Contour2DMap extends Pane {
 
     public ArrayList<Double> getArrayListOfIsoValues() {
         return arrayListOfIsoValues;
+    }
+
+    public double[][] getInterpolatedData() {
+        return interpolatedData;
     }
 }

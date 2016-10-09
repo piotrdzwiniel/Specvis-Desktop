@@ -303,6 +303,16 @@ public class PatientResultsController implements Initializable {
             File file = new File("Results/" + StartApplication.getSpecvisData().getPatient().getId() + "/" + id + "/session_data.txt");
             double[][] sessionDataFileContent = getPatientResultsData(file);
 
+//            /* TEST */
+//            for (int i = 0; i < sessionDataFileContent.length; i++) {
+//                String str = "";
+//                for (int j = 0; j < sessionDataFileContent[i].length; j++) {
+//                    str += String.valueOf(sessionDataFileContent[i][j]) + ", ";
+//                }
+//                System.out.println(str);
+//            }
+//            /* TEST */
+
             StartApplication.getSpecvisData().getPatient().setResultsData(sessionDataFileContent);
 
             StartApplication.setScenePatientResultsMap();

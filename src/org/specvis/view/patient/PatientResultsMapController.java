@@ -6,19 +6,20 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Spinner;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.contour2dplot.Contour2DMap;
 import org.specvis.StartApplication;
 import org.specvis.model.Functions;
+import org.specvis.view.miscellaneous.ExceptionDialogWindow;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -546,6 +547,41 @@ public class PatientResultsMapController implements Initializable {
 
         drawMap();
         drawColorBar();
+    }
+
+    @FXML
+    private void setOnActionExportData() {
+
+        double[][] interpolatedData = contour2DMap.getInterpolatedData();
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Export data");
+
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text file (*.txt)", "*.txt"));
+
+        File file = fileChooser.showSaveDialog(new Stage());
+        if (file != null) {
+            try {
+                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+
+                for (int i = 0; i < interpolatedData.length; i++) {
+                    for (int j = 0; j < interpolatedData[i].length; j++) {
+                        if (j != interpolatedData[i].length - 1) {
+                            bufferedWriter.write(String.valueOf(interpolatedData[i][j]) + "\t");
+                        } else {
+                            bufferedWriter.write(String.valueOf(interpolatedData[i][j]) + "\n");
+                        }
+                    }
+                }
+                bufferedWriter.close();
+
+            } catch (IOException ex) {
+                ExceptionDialogWindow ed = new ExceptionDialogWindow(Alert.AlertType.ERROR, ex);
+                ed.setTitle("Exception");
+                ed.setHeaderText(ex.getClass().getName());
+                ed.showAndWait();
+            }
+        }
     }
 
     @FXML
