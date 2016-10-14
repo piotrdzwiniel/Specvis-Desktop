@@ -1,0 +1,55 @@
+BASIC INFORMATION
+
+Procedure: basic
+
+Date of the test: 2016-05-13
+Patient name: N/A
+Tested eye: left
+
+Screen size (mm): 535/300
+Patient distance (mm): 370
+Involved visual field (°): 71.73/44.14
+
+Stimulus scale name: GreenCones534Nm
+Stimulus max brightness (%): 100
+Stimulus max luminance (cd/m2): 154.46
+Stimulus min brightness (%): 11
+Stimulus min luminance (cd/m2): 3.64
+Stimulus shape: ellipse
+Stimulus inclination (°): 0.0
+Stimulus size (°): 0.4/0.4
+Stimulus display time (ms): 200
+Inter-stimuli interval (ms): 900/400
+Distance between stimuli (°): 6.0/6.0
+
+Sphericity correction: yes
+
+Background scale name: GreenCones534Nm
+Background brightness (%): 10
+Background luminance (cd/m2): 3.15
+
+Decibel range (dB): 0.0/16.28
+
+Fixation point location (°): 0.0/0.0
+Fixation point color: #7F7F7F
+Fixation point luminance (cd/m2): 0.0
+Fixation point size (°): 0.5/0.5
+
+Fixation monitor technique: blindspot
+Monitor fixation every 5 to 10 stimuli
+Monitor stimulus size (°): 0.4/0.4
+Monitor stimulus brightness (%): 100
+Monitor stimulus luminance (cd/m2): 154.46
+Blindspot distance from fixation point (°): -15.0/3.0
+Show the patient a message when it loses fixation: yes
+
+PROCEDURE INFORMATION
+
+Total fixation monitor checks: 58
+Positive fixation monitor checks: 57
+Fixation monitor accuracy (%): 98.28
+
+False-positive answers (%): 0.0 (0f/366p)
+
+Test duration: 00:09:45
+
