@@ -1,0 +1,55 @@
+BASIC INFORMATION
+
+Procedure: basic
+
+Date of the test: 2016-01-18
+Patient name: N/A
+Tested eye: left
+
+Screen size (mm): 535/300
+Patient distance (mm): 370
+Involved visual field (°): 71.73/44.14
+
+Stimulus scale name: Iiyama_ProLite_E2483HS_Green_2
+Stimulus max brightness (%): 100
+Stimulus max luminance (cd/m2): 157.45
+Stimulus min brightness (%): 13
+Stimulus min luminance (cd/m2): 3.66
+Stimulus shape: ellipse
+Stimulus inclination (°): 0.0
+Stimulus size (°): 0.4/0.4
+Stimulus display time (ms): 200
+Inter-stimuli interval (ms): 1000/500
+Distance between stimuli (°): 5.98/5.52
+
+Sphericity correction: no
+
+Background scale name: Iiyama_ProLite_E2483HS_Green_2
+Background brightness (%): 12
+Background luminance (cd/m2): 3.13
+
+Decibel range (dB): 0.00/16.34
+
+Fixation point location (°): 0.0/0.0
+Fixation point color: #CCCCCC
+Fixation point luminance (cd/m2): 0.0
+Fixation point size (°): 0.4/0.4
+
+Fixation monitor technique: blindspot
+Monitor fixation every 1 to 10 stimuli
+Monitor stimulus size (°): 0.4/0.4
+Monitor stimulus brightness (%): 100
+Monitor stimulus luminance (cd/m2): 157.45
+Blindspot distance from fixation point (°): -15.0/3.0
+Show the patient a message when it loses fixation: no
+
+PROCEDURE INFORMATION
+
+Total fixation monitor checks: 103
+Positive fixation monitor checks: 50
+Fixation monitor accuracy (%): 48.54
+
+False-positive answers (%): NaN (0f/0p)
+
+Test duration: 00:13:44
+
