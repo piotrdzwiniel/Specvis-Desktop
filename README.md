@@ -1,65 +1,35 @@
-# Specvis-ver-1.0.1
-<h4>Under GNU GPLv3 license (or later)</h4>
-Specvis is a scientifically validated free and open-source application for human visual field examination.  Website: http://neurovision.nencki.gov.pl/specvis/index.html. On the aforementioned website one can find dedicated blog, recent documentation and video tutorials.
+<h1>Specvis v1.0</h1>
+<h3>Definition and usage of the application</h3>
+Specvis is a desktop application designed for visual field examination in humans written in the Java programming language ensuring unrestricted portability on any personal computer or laptop. It has an intuitive and easy to use graphical user interface and does not require special computer or programming skills. We have made Specvis freely available as an open-source application based on GNU GPLv3 license. It can be downloaded and used without charge, and allows unrestricted modification. Similar to other Automated Static Perimeters, Specvis displays a single, specific, light stimulus at different locations on the computer screen, in order to assess a luminance threshold across the visual field. A comprehensive description of the application can be found in its <a href="http://neurovision.nencki.gov.pl/specvis/documentation.html">documentation</a>.
 
-<h1>About Specvis</h1>
+<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/Fig1.jpg" width="100%">
 
-Specvis is a free and open-source desktop application written by Piotr Dzwiniel allowing the user to test one's visual field. Specvis working principles are similar to those
-of automated static perimetry. That means, it is able to estimate the minimum luminance required for the detection of a light
-stimulus throughout examined visual field.
+<h3>Source code, requirements and availability</h3>
+Specvis was written in the Java programming language and requires installation of the Java Runtime Environment (JRE) in version 8u74 or above. You can check the JRE version by typing in the terminal or command window `java -version`. The latest version of JRE can be downloaded from <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">here</a>.
 
-Specvis main advantages are:
+After ensuring that the appropriate version of the JRE is installed, the current version of Specvis can be found in the <a href="https://github.com/piotrdzwiniel/Specvis/tree/master/latest_build">latest_build</a> folder. You can find there two main directories, i.e. `Specvis IntelliJ Project` and `Specvis Executable Pack`.
 
-<ul>
-  <li>It is free and open-source;</li>
-  <li>It can be run on any modern personal computer with any operation system (Win, Mac, Linux);</li>
-  <li>It stores information about patients and their results;</li>
-  <li>It allows for loading custom settings templates;</li>
-  <li>It presents results from the test in a readable and intuitve graphic form (eg. <b>Figure 1</b> and <b>Figure 6</b>);</li>
-  <li>It enables testing of the patient's visual field for different wavelengths of the electromagnetic wave;</li>
-  <li>It enables testing the whole patient's visual field due to the possibility of adjusting the fixation point location;</li>
-  <li>It was validated on patients with glaucoma and compared with Medmont M700 perimeter;</li>
-</ul>
+The first one contains complete source code of the latest Specvis release which can be imported to the IntelliJ IDEA. The second one contains Specvis application with its related files.
 
-<hr>
+From the other hand, if you are interested in older versions of Specvis and their source code, you can find them in the <a href="https://github.com/piotrdzwiniel/Specvis/tree/master/old_builds">old_builds</a> folder.
 
-<img src="https://github.com/bluevoxel/Specvis-ver-1.0.0/raw/master/downloadable_content/screenshots/figure_17.jpg" width="80%">
+Everything "around" the `latest_build` and the `old_builds` folders is a working ground for a new future realease of Specvis. So don't be surprised if content of e.g. the <a href="https://github.com/piotrdzwiniel/Specvis/tree/master/src">src</a> folder will change few times a week etc.
 
-<b>Figure 1.</b> The results of 27 year old healthy male who took part in the Specvis "Basic" procedure test for each eye. The graphical maps are drawn directly from the application in the form in which they are actually displayed. Marker "F" is located in the fixation point location. Marker "M" is located in the assumed blind spot location. The "dots" on x-axis and y-axis indicates the 10 degree steps counting from the fixation point.
+<h3>Running the application</h3>
 
-<hr>
+After you downloaded and unpacked the `Specvis Executable Pack/Specvis.zip` file, you can just double click on the `Specvis.jar`. You can also run Specvis from the terminal by typing `java -jar Specvis.jar`.
 
-<img src="https://github.com/bluevoxel/Specvis-ver-1.0.0/raw/master/downloadable_content/screenshots/figure_1.png" width="80%">
+<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/Fig2.png" width="50%">
 
-<b>Figure 2.</b> The very first window the user will see after Specvis launch. One can here add new patient to the Specvis database, edit data of already existing patient, preview the results of the chosen patient, and load existing settings template.
+<h3>Support</h3>
 
-<hr>
+If you have a problem with the application, please first make sure that you are familiar with <a href="http://neurovision.nencki.gov.pl/specvis/tutorials.html">Tutorials</a> and <a href="http://neurovision.nencki.gov.pl/specvis/documentation.html">Documentation</a>, and if you still need help, please go to the <a href="https://github.com/piotrdzwiniel/Specvis/issues">Issues</a> section. While you are there try to look for the solution to your problem in existing issues. If you can't find solution, than create a new issue keeping in mind - the more accurately the problem is described the greater is chance for fast answer to it.
 
-<img src="https://github.com/bluevoxel/Specvis-ver-1.0.0/raw/master/downloadable_content/screenshots/figure_7.png" width="80%">
+<h3>License</h3>
 
-<b>Figure 3.</b> Window with the graphical representation of the chosen luminance scale. To six subsequent luminance measurements of the given brightness values a polynomial curve is fitted.
+The source code and the application itself are released under the terms of <a href="https://github.com/piotrdzwiniel/Specvis/blob/master/GNU%20GPL%20v3.txt">GNU General Public License in version 3</a> as published by the Free Software Foundation. Software covered by this license is and will be free and open-source. In general, this license ensures, that everyone can use the software and modify it, however, each new release is also covered by the same license, so the freedom and capacity of the software remains preserved.
 
-<hr>
-
-<img src="https://github.com/bluevoxel/Specvis-ver-1.0.0/raw/master/downloadable_content/screenshots/figure_9.png" width="80%">
-
-<b>Figure 4.</b> Preview of the location of all key elements, such as: stimuli, fixation point, blindspot, box with the message for the patient after fixation loss. 
-
-<hr>
-
-<img src="https://github.com/bluevoxel/Specvis-ver-1.0.0/raw/master/downloadable_content/screenshots/figure_15.png" width="80%">
-
-<b>Figure 5.</b> Look at the procedure window, in which the user can monitor the conduction of the test.
-
-<hr>
-
-<img src="https://github.com/bluevoxel/Specvis-ver-1.0.0/raw/master/downloadable_content/screenshots/figure_16.png" width="80%">
-
-<b>Figure 6.</b> Patient results displayed as graphical map of the patient's visual field sensitivity.
-
-<hr>
-
-<h1>How can I cite Specvis?</h1>
+<h3>Citing Specvis</h3>
 
 If you use Specvis in your research, please cite the paper given below:
 
@@ -67,8 +37,6 @@ If you use Specvis in your research, please cite the paper given below:
     <li style="color: #FF2E2E;">In the near future this text will morph into a reference to the publication.</li>
 </ul>
 
-Why I ask you to cite Specvis? Well, to be honest, citing it gives me some credit for its creation and motivate me to continue its development. But citing it is also important for a different reason - if you had found Specvis useful, it would be desirable to share knowledge about it with others, so Specvis can get to as many people as possible and serve well wherever it's needed.
+Why I ask you to cite Specvis? Citing it gives me some credit for its creation and motivate me to continue its development. Citing it is also important for a different reason - if you had found Specvis useful, it would be desirable to share knowledge about it with others, so Specvis can get to as many people as possible and serve well wherever it's needed.
 
-Piotr Dzwiniel.
-
-
+Cheers, Piotr Dzwiniel.
