@@ -28,15 +28,3 @@ If you have a problem with the application, please first make sure that you are 
 <h3>License</h3>
 
 The source code and the application itself are released under the terms of <a href="https://github.com/piotrdzwiniel/Specvis/blob/master/GNU%20GPL%20v3.txt">GNU General Public License in version 3</a> as published by the Free Software Foundation. Software covered by this license is and will be free and open-source. In general, this license ensures, that everyone can use the software and modify it, however, each new release is also covered by the same license, so the freedom and capacity of the software remains preserved.
-
-<h3>Citing Specvis</h3>
-
-If you use Specvis in your research, please cite the paper given below:
-
-<ul>
-    <li style="color: #FF2E2E;">In the near future this text will morph into a reference to the publication.</li>
-</ul>
-
-Why I ask you to cite Specvis? Citing it gives me some credit for its creation and motivate me to continue its development. Citing it is also important for a different reason - if you had found Specvis useful, it would be desirable to share knowledge about it with others, so Specvis can get to as many people as possible and serve well wherever it's needed.
-
-Cheers, Piotr Dzwiniel.
