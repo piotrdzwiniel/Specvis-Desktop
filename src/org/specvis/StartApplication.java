@@ -75,9 +75,6 @@ public class StartApplication extends Application {
 
     private static Scene sceneProcedure;
 
-    private static int variable;
-    private static int variable2;
-
     @Override
     public void start(Stage stage) throws Exception {
         window = stage;
