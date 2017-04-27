@@ -1,4 +1,4 @@
-package org.specvis.procedures;
+package org.specvis.procedures.basic;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -34,30 +34,9 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 /**
- * Created by Piotr Dzwiniel on 2016-03-01.
+ * Created by Piotr Dzwiniel on 05.04.2017.
  */
-
-/*
- * Copyright 2014-2016 Piotr Dzwiniel
- *
- * This file is part of Specvis.
- *
- * Specvis is free software; you can redistribute it
- * and/or modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 3 of the License,
- * or (at your option) any later version.
- *
- * Specvis is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Specvis; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- */
-
-public class BasicProcedure extends Stage {
+public class ProcedureFixMonBoth extends Stage {
 
     /* Fields from StartApplication */
     private Functions functions;
@@ -149,7 +128,11 @@ public class BasicProcedure extends Stage {
     private Random randomGenerator;
     private int fixationMonitorIterator;
     private int fixationMonitorCheckRate;
-    private ArrayList<Boolean> answersToFixationMonitor;
+
+    // private ArrayList<Boolean> getAnswersToFixationMonitor;
+    private ArrayList<Boolean> answersToFixationMonitor_blindspot;
+    private ArrayList<Boolean> answersToFixationMonitor_fixpointchange;
+
     private double pixelsForOneDegreeX;
     private double pixelsForOneDegreeY;
     private double centerOfTheGridInPixelsX;
@@ -284,7 +267,7 @@ public class BasicProcedure extends Stage {
         }
     }
 
-    public BasicProcedure() {
+    public ProcedureFixMonBoth() {
 
         /**
          * INIT FIELDS
@@ -331,7 +314,8 @@ public class BasicProcedure extends Stage {
         keyCancelProcedure = StartApplication.getSpecvisData().getFixationAndOther().getCancelProcedure();
 
         /* Fields from FixationAndOther -> fixation monitor "blindspot" */
-        if (fixationMonitorTechnique.equals("Blindspot")) {
+        if (!fixationMonitorTechnique.equals("None")) {
+
             FixationAndOtherMonitorSettingsBlindspot faomsb = StartApplication.getSpecvisData().getFixationAndOtherMonitorSettingsBlindspot();
 
             b_isMonitorFixationEveryXStimuliSelected = faomsb.isMonitorFixationEveryXStimuliSelected();
@@ -357,10 +341,7 @@ public class BasicProcedure extends Stage {
                 b_msgDistanceFromFixPointY = faomsb.getMsgDistanceFromFixPointY();
                 b_resumeToNextStimulusTimeInterval = faomsb.getResumeToNextStimulusTimeInterval();
             }
-        }
 
-        /* Fields from FixationAndOther -> fixation monitor "fixation point change" */
-        if (fixationMonitorTechnique.equals("Fixation point change")) {
             FixationAndOtherMonitorSettingsFixPointChange faomsfpc = StartApplication.getSpecvisData().getFixationAndOtherMonitorSettingsFixPointChange();
 
             f_isMonitorFixationEveryXStimuliSelected = faomsfpc.isMonitorFixationEveryXStimuliSelected();
@@ -393,6 +374,7 @@ public class BasicProcedure extends Stage {
         if (!fixationMonitorTechnique.equals("None")) {
 
             fixationMonitorIterator = 0;
+            fixationMonitorTechnique = "Fixation point change";
 
             switch (fixationMonitorTechnique) {
                 case "Blindspot":
@@ -411,7 +393,9 @@ public class BasicProcedure extends Stage {
                     break;
             }
 
-            answersToFixationMonitor = new ArrayList<>();
+            // answersToFixationMonitor = new ArrayList<>();
+            answersToFixationMonitor_blindspot = new ArrayList<>();
+            answersToFixationMonitor_fixpointchange = new ArrayList<>();
         }
 
         pixelsForOneDegreeX = screenResolutionX / involvedVisualFieldX;
@@ -533,7 +517,11 @@ public class BasicProcedure extends Stage {
                                         }
                                     }
                                 } else {
-                                    answersToFixationMonitor.add(true);
+                                    if (fixationMonitorTechnique.equals("Blindspot")) {
+                                        answersToFixationMonitor_blindspot.add(true);
+                                    } else if (fixationMonitorTechnique.equals("Fixation point change")) {
+                                        answersToFixationMonitor_fixpointchange.add(true);
+                                    }
                                 }
                             }
                             permissionToAnswer = false;
@@ -590,10 +578,6 @@ public class BasicProcedure extends Stage {
                                 }
                             } else {
                                 if (fixationMonitorTimeline != null) {
-//                                    if (isMsgAfterFixLossDisplayedOnTheScreen) {
-//                                        displayPane.getChildren().remove(1);
-//                                        isMsgAfterFixLossDisplayedOnTheScreen = false;
-//                                    }
                                     fixationMonitorTimeline.play();
                                     procedureController.setColorForCircle(Color.web("#33FF33"));
                                     procedureController.setTextForLabel("Running");
@@ -936,10 +920,10 @@ public class BasicProcedure extends Stage {
      * @return
      */
     private double[] calculateCorrectedStimulusSizeInPixelsXY(double angleDistanceFromCenterX, double angleDistanceFromCenterY,
-                                                    double stimulusSizeInDegreesX, double stimulusSizeInDegreesY,
-                                                    int screenResolutionX, int screenResolutionY,
-                                                    int screenWidthInMM, int screenHeightInMM,
-                                                    double patientDistanceFromTheScreenInMM) {
+                                                              double stimulusSizeInDegreesX, double stimulusSizeInDegreesY,
+                                                              int screenResolutionX, int screenResolutionY,
+                                                              int screenWidthInMM, int screenHeightInMM,
+                                                              double patientDistanceFromTheScreenInMM) {
 
         double[] stimulusSizeInPixelsXY = new double[2];
 
@@ -969,7 +953,7 @@ public class BasicProcedure extends Stage {
 
         return stimulusSizeInPixelsXY;
     }
-    
+
     private BasicProcedureStimulus initializeStimulus(int stimulusIndexIterator, double tempLocationX, double tempLocationY, double[] correctedStimulusSizeInPixelsXY) {
 
         BasicProcedureStimulus basicProcedureStimulus = new BasicProcedureStimulus();
@@ -1169,6 +1153,13 @@ public class BasicProcedure extends Stage {
         double radiusX;
         double radiusY;
 
+        // Random choose of fix monitor technique.
+        if (fixationMonitorTechnique.equals("Blindspot")) {
+            fixationMonitorTechnique = "Fixation point change";
+        } else if (fixationMonitorTechnique.equals("Fixation point change")) {
+            fixationMonitorTechnique = "Blindspot";
+        }
+
         switch (fixationMonitorTechnique) {
             case "Blindspot":
 
@@ -1263,10 +1254,15 @@ public class BasicProcedure extends Stage {
 
             // Write NEGATIVE answer to fixation monitor.
             if (permissionToAnswer) {
-                answersToFixationMonitor.add(false);
+                if (fixationMonitorTechnique.equals("Blindspot")) {
+                    answersToFixationMonitor_blindspot.add(false);
+                } else if (fixationMonitorTechnique.equals("Fixation point change")) {
+                    answersToFixationMonitor_fixpointchange.add(false);
+                }
             }
 
             // Display message with loss of fixation for patient.
+            // Remove it after 2 seconds.
             switch (fixationMonitorTechnique) {
                 case "Blindspot":
                     if (b_isShowPatientMsgSelected) {
@@ -1277,7 +1273,7 @@ public class BasicProcedure extends Stage {
                             displayPane.getChildren().add(label);
 
                             // Pause procedure.
-                            procedureIsRunning = false;
+                            // procedureIsRunning = false;
 
                             procedureController.setColorForCircle(Color.web("#FFAA00"));
                             procedureController.setTextForLabel("Fix loss");
@@ -1285,7 +1281,9 @@ public class BasicProcedure extends Stage {
                             //isMsgAfterFixLossDisplayedOnTheScreen = true;
                             wasReminderMsgAfterFixLossShown = true;
 
-                            fixationMonitorTimeline.pause();
+                            System.out.println("Fixx Loss B");
+
+                            // fixationMonitorTimeline.pause();
                         }
                     }
                     break;
@@ -1298,7 +1296,7 @@ public class BasicProcedure extends Stage {
                             displayPane.getChildren().add(label);
 
                             // Pause procedure.
-                            procedureIsRunning = false;
+                            // procedureIsRunning = false;
 
                             procedureController.setColorForCircle(Color.web("#FFAA00"));
                             procedureController.setTextForLabel("Fix loss");
@@ -1306,15 +1304,30 @@ public class BasicProcedure extends Stage {
                             //isMsgAfterFixLossDisplayedOnTheScreen = true;
                             wasReminderMsgAfterFixLossShown = true;
 
-                            System.out.println("Fixx Loss");
+                            System.out.println("Fixx Loss F");
 
-                            fixationMonitorTimeline.pause();
+                            // fixationMonitorTimeline.pause();
                         }
                     }
                     break;
             }
         });
         fixationMonitorTimeline.getKeyFrames().add(intervalBetweenStimuli);
+
+        interval += 1500;
+
+        KeyFrame removeMsg = new KeyFrame(Duration.millis(interval), event -> {
+
+            if (displayPane.getChildren().size() > 1) {
+                displayPane.getChildren().remove(1);
+            }
+
+            procedureController.setColorForCircle(Color.web("#33FF33"));
+            procedureController.setTextForLabel("Running");
+        });
+        fixationMonitorTimeline.getKeyFrames().add(removeMsg);
+
+
 
         // TODO: WATCH OUT!
         int unsafeInterval = 100; // Watch out on this. If it is equal to 10 procedure might go insane. 100 is a safe value.
@@ -1672,23 +1685,33 @@ public class BasicProcedure extends Stage {
                 // Prepare data and display some additional information in text area in Procedure scene.
                 procedureController.addTextToTextArea("PROCEDURE INFORMATION" + "\n\n");
 
-                int totalFixationMonitorChecks = 0;
-                int positiveFixationMonitorChecks = 0;
-                double fixationMonitorAccuracyInPercentages = 0;
+                int totalFixMonChecks_blindspot = 0;
+                int totalFixMonChecks_fixpointchange = 0;
+
+                int posFixMonChecks_blindspot = 0;
+                int posFixMonChecks_fixpointchange = 0;
+
+                double fixMonAccInPercentages_blindspot = 0;
+                double fixMonAccInPercentages_fixpointchange = 0;
 
                 if (!fixationMonitorTechnique.equals("None")) {
 
-                    totalFixationMonitorChecks = answersToFixationMonitor.size();
-                    if (fixationMonitorTechnique.equals("Blindspot")) {
-                        positiveFixationMonitorChecks = (int) answersToFixationMonitor.stream().filter(f -> !f).count();
-                    } else {
-                        positiveFixationMonitorChecks = (int) answersToFixationMonitor.stream().filter(f -> f).count();
-                    }
-                    fixationMonitorAccuracyInPercentages = functions.round(((double) positiveFixationMonitorChecks / totalFixationMonitorChecks) * 100, 2);
+                    totalFixMonChecks_blindspot = answersToFixationMonitor_blindspot.size();
+                    totalFixMonChecks_fixpointchange = answersToFixationMonitor_fixpointchange.size();
 
-                    procedureController.addTextToTextArea("Total fixation monitor checks: " + totalFixationMonitorChecks + "\n");
-                    procedureController.addTextToTextArea("Positive fixation monitor checks: " + positiveFixationMonitorChecks + "\n");
-                    procedureController.addTextToTextArea("Fixation monitor accuracy (%): " + fixationMonitorAccuracyInPercentages + "\n\n");
+                    posFixMonChecks_blindspot = (int) answersToFixationMonitor_blindspot.stream().filter(f -> !f).count();
+                    posFixMonChecks_fixpointchange = (int) answersToFixationMonitor_fixpointchange.stream().filter(f -> f).count();
+
+                    fixMonAccInPercentages_blindspot = functions.round(((double) posFixMonChecks_blindspot / totalFixMonChecks_blindspot) * 100, 2);
+                    fixMonAccInPercentages_fixpointchange = functions.round(((double) posFixMonChecks_fixpointchange / totalFixMonChecks_fixpointchange) * 100, 2);
+
+                    procedureController.addTextToTextArea("Total B fixation checks: " + totalFixMonChecks_blindspot + "\n");
+                    procedureController.addTextToTextArea("Positive B fixation checks: " + posFixMonChecks_blindspot + "\n");
+                    procedureController.addTextToTextArea("B fixation accuracy (%): " + fixMonAccInPercentages_blindspot + "\n\n");
+
+                    procedureController.addTextToTextArea("Total FPC fixation checks: " + totalFixMonChecks_fixpointchange + "\n");
+                    procedureController.addTextToTextArea("Positive FPC fixation checks: " + posFixMonChecks_fixpointchange + "\n");
+                    procedureController.addTextToTextArea("FPC fixation accuracy (%): " + fixMonAccInPercentages_fixpointchange + "\n\n");
                 }
 
                 int falsePositive_Positive = falsePositiveIndicator_PositiveAnswer;
@@ -1712,9 +1735,9 @@ public class BasicProcedure extends Stage {
                 BasicProcedureData basicProcedureData = new BasicProcedureData();
                 basicProcedureData.setArrayListBasicProcedureStimulus(stimuliList);
 
-                basicProcedureData.setTotalFixationMonitorChecks(totalFixationMonitorChecks);
-                basicProcedureData.setPositiveFixationMonitorChecks(positiveFixationMonitorChecks);
-                basicProcedureData.setFixationMonitorAccuracyInPercentages(fixationMonitorAccuracyInPercentages);
+                basicProcedureData.setTotalFixationMonitorChecks(totalFixMonChecks_blindspot + totalFixMonChecks_fixpointchange);
+                basicProcedureData.setPositiveFixationMonitorChecks((posFixMonChecks_blindspot + posFixMonChecks_fixpointchange) / 2);
+                basicProcedureData.setFixationMonitorAccuracyInPercentages((fixMonAccInPercentages_blindspot + fixMonAccInPercentages_fixpointchange) / 2);
 
                 basicProcedureData.setTestDuration(procedureDuration);
                 StartApplication.getSpecvisData().setBasicProcedureData(basicProcedureData);

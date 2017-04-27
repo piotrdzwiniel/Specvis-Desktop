@@ -143,12 +143,15 @@ public class FixationAndOtherController implements Initializable {
     }
 
     private void setItemsForComboBoxFixationMonitorTechnique() {
-        ObservableList<String> observableList = FXCollections.observableArrayList("None", "Blindspot", "Fixation point change");
+        ObservableList<String> observableList = FXCollections.observableArrayList("None", "Blindspot", "Fixation point change", "Both");
         comboBoxFixationMonitorTechnique.setItems(observableList);
         comboBoxFixationMonitorTechnique.getSelectionModel().select(0);
 
+        // If both eyes are tested at the same time, only "Fixation point change" technique
+        // will be available.
         if (StartApplication.getSpecvisData().getPatient().getTestedEye().equals("Both")) {
             comboBoxFixationMonitorTechnique.getItems().remove(1);
+            comboBoxFixationMonitorTechnique.getItems().remove(2);
         }
     }
 

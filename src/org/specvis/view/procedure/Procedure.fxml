@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.procedure.ProcedureController">
+<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.procedure.ProcedureController">
     <bottom>
         <HBox alignment="CENTER" prefHeight="85.0" prefWidth="200.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
             <children>
@@ -29,6 +29,13 @@
                     <font>
                         <Font name="Arial" size="34.0" />
                     </font>
+               <graphic>
+                  <Button id="greenButton" mnemonicParsing="false" onAction="#setOnActionPrototypeProcedureButton" prefHeight="44.0" prefWidth="230.0" stylesheets="@../MainStylesheet.css" text="Prototype procedure">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </graphic>
                 </Label>
                 <Button id="greenButton" fx:id="buttonStart" mnemonicParsing="false" onAction="#setOnActionStartButton" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Start">
                     <HBox.margin>

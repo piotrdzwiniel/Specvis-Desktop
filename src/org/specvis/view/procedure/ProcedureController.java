@@ -11,7 +11,8 @@ import org.specvis.model.*;
 import org.specvis.model.procedure.BasicProcedureData;
 import org.specvis.model.procedure.BasicProcedureSettings;
 import org.specvis.model.procedure.BasicProcedureStimulus;
-import org.specvis.procedures.BasicProcedure;
+import org.specvis.procedures.basic.Procedure;
+import org.specvis.procedures.basic.ProcedureFixMonBoth;
 import org.specvis.view.miscellaneous.ExceptionDialogWindow;
 
 import java.io.BufferedWriter;
@@ -291,83 +292,6 @@ public class ProcedureController implements Initializable {
                     bufferedWriter.flush();
                     bufferedWriter.close();
 
-                    // Save data for PyPlotsPlugin.
-                    // Save data to file "Results/<Patient ID>/<Results ID>/session_data_for_pyplotsplugin.ppp".
-//                    File fileSessionDataForPyPlotsPlugin = new File("Results/" + specvisData.getPatient().getId() + "/" + resultsID + "/session_data_for_pyplotsplugin.ppp");
-//                    bufferedWriter = new BufferedWriter(new FileWriter(fileSessionDataForPyPlotsPlugin));
-//
-//                    bufferedWriter.write("patientID=\"" + specvisData.getPatient().getId() + "\";" + "\n");
-//                    bufferedWriter.write("patientName=\"" + specvisData.getPatient().getFirstName() + " " + specvisData.getPatient().getLastName() + "\";" + "\n");
-//                    bufferedWriter.write("patientDateOfTheBirth=\"" + specvisData.getPatient().getDateOfBirth().toString() + "\";" + "\n");
-//                    bufferedWriter.write("patientAge=\"" + specvisData.getPatient().getAge() + "\";" + "\n");
-//                    bufferedWriter.write("patientTestedEye=\"" + specvisData.getPatient().getTestedEye() + "\";" + "\n");
-//
-//                    Date date = new Date();
-//                    String dateOfTheTest = new SimpleDateFormat("yyyy-MM-dd").format(date);
-//
-//                    bufferedWriter.write("dateOfTheTest=\"" + dateOfTheTest + "\";" + "\n");
-//                    bufferedWriter.write("fixationMonitorTechnique=\"" + specvisData.getFixationAndOther().getFixationMonitorTechnique() + "\";" + "\n");
-//
-//                    bufferedWriter.write("fixationAccuracy=\"" + specvisData.getBasicProcedureData().getPositiveFixationMonitorChecks() +
-//                            "/" + specvisData.getBasicProcedureData().getTotalFixationMonitorChecks() + " (" +
-//                            specvisData.getBasicProcedureData().getFixationMonitorAccuracyInPercentages() + "%)" + "\";" + "\n");
-//                    bufferedWriter.write("testDuration=\"" + specvisData.getBasicProcedureData().getTestDuration() + "\";" + "\n");
-//                    bufferedWriter.write("distanceBetweenStimuliX=\"" + specvisData.getStimulusAndBackground().getDistanceBetweenStimuliInDegreesX() + "\";" + "\n");
-//                    bufferedWriter.write("distanceBetweenStimuliY=\"" + specvisData.getStimulusAndBackground().getDistanceBetweenStimuliInDegreesY() + "\";" + "\n");
-//                    bufferedWriter.write("involvedFieldOfViewX=\"" + specvisData.getScreenAndLuminanceScale().getInvolvedVisualFieldX() + "\";" + "\n");
-//                    bufferedWriter.write("involvedFieldOfViewY=\"" + specvisData.getScreenAndLuminanceScale().getInvolvedVisualFieldY() + "\";" + "\n");
-//                    bufferedWriter.write("fixationPointLocationX=\"" + specvisData.getFixationAndOther().getFixationPointLocationX() + "\";" + "\n");
-//                    bufferedWriter.write("fixationPointLocationY=\"" + specvisData.getFixationAndOther().getFixationPointLocationY() + "\";" + "\n");
-//
-//                    switch (specvisData.getFixationAndOther().getFixationMonitorTechnique()) {
-//                        case "Blindspot":
-//
-//                            bufferedWriter.write("locationOfBlindspotX=\"" + specvisData.getFixationAndOtherMonitorSettingsBlindspot().getBlindspotDistanceFromFixPointX() + "\";" + "\n");
-//                            bufferedWriter.write("locationOfBlindspotY=\"" + specvisData.getFixationAndOtherMonitorSettingsBlindspot().getBlindspotDistanceFromFixPointY() + "\";" + "\n");
-//
-//                            break;
-//                        default:
-//
-//                            bufferedWriter.write("locationOfBlindspotX=\"" + 0.0 + "\";" + "\n");
-//                            bufferedWriter.write("locationOfBlindspotY=\"" + 0.0 + "\";" + "\n");
-//
-//                            break;
-//                    }
-//
-//                    bufferedWriter.write("backgroundLuminance=\"" + specvisData.getStimulusAndBackground().getBackgroundLuminance() + "\";" + "\n");
-//                    bufferedWriter.write("stimulusMaxLuminance=\"" + specvisData.getStimulusAndBackground().getStimulusMaxLuminance() + "\";" + "\n");
-//                    bufferedWriter.write("stimulusMinLuminance=\"" + specvisData.getStimulusAndBackground().getStimulusMinLuminance() + "\";" + "\n");
-//
-//                    ArrayList<ArrayList<BasicProcedureStimulus>> dataset = functions.getSortedDataFromFromBasicProcedure();
-//
-//                    double[][] decibelData = new double[dataset.size()][dataset.get(0).size()];
-//
-//                    for (int i = 0; i < decibelData.length; i++) {
-//                        for (int j = 0; j < decibelData[i].length; j++) {
-//                            decibelData[i][j] = dataset.get(i).get(j).getDecibelThreshold();
-//                        }
-//                    }
-//
-//                    bufferedWriter.write("numberOfGridRows=\"" + decibelData.length + "\";" + "\n");
-//                    bufferedWriter.write("numberOfGridColumns=\"" + decibelData[0].length + "\";" + "\n");
-//
-//                    String stringData = "";
-//
-//                    for (int i = 0; i < decibelData.length; i++) {
-//                        for (int j = 0; j < decibelData[i].length; j++) {
-//                            if (i == decibelData.length - 1 && j == decibelData[i].length - 1) {
-//                                stringData += String.valueOf(decibelData[i][j]);
-//                            } else {
-//                                stringData += String.valueOf(decibelData[i][j]) + " ";
-//                            }
-//                        }
-//                    }
-//
-//                    bufferedWriter.write("dataDecibels=\"" + stringData + "\";");
-//
-//                    bufferedWriter.flush();
-//                    bufferedWriter.close();
-
                     // Show information dialog.
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information");
@@ -602,8 +526,33 @@ public class ProcedureController implements Initializable {
 
             switch (specvisData.getFixationAndOther().getProcedure()) {
                 case "Basic":
-                    BasicProcedure basicProcedure = new BasicProcedure();
-                    basicProcedure.show();
+                    Procedure procedure = new Procedure();
+                    procedure.show();
+                    break;
+            }
+        }
+    }
+
+    // TODO: Testing procedure for fixation monitor "Both".
+    @FXML
+    private void setOnActionPrototypeProcedureButton() throws IOException {
+
+        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmation.setTitle("Confirmation");
+        confirmation.setHeaderText("Are you sure you want to start procedure?");
+        Optional<ButtonType> result = confirmation.showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+
+            circle.setFill(Color.web("#202020"));
+            initStyleForLabel();
+            label.setText("Waiting...");
+            progressIndicator.setProgress(0.0);
+
+            switch (specvisData.getFixationAndOther().getProcedure()) {
+                case "Basic":
+                    ProcedureFixMonBoth procedure = new ProcedureFixMonBoth();
+                    procedure.show();
                     break;
             }
         }
