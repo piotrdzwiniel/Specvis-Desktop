@@ -1,0 +1,37 @@
+SPECVIS KOD TODO
+
+[1-1-0] W oknie procedury zlikwidować okienko z informacjami tekstowymi o ustawieniach procedury. Dodać tam natomiast okienko "konsoli", w której będą na bieżąco wyświetlane dane z badania, ale także np. to, czy dane zostały już przez użytkownika zapisane, czy nie.
+[1-1-0] Dodać zieloną ikonkę przy przycisku zapisu danych, gdy dane zostały zapisane.
+[1-1-0] Zmniejszyć czcionkę we wszystkich oknach.
+[1-1-0] Dodać efekt "hover" oraz "drop-shadow" do wszystkich przycisków.
+[1-1-0] Nieedytowalne pola powinny się różnić czcionką i kolorem od edytowalnych.
+[1-1-0] Na ekranie podglądu rozkładu bodźców dodać eliptyczne linie oznaczające badane pole widzenia (np. co 10 stopni).
+[1-1-0] Zaimplementować czytanie czasów reakcji.
+[1-1-0] Zaimplementować różnicowanie badań z kilku testów i może ich uśrednianie.
+[1-1-0] Dodać nową metodę wizualizacji danych opartą o pojedyncze piksele.
+[1-1-0] Dodać ekran startowy z wyborem testu.
+[1-1-0] Dodać trzecią opcję monitorowania fiksacji.
+[1-1-0] Zoptymalizować kod procedury Basic.
+[1-1-0] Dodać godzinę i dzień do wyników tekstowych badania.
+[1-1-0] Dodać zegar wyświetlający czas trwania procedury (ekran podglądu procedury).
+[1-1-0] Dodać możliwość wydruku wyników w postaci pliku pdf zawierającego graficzną oraz liczbową reprezentację wyników.
+[1-1-0] Dodać automatyczne zanikanie wiadomości o utracie fiksacji + możliwość włączenia tej opcji (wyłączanie albo ręczne, albo automatyczne po x ms).
+[1-1-0] Dodać możliwość wyświetlania podstawowych informacji o postępie procedury po naciśnięciu przycisku pauzy na ekranie badanego.
+[1-1-0] Pokazywać wiadomość o utracie fiksacji losowo lub tylko po utracie fiksacji.
+[1-1-0] Oznaczenia kwadratów (potęg) zapisywać indeksem górnym.
+[1-1-0] Poprawić kodowanie tekstu (polskie znaki nie wyświetlają się prawidłowo).
+[1-1-0] Zmienić format liczb zmiennoprzecinkowych tak, aby zamiast przecinków były kropki.
+[1-1-0] Nie można eksportować wyników przy ich podglądzie bezpośrednio po badaniu - poprawić.
+[1-1-0] Skrócić nazwy parametrów.
+[1-1-0] Wpisywanie wartości do np. Spinnera powinno być zapamiętywane przy każdym naciśnięciu klawisza.
+[1-1-0] Zmienić nazwę przycisku "Discard" na "Close".
+[1-1-0] Zmienić sposób wyświetlania informacji o dostępnych ekranach.
+===
+[STARE] Dodać możliwość korzystania ze Specvisa bez konieczności posiadania fotometru.
+[STARE] Dodać funkcjonalność, która pozwalałaby na manualne triggerowanie kolejnych wyświetleń bodźców wzrokowych, np. za pośrednictwem naciśnięcia wybranego klawisza. Funkcjonalność ta ma szczególne znaczenie w kontekście wykorzystania modułu arduino, który potrafi wysyłać via USB sygnał imitujący naciśnięcie wybranego klawisza w momencie, gdy np. moduł odbierze prąd o określonej amplitudzie. Mógłbym dzięki temu triggerować Specvisa np. za pośrednictwem zewnętrznego stymulatora prądowego.
+[STARE] Zmienić technikę rysowania map na bardziej wydajną i dokładną.
+[STARE] Zmienić technikę fitowania krzywej do pomiarów luminancji z wielomianowej na wykładniczą.
+[STARE] Dodać obsługę czasów reakcji.
+[STARE] Dodać możliwość porównywania i uśredniania kilku map ze sobą.
+[STARE] Dodać możliwość manualnego kreślenia ścieżek dla prezentacji bodźców wzrokowych.
+[STARE] Dodać funkcjonalność identyczną z tą z perymetrii kinetycznej.

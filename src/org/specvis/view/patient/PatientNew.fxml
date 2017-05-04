@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.patient.PatientNewController">
+<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.patient.PatientNewController">
     <bottom>
         <HBox alignment="CENTER_RIGHT" prefHeight="85.0" prefWidth="200.0" spacing="25.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
             <children>
@@ -50,7 +50,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <TextField id="textField" fx:id="textFieldID" editable="false" prefHeight="40.0" prefWidth="220.0" stylesheets="@../MainStylesheet.css">
+                              <TextField id="textFieldUneditable" fx:id="textFieldID" editable="false" prefHeight="40.0" prefWidth="220.0" stylesheets="@../MainStylesheet.css">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -221,7 +221,7 @@
                   </VBox>
                </children>
             </HBox>
-            <TextArea fx:id="textArea" maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" wrapText="true" VBox.vgrow="ALWAYS">
+            <TextArea id="textAreaEditable" fx:id="textArea" maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" stylesheets="@../MainStylesheet.css" wrapText="true" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets bottom="25.0" left="25.0" right="25.0" />
                </VBox.margin>

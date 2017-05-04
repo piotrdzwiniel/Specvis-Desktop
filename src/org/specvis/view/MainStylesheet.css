@@ -63,8 +63,20 @@
     -fx-text-fill: #FFFFFF;
 }
 
+#backNextButtons:hover {
+    -fx-background-color: #0088CC;
+    -fx-background-radius: 0;
+    -fx-text-fill: #FFFFFF;
+}
+
 #bodyButton {
     -fx-background-color: #202020;
+    -fx-background-radius: 0;
+    -fx-text-fill: #FFFFFF;
+}
+
+#bodyButton:hover {
+    -fx-background-color: #545454;
     -fx-background-radius: 0;
     -fx-text-fill: #FFFFFF;
 }
@@ -75,10 +87,18 @@
     -fx-text-fill: #FFFFFF;
 }
 
+#redButton:hover {
+    -fx-background-color: #CC4444;
+}
+
 #orangeButton {
     -fx-background-color: #FFAA00;
     -fx-background-radius: 0;
     -fx-text-fill: #FFFFFF;
+}
+
+#orangeButton:hover {
+    -fx-background-color: #CC8800;
 }
 
 #greenButton {
@@ -87,9 +107,12 @@
     -fx-text-fill: #FFFFFF;
 }
 
+#greenButton:hover {
+    -fx-background-color: #29CC29;
+}
+
 #comboBox {
     -fx-font-size: 18px;
-    -fx-background-color: #F0F0F0;
     -fx-background-radius: 0;
 }
 
@@ -97,19 +120,25 @@
     -fx-font-size: 18px;
 }
 
-#textField {
-    -fx-background-color: #F0F0F0;
+#textFieldEditable {
+    -fx-control-inner-background: #FFF;
+    -fx-background-radius: 0;
+}
+
+#textFieldUneditable {
+    -fx-control-inner-background: #F0F0F0;
+    -fx-text-fill: gray;
     -fx-background-radius: 0;
 }
 
 #datePicker {
     -fx-font-size: 18px;
-    -fx-background-color: #F0F0F0;
+    /* -fx-background-color: #F0F0F0; */
     -fx-background-radius: 0;
 }
 
 #datePicker .text-field {
-    -fx-control-inner-background: #F0F0F0 ;
+    /* -fx-control-inner-background: #FFF; */
     -fx-font-size: 18px;
 }
 
@@ -119,17 +148,17 @@
 }
 
 #spinner {
-    -fx-focus-color: transparent;
+    /* -fx-focus-color: transparent; */
 }
 
 #spinner .text-field {
-    -fx-background-color: #F0F0F0;
+    /* -fx-background-color: #F0F0F0; */
     -fx-font-size: 18px;
     -fx-background-radius: 0;
 }
 
 #spinner .increment-arrow-button, .decrement-arrow-button {
-    -fx-background-color: #F0F0F0;
+    /* -fx-background-color: #F0F0F0; */
     -fx-background-radius: 0;
 }
 
@@ -192,8 +221,18 @@
     -fx-background-color: #FFFFFF;
 }
 
+#textArea {
+    -fx-text-fill: gray;
+    -fx-font-size: 14px;
+}
+
 #textArea .content {
     -fx-background-color: #F0F0F0;
+    -fx-text-fill: gray;
+}
+
+#textAreaEditable {
+
 }
 
 #progressIndicator .indicator {

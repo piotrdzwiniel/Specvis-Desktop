@@ -6,16 +6,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.patient.PatientController">
+<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.patient.PatientController">
     <bottom>
-        <HBox alignment="CENTER" prefHeight="85.0" prefWidth="200.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
+        <HBox alignment="CENTER" prefHeight="90.0" prefWidth="900.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
             <children>
             <Label prefHeight="40.0" prefWidth="100.0" text="v1.1.0" textFill="WHITE">
                <HBox.margin>
@@ -27,7 +25,7 @@
                         <Font name="Arial" size="34.0" />
                     </font>
                 </Label>
-                <Button id="backNextButtons" mnemonicParsing="false" onAction="#setSceneScreenAndLumScale" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Next">
+                <Button id="backNextButtons" mnemonicParsing="false" onAction="#setSceneScreenAndLumScale" prefHeight="40.0" prefWidth="100.0" stylesheets="@MainStylesheet.css" text="Next">
                     <HBox.margin>
                         <Insets right="25.0" />
                     </HBox.margin>
@@ -39,7 +37,7 @@
         </HBox>
     </bottom>
    <center>
-      <VBox id="vBoxWhite" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" BorderPane.alignment="CENTER">
+      <VBox id="vBoxWhite" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" stylesheets="@MainStylesheet.css" BorderPane.alignment="CENTER">
          <children>
             <VBox alignment="CENTER" spacing="20.0" VBox.vgrow="ALWAYS">
                <children>
@@ -50,22 +48,22 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Button id="bodyButton" mnemonicParsing="false" onAction="#setScenePatientNew" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="New">
+                        <Button id="bodyButton" mnemonicParsing="false" onAction="#setScenePatientNew" prefHeight="40.0" prefWidth="100.0" stylesheets="@MainStylesheet.css" text="New">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button id="bodyButton" mnemonicParsing="false" onAction="#setScenePatientExisting" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Existing">
+                        <Button id="bodyButton" mnemonicParsing="false" onAction="#setScenePatientExisting" prefHeight="40.0" prefWidth="100.0" stylesheets="@MainStylesheet.css" text="Existing">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button id="bodyButton" mnemonicParsing="false" onAction="#setScenePatientEdit" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Edit">
+                        <Button id="bodyButton" mnemonicParsing="false" onAction="#setScenePatientEdit" prefHeight="40.0" prefWidth="100.0" stylesheets="@MainStylesheet.css" text="Edit">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button id="bodyButton" layoutX="580.0" layoutY="10.0" mnemonicParsing="false" onAction="#setScenePatientResults" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Results">
+                        <Button id="bodyButton" layoutX="580.0" layoutY="10.0" mnemonicParsing="false" onAction="#setScenePatientResults" prefHeight="40.0" prefWidth="100.0" stylesheets="@MainStylesheet.css" text="Results">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -84,7 +82,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField id="textFieldUneditable" fx:id="textFieldID" editable="false" prefHeight="40.0" prefWidth="350.0" stylesheets="@../MainStylesheet.css">
+                        <TextField id="textFieldUneditable" fx:id="textFieldID" editable="false" prefHeight="40.0" prefWidth="350.0" stylesheets="@MainStylesheet.css">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -103,7 +101,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField id="textFieldUneditable" fx:id="textFieldName" editable="false" prefHeight="40.0" prefWidth="350.0" stylesheets="@../MainStylesheet.css">
+                        <TextField id="textFieldUneditable" fx:id="textFieldName" editable="false" prefHeight="40.0" prefWidth="350.0" stylesheets="@MainStylesheet.css">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -122,7 +120,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <ComboBox id="comboBox" fx:id="comboBoxTestedEye" onAction="#setTestedEye" prefHeight="40.0" prefWidth="350.0" promptText="Choose..." stylesheets="@../MainStylesheet.css" />
+                        <ComboBox id="comboBox" fx:id="comboBoxTestedEye" onAction="#setTestedEye" prefHeight="40.0" prefWidth="350.0" promptText="Choose..." stylesheets="@MainStylesheet.css" />
                      </children>
                   </HBox>
                </children>
@@ -137,11 +135,11 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField id="textFieldUneditable" fx:id="textFieldSettings" editable="false" prefHeight="40.0" prefWidth="350.0" stylesheets="@../MainStylesheet.css">
+                        <TextField id="textFieldUneditable" fx:id="textFieldSettings" editable="false" prefHeight="40.0" prefWidth="350.0" stylesheets="@MainStylesheet.css">
                            <font>
                               <Font size="18.0" />
                            </font></TextField>
-                        <Button id="bodyButton" mnemonicParsing="false" onAction="#setOnActionForLoadButton" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Load">
+                        <Button id="bodyButton" mnemonicParsing="false" onAction="#setOnActionForLoadButton" prefHeight="40.0" prefWidth="100.0" stylesheets="@MainStylesheet.css" text="Load">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -154,19 +152,6 @@
       </VBox>
    </center>
    <top>
-      <VBox id="vBoxWhite" stylesheets="@../MainStylesheet.css" BorderPane.alignment="CENTER">
-         <children>
-            <Label alignment="CENTER" contentDisplay="TOP" maxWidth="1.7976931348623157E308">
-               <graphic>
-                  <ImageView fitHeight="135.0" fitWidth="360.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../graphics/SpecvisLogo.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Label>
-            <Separator prefWidth="200.0" />
-         </children>
-      </VBox>
+      <VBox id="vBoxWhite" stylesheets="@MainStylesheet.css" BorderPane.alignment="CENTER" />
    </top>
 </BorderPane>
