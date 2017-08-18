@@ -8,17 +8,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import org.specvis.model.Functions;
-import org.specvis.model.SpecvisData;
-import org.specvis.view.fixationandother.FixationAndOtherController;
-import org.specvis.view.fixationandother.FixationAndOtherMonitorSettingsBlindspotController;
-import org.specvis.view.fixationandother.FixationAndOtherMonitorSettingsFixPointChangeController;
-import org.specvis.view.fixationandother.procedure.BasicProcedureSettingsController;
+import org.specvis.logic.Functions;
+import org.specvis.datastructures.SpecvisData;
+import org.specvis.view.fixationandother.*;
 import org.specvis.view.patient.*;
-import org.specvis.view.procedure.ProcedureController;
-import org.specvis.view.procedure.ProcedureShowResultsController;
+import org.specvis.view.procedure.ViewProcedurePreviewController;
+import org.specvis.view.procedure.ViewProcedureResultsController;
 import org.specvis.view.screenandlumscale.*;
-import org.specvis.view.stimulusandbackground.StimulusAndBackgroundController;
+import org.specvis.view.stimulusandbackground.ViewStimulusAndBackgroundController;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -53,25 +50,26 @@ public class StartApplication extends Application {
     private static SpecvisData specvisData;
     private static Functions functions;
 
-    private static PatientController patientController;
-    private static PatientNewController patientNewController;
-    private static PatientExistingController patientExistingController;
-    private static PatientEditController patientEditController;
-    private static PatientResultsController patientResultsController;
-    private static PatientResultsInfoController patientResultsInfoController;
-    private static PatientResultsMapController patientResultsMapController;
-    private static ScreenAndLumScaleController screenAndLumScaleController;
-    private static ScreenAndLumScaleNewController screenAndLumScaleNewController;
-    private static ScreenAndLumScaleExistingController screenAndLumScaleExistingController;
-    private static ScreenAndLumScaleEditController screenAndLumScaleEditController;
-    private static ScreenAndLumScaleFitController screenAndLumScaleFitController;
-    private static StimulusAndBackgroundController stimulusAndBackgroundController;
-    private static FixationAndOtherController fixationAndOtherController;
-    private static FixationAndOtherMonitorSettingsBlindspotController fixationAndOtherMonitorSettingsBlindspotController;
-    private static FixationAndOtherMonitorSettingsFixPointChangeController fixationAndOtherMonitorSettingsFixPointChangeController;
-    private static BasicProcedureSettingsController basicProcedureSettingsController;
-    private static ProcedureController procedureController;
-    private static ProcedureShowResultsController procedureShowResultsController;
+    private static ViewStartWindowController viewStartWindowController;
+    private static ViewNewPatientController viewNewPatientController;
+    private static ViewExistingPatientController viewExistingPatientController;
+    private static ViewEditPatientController viewEditPatientController;
+    private static ViewPatientResultsController viewPatientResultsController;
+    private static ViewPatientResultsInfoController viewPatientResultsInfoController;
+    private static ViewPatientResultsMapController viewPatientResultsMapController;
+    private static ViewScreenAndLumScaleController viewScreenAndLumScaleController;
+    private static ViewNewLumScaleController viewNewLumScaleController;
+    private static ViewExistingLumScaleController viewExistingLumScaleController;
+    private static ViewEditLumScaleController viewEditLumScaleController;
+    private static ViewFitLumScaleController viewFitLumScaleController;
+    private static ViewStimulusAndBackgroundController viewStimulusAndBackgroundController;
+    private static ViewFixationAndOtherController viewFixationAndOtherController;
+    private static ViewFixMonitorBlindspotController viewFixMonitorBlindspotController;
+    private static ViewFixMonitorFixPointChangeController viewFixMonitorFixPointChangeController;
+    private static ViewFixMonitorBothController viewFixMonitorBothController;
+    private static ViewProcedureBasicController viewProcedureBasicController;
+    private static ViewProcedurePreviewController viewProcedurePreviewController;
+    private static ViewProcedureResultsController viewProcedureResultsController;
 
     private static Scene sceneProcedure;
 
@@ -104,63 +102,63 @@ public class StartApplication extends Application {
     /* PATIENT SCENES */
     public static void setScenePatient() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/Patient.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/ViewStartWindow.fxml"));
         Parent root = fxmlLoader.load();
-        patientController = fxmlLoader.getController();
+        viewStartWindowController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
 
     public static void setScenePatientNew() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/PatientNew.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/ViewNewPatient.fxml"));
         Parent root = fxmlLoader.load();
-        patientNewController = fxmlLoader.getController();
+        viewNewPatientController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
 
     public static void setScenePatientExisting() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/PatientExisting.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/ViewExistingPatient.fxml"));
         Parent root = fxmlLoader.load();
-        patientExistingController = fxmlLoader.getController();
+        viewExistingPatientController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
 
     public static void setScenePatientEdit() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/PatientEdit.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/ViewEditPatient.fxml"));
         Parent root = fxmlLoader.load();
-        patientEditController = fxmlLoader.getController();
+        viewEditPatientController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
 
     public static void setScenePatientResults() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/PatientResults.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/ViewPatientResults.fxml"));
         Parent root = fxmlLoader.load();
-        patientResultsController = fxmlLoader.getController();
+        viewPatientResultsController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
 
     public static void setScenePatientResultsInfo() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/PatientResultsInfo.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/ViewPatientResultsInfo.fxml"));
         Parent root = fxmlLoader.load();
-        patientResultsInfoController = fxmlLoader.getController();
+        viewPatientResultsInfoController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
 
     public static void setScenePatientResultsMap() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/PatientResultsMap.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/ViewPatientResultsMap.fxml"));
         Parent root = fxmlLoader.load();
-        patientResultsMapController = fxmlLoader.getController();
+        viewPatientResultsMapController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
@@ -168,45 +166,45 @@ public class StartApplication extends Application {
     /* SCREEN AND LUMINANCE SCENES */
     public static void setSceneScreenAndLumScale() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/screenandlumscale/ScreenAndLumScale.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/screenandlumscale/ViewScreenAndLumScale.fxml"));
         Parent root = fxmlLoader.load();
-        screenAndLumScaleController = fxmlLoader.getController();
+        viewScreenAndLumScaleController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
 
     public static void setSceneScreenAndLumScaleNew() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/screenandlumscale/ScreenAndLumScaleNew.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/screenandlumscale/ViewNewLumScale.fxml"));
         Parent root = fxmlLoader.load();
-        screenAndLumScaleNewController = fxmlLoader.getController();
+        viewNewLumScaleController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
 
     public static void setSceneScreenAndLumScaleExisting() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/screenandlumscale/ScreenAndLumScaleExisting.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/screenandlumscale/ViewExistingLumScale.fxml"));
         Parent root = fxmlLoader.load();
-        screenAndLumScaleExistingController = fxmlLoader.getController();
+        viewExistingLumScaleController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
 
     public static void setSceneScreenAndLumScaleEdit() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/screenandlumscale/ScreenAndLumScaleEdit.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/screenandlumscale/ViewEditLumScale.fxml"));
         Parent root = fxmlLoader.load();
-        screenAndLumScaleEditController = fxmlLoader.getController();
+        viewEditLumScaleController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
 
     public static void setSceneScreenAndLumScaleFit() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/screenandlumscale/ScreenAndLumScaleFit.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/screenandlumscale/ViewFitLumScale.fxml"));
         Parent root = fxmlLoader.load();
-        screenAndLumScaleFitController = fxmlLoader.getController();
+        viewFitLumScaleController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
@@ -214,9 +212,9 @@ public class StartApplication extends Application {
     /* STIMULUS AND BACKGROUND SCENES */
     public static void setSceneStimulusAndBackground() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/stimulusandbackground/StimulusAndBackground.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/stimulusandbackground/ViewStimulusAndBackground.fxml"));
         Parent root = fxmlLoader.load();
-        stimulusAndBackgroundController = fxmlLoader.getController();
+        viewStimulusAndBackgroundController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
@@ -224,35 +222,44 @@ public class StartApplication extends Application {
     /* FIXATION AND OTHER SCENES */
     public static void setSceneFixationAndOther() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/fixationandother/FixationAndOther.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/fixationandother/ViewFixationAndOther.fxml"));
         Parent root = fxmlLoader.load();
-        fixationAndOtherController = fxmlLoader.getController();
+        viewFixationAndOtherController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
 
     public static void setSceneFixationAndOtherMonitorSettingsBlindspot() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/fixationandother/FixationAndOtherMonitorSettingsBlindspot.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/fixationandother/ViewFixMonitorBlindspot.fxml"));
         Parent root = fxmlLoader.load();
-        fixationAndOtherMonitorSettingsBlindspotController = fxmlLoader.getController();
+        viewFixMonitorBlindspotController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
 
     public static void setSceneFixationAndOtherMonitorSettingsFixPointChange() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/fixationandother/FixationAndOtherMonitorSettingsFixPointChange.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/fixationandother/ViewFixMonitorFixPointChange.fxml"));
         Parent root = fxmlLoader.load();
-        fixationAndOtherMonitorSettingsFixPointChangeController = fxmlLoader.getController();
+        viewFixMonitorFixPointChangeController = fxmlLoader.getController();
+        Scene scene = new Scene(root);
+        getWindow().setScene(scene);
+    }
+
+    public static void setSceneFixationAndOtherMonitorSettingsBoth() throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/fixationandother/ViewFixMonitorBoth.fxml"));
+        Parent root = fxmlLoader.load();
+        viewFixMonitorBothController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
 
     public static void setSceneBasicProcedureSettings() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/fixationandother/procedure/BasicProcedureSettings.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/fixationandother/ViewProcedureBasic.fxml"));
         Parent root = fxmlLoader.load();
-        basicProcedureSettingsController = fxmlLoader.getController();
+        viewProcedureBasicController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
@@ -260,9 +267,9 @@ public class StartApplication extends Application {
     /* PROCEDURE SCENES */
     public static void setSceneProcedure() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/procedure/Procedure.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/procedure/ViewProcedurePreview.fxml"));
         Parent root = fxmlLoader.load();
-        procedureController = fxmlLoader.getController();
+        viewProcedurePreviewController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         sceneProcedure = scene;
         getWindow().setScene(scene);
@@ -274,9 +281,9 @@ public class StartApplication extends Application {
 
     public static void setSceneProcedureShowResults() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/procedure/ProcedureShowResults.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/procedure/ViewProcedureResults.fxml"));
         Parent root = fxmlLoader.load();
-        procedureShowResultsController = fxmlLoader.getController();
+        viewProcedureResultsController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
@@ -297,79 +304,83 @@ public class StartApplication extends Application {
         return functions;
     }
 
-    public static PatientController getPatientController() {
-        return patientController;
+    public static ViewStartWindowController getViewStartWindowController() {
+        return viewStartWindowController;
     }
 
-    public static PatientNewController getPatientNewController() {
-        return patientNewController;
+    public static ViewNewPatientController getViewNewPatientController() {
+        return viewNewPatientController;
     }
 
-    public static PatientExistingController getPatientExistingController() {
-        return patientExistingController;
+    public static ViewExistingPatientController getViewExistingPatientController() {
+        return viewExistingPatientController;
     }
 
-    public static PatientEditController getPatientEditController() {
-        return patientEditController;
+    public static ViewEditPatientController getViewEditPatientController() {
+        return viewEditPatientController;
     }
 
-    public static PatientResultsController getPatientResultsController() {
-        return patientResultsController;
+    public static ViewPatientResultsController getViewPatientResultsController() {
+        return viewPatientResultsController;
     }
 
-    public static PatientResultsInfoController getPatientResultsInfoController() {
-        return patientResultsInfoController;
+    public static ViewPatientResultsInfoController getViewPatientResultsInfoController() {
+        return viewPatientResultsInfoController;
     }
 
-    public static PatientResultsMapController getPatientResultsMapController() {
-        return patientResultsMapController;
+    public static ViewPatientResultsMapController getViewPatientResultsMapController() {
+        return viewPatientResultsMapController;
     }
 
-    public static ScreenAndLumScaleController getScreenAndLumScaleController() {
-        return screenAndLumScaleController;
+    public static ViewScreenAndLumScaleController getViewScreenAndLumScaleController() {
+        return viewScreenAndLumScaleController;
     }
 
-    public static ScreenAndLumScaleNewController getScreenAndLumScaleNewController() {
-        return screenAndLumScaleNewController;
+    public static ViewNewLumScaleController getViewNewLumScaleController() {
+        return viewNewLumScaleController;
     }
 
-    public static ScreenAndLumScaleExistingController getScreenAndLumScaleExistingController() {
-        return screenAndLumScaleExistingController;
+    public static ViewExistingLumScaleController getViewExistingLumScaleController() {
+        return viewExistingLumScaleController;
     }
 
-    public static ScreenAndLumScaleEditController getScreenAndLumScaleEditController() {
-        return screenAndLumScaleEditController;
+    public static ViewEditLumScaleController getViewEditLumScaleController() {
+        return viewEditLumScaleController;
     }
 
-    public static ScreenAndLumScaleFitController getScreenAndLumScaleFitController() {
-        return screenAndLumScaleFitController;
+    public static ViewFitLumScaleController getViewFitLumScaleController() {
+        return viewFitLumScaleController;
     }
 
-    public static StimulusAndBackgroundController getStimulusAndBackgroundController() {
-        return stimulusAndBackgroundController;
+    public static ViewStimulusAndBackgroundController getViewStimulusAndBackgroundController() {
+        return viewStimulusAndBackgroundController;
     }
 
-    public static FixationAndOtherController getFixationAndOtherController() {
-        return fixationAndOtherController;
+    public static ViewFixationAndOtherController getViewFixationAndOtherController() {
+        return viewFixationAndOtherController;
     }
 
-    public static FixationAndOtherMonitorSettingsBlindspotController getFixationAndOtherMonitorSettingsBlindspotController() {
-        return fixationAndOtherMonitorSettingsBlindspotController;
+    public static ViewFixMonitorBlindspotController getViewFixMonitorBlindspotController() {
+        return viewFixMonitorBlindspotController;
     }
 
-    public static FixationAndOtherMonitorSettingsFixPointChangeController getFixationAndOtherMonitorSettingsFixPointChangeController() {
-        return fixationAndOtherMonitorSettingsFixPointChangeController;
+    public static ViewFixMonitorFixPointChangeController getViewFixMonitorFixPointChangeController() {
+        return viewFixMonitorFixPointChangeController;
     }
 
-    public static BasicProcedureSettingsController getBasicProcedureSettingsController() {
-        return basicProcedureSettingsController;
+    public static ViewFixMonitorBothController getViewFixMonitorBothController() {
+        return viewFixMonitorBothController;
     }
 
-    public static ProcedureController getProcedureController() {
-        return procedureController;
+    public static ViewProcedureBasicController getViewProcedureBasicController() {
+        return viewProcedureBasicController;
     }
 
-    public static ProcedureShowResultsController getProcedureShowResultsController() {
-        return procedureShowResultsController;
+    public static ViewProcedurePreviewController getViewProcedurePreviewController() {
+        return viewProcedurePreviewController;
+    }
+
+    public static ViewProcedureResultsController getViewProcedureResultsController() {
+        return viewProcedureResultsController;
     }
 }

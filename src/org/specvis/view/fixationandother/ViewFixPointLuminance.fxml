@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Copyright 2014-2016 Piotr Dzwiniel
+
+This file is part of Specvis.
+
+Specvis is free software; you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 3 of the License,
+or (at your option) any later version.
+
+Specvis is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Specvis; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="340.0" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.fixationandother.ViewFixPointLuminanceController">
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="85.0" prefWidth="200.0" spacing="25.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
+            <children>
+                <Button id="orangeButton" fx:id="buttonCancel" layoutX="785.0" layoutY="31.0" mnemonicParsing="false" onAction="#setOnActionCancelButton" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Cancel">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="25.0" />
+                    </HBox.margin>
+                </Button>
+                <Button id="greenButton" fx:id="buttonSave" mnemonicParsing="false" onAction="#setOnActionSaveButton" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Save">
+                    <HBox.margin>
+                        <Insets right="25.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+    </bottom>
+   <center>
+      <VBox id="vBoxWhite" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" stylesheets="@../MainStylesheet.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="TOP" prefHeight="40.0" prefWidth="290.0" text="Measure luminance in cd/m2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Pane id="displayPane" fx:id="panePreview" maxHeight="290.0" maxWidth="290.0" minHeight="290.0" minWidth="290.0" prefHeight="290.0" prefWidth="290.0" stylesheets="@../MainStylesheet.css" />
+            <Spinner id="spinner" fx:id="spinnerLuminance" amountToStepBy="0.1" editable="true" initialValue="0.0" max="10000.0" min="0.0" prefHeight="40.0" prefWidth="290.0" stylesheets="@../MainStylesheet.css" />
+         </children>
+         <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

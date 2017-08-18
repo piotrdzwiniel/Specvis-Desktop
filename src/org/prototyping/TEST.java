@@ -1,12 +1,5 @@
 package org.prototyping;
 
-import org.specvis.model.Functions;
-
-import java.io.File;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.ArrayList;
-
 /**
  * Created by pdzwiniel on 2016-03-18.
  */
