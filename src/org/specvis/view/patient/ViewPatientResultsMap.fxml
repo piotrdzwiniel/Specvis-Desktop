@@ -130,12 +130,25 @@
                                 <Font size="18.0" />
                             </font>
                         </Button>
-                  <Separator layoutX="10.0" layoutY="442.0" prefWidth="200.0" />
                   <Button id="bodyButton" layoutX="10.0" layoutY="474.0" mnemonicParsing="false" onAction="#setOnActionExportData" prefHeight="40.0" prefWidth="300.0" stylesheets="@../MainStylesheet.css" text="Export data">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
+                  <HBox alignment="CENTER" spacing="10.0">
+                     <children>
+                        <Button id="bodyButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setOnActionCompareResultsButton" prefHeight="40.0" stylesheets="@../MainStylesheet.css" text="Compare results" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button id="bodyButton" mnemonicParsing="false" onAction="#setOnActionCompareResultsHelpButton" prefHeight="40.0" stylesheets="@../MainStylesheet.css" text="?">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
                     </children>
                 </VBox>
             </children>

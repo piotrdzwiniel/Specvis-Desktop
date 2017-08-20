@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 /**
  * Created by Piotr Dzwiniel on 2016-03-10.
- * Last modification on 2017-07-19.
  */
 
 /*

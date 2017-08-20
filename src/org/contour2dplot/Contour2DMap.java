@@ -14,7 +14,7 @@ import java.util.stream.IntStream;
  */
 
 /*
- * Copyright 2016 Piotr Dzwiniel
+ * Copyright from 2016 till now - Piotr Dzwiniel
  *
  * This file is part of org.contour2dplot package.
  *

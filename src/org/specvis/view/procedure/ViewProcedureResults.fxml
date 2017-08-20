@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="borderPaneWhite" fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.procedure.ViewProcedureResultsController">
+<BorderPane id="borderPaneWhite" fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.procedure.ViewProcedureResultsController">
     <bottom>
         <HBox alignment="CENTER_RIGHT" prefHeight="85.0" prefWidth="200.0" spacing="25.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
             <children>
@@ -130,7 +130,6 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Separator layoutX="10.0" layoutY="467.0" prefWidth="200.0" />
                   <Button id="bodyButton" layoutX="10.0" layoutY="474.0" mnemonicParsing="false" onAction="#setOnActionExportData" prefHeight="40.0" prefWidth="300.0" stylesheets="@../MainStylesheet.css" text="Export data">
                      <font>
                         <Font size="18.0" />

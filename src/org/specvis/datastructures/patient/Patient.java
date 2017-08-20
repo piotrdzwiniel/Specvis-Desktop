@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 
 /*
- * Copyright 2014-2016 Piotr Dzwiniel
+ * Copyright from 2014 till now - Piotr Dzwiniel
  *
  * This file is part of Specvis.
  *
@@ -46,8 +46,15 @@ public class Patient {
 
     private String testedEye;
 
+    // Main results.
     private ArrayList<String> resultsInfo;
     private double[][] resultsData;
+    private PatientResults patientResults;
+
+    // Results chosen to compare.
+    private ArrayList<String> resultsInfoToCompare;
+    private double[][] resultsDataToCompare;
+    private PatientResults patientResultsToCompare;
 
     private String settingsName;
 
@@ -197,6 +204,38 @@ public class Patient {
 
     public void setResultsData(double[][] resultsData) {
         this.resultsData = resultsData;
+    }
+
+    public PatientResults getPatientResults() {
+        return patientResults;
+    }
+
+    public void setPatientResults(PatientResults patientResults) {
+        this.patientResults = patientResults;
+    }
+
+    public ArrayList<String> getResultsInfoToCompare() {
+        return resultsInfoToCompare;
+    }
+
+    public void setResultsInfoToCompare(ArrayList<String> resultsInfoToCompare) {
+        this.resultsInfoToCompare = resultsInfoToCompare;
+    }
+
+    public double[][] getResultsDataToCompare() {
+        return resultsDataToCompare;
+    }
+
+    public void setResultsDataToCompare(double[][] resultsDataToCompare) {
+        this.resultsDataToCompare = resultsDataToCompare;
+    }
+
+    public PatientResults getPatientResultsToCompare() {
+        return patientResultsToCompare;
+    }
+
+    public void setPatientResultsToCompare(PatientResults patientResultsToCompare) {
+        this.patientResultsToCompare = patientResultsToCompare;
     }
 
     public String getSettingsName() {

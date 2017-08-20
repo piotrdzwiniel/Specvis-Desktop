@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
  */
 
 /*
- * Copyright 2014-2016 Piotr Dzwiniel
+ * Copyright from 2014 till now - Piotr Dzwiniel
  *
  * This file is part of Specvis.
  *
@@ -62,7 +62,7 @@ public class ViewPatientResultsController implements Initializable {
     private void setTableView() {
 
         ObservableList<PatientResults> tableData = getPatientResultsData();
-        String[] tableColumnsNames = new String[] {"ID", "Date", "Eye", "Visual field", "DEPRECATED_Procedure", "Fixation monitor", "Test duration"};
+        String[] tableColumnsNames = new String[] {"ID", "Date", "Eye", "Visual field", "Procedure", "Fixation monitor", "Test duration"};
         String[] tableFieldsNames = PatientResults.getFieldsNames();
         tableView = new CustomTableView<>(tableColumnsNames, tableFieldsNames, tableData);
         vBox.getChildren().clear();
@@ -303,17 +303,8 @@ public class ViewPatientResultsController implements Initializable {
             File file = new File("Results/" + StartApplication.getSpecvisData().getPatient().getId() + "/" + id + "/session_data.txt");
             double[][] sessionDataFileContent = getPatientResultsData(file);
 
-//            /* TEST */
-//            for (int i = 0; i < sessionDataFileContent.length; i++) {
-//                String str = "";
-//                for (int j = 0; j < sessionDataFileContent[i].length; j++) {
-//                    str += String.valueOf(sessionDataFileContent[i][j]) + ", ";
-//                }
-//                System.out.println(str);
-//            }
-//            /* TEST */
-
             StartApplication.getSpecvisData().getPatient().setResultsData(sessionDataFileContent);
+            StartApplication.getSpecvisData().getPatient().setPatientResults(patientResults);
 
             StartApplication.setScenePatientResultsMap();
 

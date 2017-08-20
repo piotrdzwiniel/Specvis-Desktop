@@ -43,7 +43,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     <bottom>
         <HBox alignment="CENTER_RIGHT" prefHeight="85.0" prefWidth="200.0" spacing="25.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
             <children>
-                <Button id="orangeButton" layoutX="785.0" layoutY="31.0" mnemonicParsing="false" onAction="#setOnActionCancelButton" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Cancel">
+                <Button id="orangeButton" layoutX="785.0" layoutY="31.0" mnemonicParsing="false" onAction="#setOnActionCancelButton" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Cancel">
                     <font>
                         <Font size="20.0" />
                     </font>
@@ -51,7 +51,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
                         <Insets left="25.0" />
                     </HBox.margin>
                 </Button>
-                <Button id="greenButton" mnemonicParsing="false" onAction="#setOnActionSaveButton" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Save">
+                <Button id="greenButton" mnemonicParsing="false" onAction="#setOnActionSaveButton" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Save">
                     <HBox.margin>
                         <Insets right="25.0" />
                     </HBox.margin>

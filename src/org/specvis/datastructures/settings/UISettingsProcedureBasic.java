@@ -2,7 +2,6 @@ package org.specvis.datastructures.settings;
 
 /**
  * Created by Piotr Dzwiniel on 2016-03-09.
- * Last modification on 2017-07-19.
  */
 
 /*

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-Copyright 2014-2016 Piotr Dzwiniel
+Copyright from 2014 till now - Piotr Dzwiniel
 
 This file is part of Specvis.
 
@@ -22,6 +22,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -30,20 +31,20 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.patient.ViewPatientResultsController">
+<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.patient.ViewComparePatientResultsTableController">
     <bottom>
         <HBox alignment="CENTER_RIGHT" prefHeight="85.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
             <children>
-            <Button id="redButton" mnemonicParsing="false" onAction="#setOnActionDeleteButton" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Delete">
+            <Label fx:id="labelLoading" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font size="16.0" />
                </font>
                <HBox.margin>
                   <Insets left="25.0" />
                </HBox.margin>
-            </Button>
+            </Label>
             <Region prefHeight="200.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                <Button id="orangeButton" layoutX="785.0" layoutY="31.0" mnemonicParsing="false" onAction="#setOnActionCancelButton" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Cancel">
+                <Button id="orangeButton" layoutX="785.0" layoutY="31.0" mnemonicParsing="false" onAction="#setOnActionCancelButton" prefHeight="50.0" prefWidth="110.0" stylesheets="@../MainStylesheet.css" text="Cancel">
                     <font>
                         <Font size="20.0" />
                     </font>
@@ -51,15 +52,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
                         <Insets />
                     </HBox.margin>
                 </Button>
-            <Button id="backNextButtons" layoutX="735.0" layoutY="31.0" mnemonicParsing="false" onAction="#setOnActionInfoButton" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Info">
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-            <Button id="backNextButtons" mnemonicParsing="false" onAction="#setOnActionMapButton" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Map">
+            <Button id="greenButton" layoutX="735.0" layoutY="31.0" mnemonicParsing="false" onAction="#setOnActionCompareButton" prefHeight="50.0" prefWidth="110.0" stylesheets="@../MainStylesheet.css" text="Compare">
                <font>
                   <Font size="20.0" />
                </font>

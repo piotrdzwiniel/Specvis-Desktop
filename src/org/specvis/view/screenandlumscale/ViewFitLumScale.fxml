@@ -37,7 +37,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     <bottom>
         <HBox alignment="CENTER_RIGHT" prefHeight="85.0" prefWidth="200.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
             <children>
-                <Button id="backNextButtons" mnemonicParsing="false" onAction="#setSceneScreenAndLumScale" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Close">
+                <Button id="backNextButtons" mnemonicParsing="false" onAction="#setSceneScreenAndLumScale" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Close">
                     <HBox.margin>
                         <Insets right="25.0" />
                     </HBox.margin>

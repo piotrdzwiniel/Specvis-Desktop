@@ -4,7 +4,6 @@ import javafx.scene.shape.Shape;
 
 /**
  * Created by Piotr Dzwiniel on 2016-03-09.
- * Last modification on 2017-07-19.
  */
 
 /*

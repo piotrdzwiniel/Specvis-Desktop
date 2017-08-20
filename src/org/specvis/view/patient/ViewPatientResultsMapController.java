@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
  */
 
 /*
- * Copyright 2014-2016 Piotr Dzwiniel
+ * Copyright from 2014 till now - Piotr Dzwiniel
  *
  * This file is part of Specvis.
  *
@@ -580,6 +580,27 @@ public class ViewPatientResultsMapController implements Initializable {
                 ed.showAndWait();
             }
         }
+    }
+
+    @FXML
+    private void setOnActionCompareResultsButton() throws IOException {
+
+        StartApplication.setSceneComparePatientResultsTable();
+    }
+
+    @FXML
+    private void setOnActionCompareResultsHelpButton() throws IOException {
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Help");
+        alert.setHeaderText("Compare results");
+        alert.setContentText("Specvis can compare two results of the same patient. Results must be " +
+                        "consistent in case of 1) tested eye, 2) involved visual field, " +
+                        "3) distance between stimuli and 4) fixation point location. Any " +
+                "inconsistency between these parameters make comparison impossible. Thus, " +
+                "after hitting Compare button you will see only those results, which match these " +
+                "four parameters.");
+        alert.showAndWait();
     }
 
     @FXML

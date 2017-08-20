@@ -10,7 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 
 /*
- * Copyright 2014-2016 Piotr Dzwiniel
+ * Copyright from 2014 till now - Piotr Dzwiniel
  *
  * This file is part of Specvis.
  *

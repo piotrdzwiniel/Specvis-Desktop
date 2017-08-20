@@ -31,7 +31,7 @@ import java.util.*;
  */
 
 /*
- * Copyright 2014-2016 Piotr Dzwiniel
+ * Copyright from 2014 till now - Piotr Dzwiniel
  *
  * This file is part of Specvis.
  *
@@ -69,6 +69,9 @@ public class ViewProcedurePreviewController implements Initializable {
 
     @FXML
     private Button buttonStart;
+
+    @FXML
+    private Label labelClock;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -503,12 +506,12 @@ public class ViewProcedurePreviewController implements Initializable {
 
         Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
         confirmation.setTitle("Confirmation");
-        confirmation.setHeaderText("Are you sure you want to discard this procedure?");
+        confirmation.setHeaderText("Are you sure you want to discard this procedure (all progress and not saved data will be lost)?");
         Optional<ButtonType> result = confirmation.showAndWait();
 
         if (result.get() == ButtonType.OK) {
 
-            StartApplication.setScenePatient();
+            StartApplication.setSceneFixationAndOther();
         }
     }
 
@@ -583,28 +586,7 @@ public class ViewProcedurePreviewController implements Initializable {
         }
     }
 
-    // TODO: Testing procedure for fixation monitor "Both".
-    @FXML
-    private void setOnActionPrototypeProcedureButton() throws IOException {
-
-        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmation.setTitle("Confirmation");
-        confirmation.setHeaderText("Are you sure you want to start procedure?");
-        Optional<ButtonType> result = confirmation.showAndWait();
-
-        if (result.get() == ButtonType.OK) {
-
-            circle.setFill(Color.web("#202020"));
-            initStyleForLabel();
-            label.setText("Waiting...");
-            progressIndicator.setProgress(0.0);
-
-            switch (specvisData.getUiSettingsFixationAndOther().getProcedure()) {
-                case "Basic":
-                    ProcedureBasicFixMonitorBoth procedure = new ProcedureBasicFixMonitorBoth();
-                    procedure.show();
-                    break;
-            }
-        }
+    public void setTextForStopwatch(long start, long end) {
+        labelClock.setText(functions.totalTime(start, end));
     }
 }

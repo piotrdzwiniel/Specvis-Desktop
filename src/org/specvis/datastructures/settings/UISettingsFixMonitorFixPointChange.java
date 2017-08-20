@@ -4,7 +4,6 @@ import javafx.scene.paint.Color;
 
 /**
  * Created by Piotr Dzwiniel on 2016-02-29.
- * Last modification on 2017-07-19.
  */
 
 /*

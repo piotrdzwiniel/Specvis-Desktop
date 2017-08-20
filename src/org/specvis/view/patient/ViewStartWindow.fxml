@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -17,17 +18,72 @@
     <bottom>
         <HBox alignment="CENTER" prefHeight="85.0" prefWidth="200.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
             <children>
-            <Label prefHeight="40.0" prefWidth="100.0" text="v1.1.0" textFill="WHITE">
+            <Button id="redButton" maxHeight="50.0" minHeight="50.0" mnemonicParsing="false" onAction="#setExitButton" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Exit">
+               <font>
+                  <Font size="20.0" />
+               </font>
                <HBox.margin>
                   <Insets left="25.0" />
                </HBox.margin>
-            </Label>
-                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font name="Arial" size="34.0" />
-                    </font>
-                </Label>
-                <Button id="backNextButtons" mnemonicParsing="false" onAction="#setSceneScreenAndLumScale" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Next">
+            </Button>
+            <HBox id="progressBackground" alignment="CENTER" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" stylesheets="@../MainStylesheet.css" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" selected="true" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="Step 1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="Step 2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="Step 3">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="Step 4">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="START">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+               </HBox.margin>
+            </HBox>
+                <Button id="backNextButtons" maxHeight="50.0" minHeight="50.0" mnemonicParsing="false" onAction="#setSceneScreenAndLumScale" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Next">
                     <HBox.margin>
                         <Insets right="25.0" />
                     </HBox.margin>

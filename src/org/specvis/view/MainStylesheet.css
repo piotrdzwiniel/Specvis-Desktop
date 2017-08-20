@@ -221,6 +221,20 @@
     -fx-background-color: #FFFFFF;
 }
 
+#checkBox:disabled {
+    -fx-opacity: 1;
+}
+
+#progressCheckBox:disabled {
+    -fx-opacity: 1;
+}
+
+#progressBackground {
+    -fx-background-color: #FFF;
+    -fx-border-radius: 25 25 25 25;
+    -fx-background-radius: 25 25 25 25;
+}
+
 #textArea {
     -fx-text-fill: gray;
     -fx-font-size: 14px;

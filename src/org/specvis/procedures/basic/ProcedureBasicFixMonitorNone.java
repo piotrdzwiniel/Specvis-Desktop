@@ -1,5 +1,6 @@
 package org.specvis.procedures.basic;
 
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Rectangle2D;
@@ -32,6 +33,27 @@ import java.util.stream.Collectors;
 /**
  * Created by Piotr Dzwiniel on 07.04.2017.
  */
+
+/*
+ * Copyright from 2014 till now - Piotr Dzwiniel
+ *
+ * This file is part of Specvis.
+ *
+ * Specvis is free software; you can redistribute it
+ * and/or modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * Specvis is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Specvis; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+
 public class ProcedureBasicFixMonitorNone extends Stage {
 
     /* Local fields -> Utility fields */
@@ -78,6 +100,7 @@ public class ProcedureBasicFixMonitorNone extends Stage {
     private ArrayList<Integer> arrayListActiveStimuliIndices;
 
     private Timeline timelineBoot;
+    private Timeline timelineStopwatch;
     private Timeline timelineStimulus;
 
     private long timeStartOfTheProcedure;
@@ -210,6 +233,11 @@ public class ProcedureBasicFixMonitorNone extends Stage {
                 /* Stop stimulus timeline if it exists */
                 if (timelineStimulus != null) {
                     timelineStimulus.stop();
+                }
+
+                /* Stop stopwatch timeline if it exists */
+                if (timelineStopwatch != null) {
+                    timelineStopwatch.stop();
                 }
 
                 /* Close procedure window */
@@ -435,11 +463,6 @@ public class ProcedureBasicFixMonitorNone extends Stage {
      * @return List of stimuli.
      */
     private ArrayList<ProcedureBasicStimulus> createListOfStimuli() {
-
-        // TODO: 1. Correct all syntax in this method.
-        // TODO: 2. Improve class "ProcedureBasicStimulus".
-        // TODO: 3. Paste method "initializeStimulus" and correct/improve its syntax.
-        // TODO: 4. Poprawić wszystkie pola i metody w Specvis tak, aby było jasne w jakiej jednostce wyrażane są ich wartości.
 
         ArrayList<ProcedureBasicStimulus> arrayList = new ArrayList<>();
 
@@ -874,6 +897,16 @@ public class ProcedureBasicFixMonitorNone extends Stage {
 
         /* Start main timeline */
         timelineBoot.play();
+
+        /* Init and run stopwatch timeline in procedure preview window */
+        timelineStopwatch = new Timeline(
+                new KeyFrame(Duration.seconds(0), event -> {
+                    viewProcedurePreviewController.setTextForStopwatch(timeStartOfTheProcedure, System.currentTimeMillis());
+                }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        timelineStopwatch.setCycleCount(Animation.INDEFINITE);
+        timelineStopwatch.play();
     }
 
     private void initAndRunStimulusTimeline() {
@@ -1190,6 +1223,7 @@ public class ProcedureBasicFixMonitorNone extends Stage {
 
                 // Stop procedure timeline and set procedure status as finished.
                 timelineStimulus.stop();
+                timelineStopwatch.stop();
 
                 procedureIsFinished = true;
 
@@ -1206,21 +1240,6 @@ public class ProcedureBasicFixMonitorNone extends Stage {
                 int totalFixationMonitorChecks = 0;
                 int positiveFixationMonitorChecks = 0;
                 double fixationMonitorAccuracyInPercentages = 0;
-
-//                if (!fixationMonitorTechnique.equals("None")) {
-//
-//                    totalFixationMonitorChecks = answersToFixationMonitor.size();
-//                    if (fixationMonitorTechnique.equals("Blindspot")) {
-//                        positiveFixationMonitorChecks = (int) answersToFixationMonitor.stream().filter(f -> !f).count();
-//                    } else {
-//                        positiveFixationMonitorChecks = (int) answersToFixationMonitor.stream().filter(f -> f).count();
-//                    }
-//                    fixationMonitorAccuracyInPercentages = functions.round(((double) positiveFixationMonitorChecks / totalFixationMonitorChecks) * 100, 2);
-//
-//                    viewProcedurePreviewController.addTextToTextArea("Total fixation monitor checks: " + totalFixationMonitorChecks + "\n");
-//                    viewProcedurePreviewController.addTextToTextArea("Positive fixation monitor checks: " + positiveFixationMonitorChecks + "\n");
-//                    viewProcedurePreviewController.addTextToTextArea("Fixation monitor accuracy (%): " + fixationMonitorAccuracyInPercentages + "\n\n");
-//                }
 
                 int falsePositive_Positive = falsePosIndicator_PosAns;
                 int falsePositive_False = falsePosIndicator_FalseAns;

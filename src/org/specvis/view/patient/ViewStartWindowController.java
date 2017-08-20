@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
@@ -20,6 +21,7 @@ import org.specvis.view.miscellaneous.ViewExceptionDialog;
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -522,5 +524,18 @@ public class ViewStartWindowController implements Initializable {
 
     private boolean isTestedEyeSelected() {
         return comboBoxTestedEye.getSelectionModel().getSelectedIndex() != -1;
+    }
+
+    @FXML
+    private void setExitButton() throws IOException {
+
+        Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmation.setTitle("Confirmation");
+        confirmation.setHeaderText("Are you sure you want to exit Specvis?");
+        Optional<ButtonType> result = confirmation.showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            System.exit(-1);
+        }
     }
 }

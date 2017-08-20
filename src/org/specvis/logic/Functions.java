@@ -22,7 +22,6 @@ import java.util.stream.IntStream;
 
 /**
  * Created by Piotr Dzwiniel on 2016-02-12.
- * Last modification on 2017-07-19.
  */
 
 /*

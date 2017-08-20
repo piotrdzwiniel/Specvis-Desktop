@@ -19,7 +19,7 @@ You should have received a copy of the GNU General Public License
 along with Specvis; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 -->
-        
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -30,11 +30,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.fixationandother.ViewProcedureBasicController">
+<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.fixationandother.ViewProcedureBasicController">
     <bottom>
         <HBox alignment="CENTER_RIGHT" prefHeight="85.0" prefWidth="200.0" spacing="25.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
             <children>
-                <Button id="orangeButton" layoutX="785.0" layoutY="31.0" mnemonicParsing="false" onAction="#setOnActionForCancelButton" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Cancel">
+                <Button id="orangeButton" layoutX="785.0" layoutY="31.0" mnemonicParsing="false" onAction="#setOnActionForCancelButton" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Cancel">
                     <font>
                         <Font size="20.0" />
                     </font>
@@ -42,7 +42,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
                         <Insets left="25.0" />
                     </HBox.margin>
                 </Button>
-                <Button id="greenButton" mnemonicParsing="false" onAction="#setOnActionForSaveButton" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Save">
+                <Button id="greenButton" mnemonicParsing="false" onAction="#setOnActionForSaveButton" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Save">
                     <HBox.margin>
                         <Insets right="25.0" />
                     </HBox.margin>

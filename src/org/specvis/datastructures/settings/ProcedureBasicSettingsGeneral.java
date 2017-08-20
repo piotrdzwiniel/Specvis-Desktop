@@ -7,11 +7,6 @@ import org.specvis.datastructures.SpecvisData;
 
 /**
  * Created by piotr_dzwiniel on 18.07.2017.
- * Last modification on 2017-07-19.
- *
- * Class for storing settings information from all settings windows with the exclusion
- * of settings from windows devoted for fixation monitor techniques. There are separate
- * settings classes for them.
  */
 
 /*

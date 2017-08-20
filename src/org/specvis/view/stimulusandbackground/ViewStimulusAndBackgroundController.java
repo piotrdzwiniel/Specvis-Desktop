@@ -489,7 +489,25 @@ public class ViewStimulusAndBackgroundController implements Initializable {
 
                     break;
                 case "Both":
-                    // TODO: Implementacja.
+
+                    UISettingsFixMonitorBoth uiSettingsFixMonitorBoth = StartApplication.getSpecvisData().getUiSettingsFixMonitorBoth();
+
+                    if (uiSettingsFixMonitorBoth == null) {
+                        uiSettingsFixMonitorBoth = new UISettingsFixMonitorBoth();
+                        uiSettingsFixMonitorBoth.setDefaultValues();
+                    }
+
+                    viewStimuliDistribution = new ViewStimuliDistribution(
+                            "Both",
+                            uiSettingsFixationAndOther.getFixationPointLocationX(),
+                            uiSettingsFixationAndOther.getFixationPointLocationY(),
+                            uiSettingsFixMonitorBoth.getFixMonitorStimulusDistanceFromFixPointInDgX(),
+                            uiSettingsFixMonitorBoth.getFixMonitorStimulusDistanceFromFixPointInDgY(),
+                            uiSettingsFixMonitorBoth.isShowPatientMsgSelected(),
+                            false
+                    );
+                    viewStimuliDistribution.show();
+
                     break;
                 default:
 

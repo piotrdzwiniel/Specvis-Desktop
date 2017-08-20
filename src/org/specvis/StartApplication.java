@@ -25,7 +25,7 @@ import java.util.Optional;
  */
 
 /*
- * Copyright 2014-2016 Piotr Dzwiniel
+ * Copyright from 2014 till now - Piotr Dzwiniel
  *
  * This file is part of Specvis.
  *
@@ -57,17 +57,23 @@ public class StartApplication extends Application {
     private static ViewPatientResultsController viewPatientResultsController;
     private static ViewPatientResultsInfoController viewPatientResultsInfoController;
     private static ViewPatientResultsMapController viewPatientResultsMapController;
+    private static ViewComparePatientResultsTableController viewComparePatientResultsTableController;
+    private static ViewComparePatientResultsMapsController viewComparePatientResultsMapsController;
+
     private static ViewScreenAndLumScaleController viewScreenAndLumScaleController;
     private static ViewNewLumScaleController viewNewLumScaleController;
     private static ViewExistingLumScaleController viewExistingLumScaleController;
     private static ViewEditLumScaleController viewEditLumScaleController;
     private static ViewFitLumScaleController viewFitLumScaleController;
+
     private static ViewStimulusAndBackgroundController viewStimulusAndBackgroundController;
+
     private static ViewFixationAndOtherController viewFixationAndOtherController;
     private static ViewFixMonitorBlindspotController viewFixMonitorBlindspotController;
     private static ViewFixMonitorFixPointChangeController viewFixMonitorFixPointChangeController;
     private static ViewFixMonitorBothController viewFixMonitorBothController;
     private static ViewProcedureBasicController viewProcedureBasicController;
+
     private static ViewProcedurePreviewController viewProcedurePreviewController;
     private static ViewProcedureResultsController viewProcedureResultsController;
 
@@ -159,6 +165,24 @@ public class StartApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/ViewPatientResultsMap.fxml"));
         Parent root = fxmlLoader.load();
         viewPatientResultsMapController = fxmlLoader.getController();
+        Scene scene = new Scene(root);
+        getWindow().setScene(scene);
+    }
+
+    public static void setSceneComparePatientResultsTable() throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/ViewComparePatientResultsTable.fxml"));
+        Parent root = fxmlLoader.load();
+        viewComparePatientResultsTableController = fxmlLoader.getController();
+        Scene scene = new Scene(root);
+        getWindow().setScene(scene);
+    }
+
+    public static void setSceneComparePatientResultsMaps() throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("view/patient/ViewComparePatientResultsMaps.fxml"));
+        Parent root = fxmlLoader.load();
+        viewComparePatientResultsMapsController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         getWindow().setScene(scene);
     }
@@ -330,6 +354,14 @@ public class StartApplication extends Application {
 
     public static ViewPatientResultsMapController getViewPatientResultsMapController() {
         return viewPatientResultsMapController;
+    }
+
+    public static ViewComparePatientResultsTableController getViewComparePatientResultsTableController() {
+        return viewComparePatientResultsTableController;
+    }
+
+    public static ViewComparePatientResultsMapsController getViewComparePatientResultsMapsController() {
+        return viewComparePatientResultsMapsController;
     }
 
     public static ViewScreenAndLumScaleController getViewScreenAndLumScaleController() {

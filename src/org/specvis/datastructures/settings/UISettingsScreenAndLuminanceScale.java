@@ -6,7 +6,6 @@ import java.awt.*;
 
 /**
  * Created by Piotr Dzwiniel on 2016-02-09.
- * Last modification on 2017-07-19.
  */
 
 /*

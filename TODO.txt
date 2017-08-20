@@ -24,8 +24,6 @@ ilustrującą aktualnie wyświetlany bodziec i odpowiedź na niego przez badaneg
 [1-1-0] Dodać ikonkę przy przycisku zapisu danych. Biały kolor wskazuje, że wyniki badania
 nie zostały jeszcze zapisane. Czerwony, że nie mogą zostać zapisane. Zielony, że zostały zapisane.
 
-[1-1-0] Zmniejszyć czcionkę we wszystkich oknach do 12.
-
 [1-1-0] Na ekranie podglądu rozkładu bodźców dodać eliptyczne linie oznaczające
 badane pole widzenia (np. co 10 stopni).
 
@@ -45,40 +43,43 @@ reprezentację wyników.
 [1-1-0] Dodać możliwość wyświetlania podstawowych informacji o postępie procedury po naciśnięciu
 przycisku pauzy na ekranie badanego (HUD).
 
-[1-1-0] Pokazywać wiadomość o utracie fiksacji losowo lub tylko po utracie fiksacji.
-
-[1-1-0] Oznaczenia kwadratów (potęg) zapisywać indeksem górnym.
-
 [1-1-0] Poprawić kodowanie tekstu (polskie znaki nie wyświetlają się prawidłowo).
 
 [1-1-0] Zmienić format liczb zmiennoprzecinkowych tak, aby zamiast przecinków były kropki.
 
-[1-1-0] Nie można eksportować wyników przy ich podglądzie bezpośrednio po badaniu - poprawić.
-
-[1-1-0] Skrócić nazwy parametrów.
-
 [1-1-0] Wpisywanie wartości do np. Spinnera powinno być zapamiętywane przy każdym naciśnięciu
 klawisza.
-
-[1-1-0] Zmienić nazwę przycisku "Discard" na "Close" lub na "Go back to start window".
 
 [1-1-0] Zmienić sposób wyświetlania informacji o dostępnych ekranach. Np. w formie graficznej
 ilustrującej ekrany jak w ustawieniach windowsa.
 
-===== DONE =====
-[X] [1-1-0] Dodać efekt "hover" oraz "drop-shadow" do wszystkich przycisków.
+[1-1-0] Dodać napis na koniec procedury, że procedura dobiegła końca.
 
-[X] [1-1-0] Nieedytowalne pola powinny się różnić czcionką i kolorem od edytowalnych.
+===== DONE FOR VER 1.1.0 =====
+- [GUI] Dodanie efektu "hover" do wszystkich przycisków.
+- [GUI] Różne style dla edytowalnych i nie-edytowalnych pól tekstowych. Wiadomo teraz co można,
+a czego nie można modyfikować.
+- [GUI] Zmiana stylu kontrolek na styl systemowy - bardziej czytelny.
+- [GUI] W pięciu głównych oknach edycji ustawień (pacjent, ekran, bodziec, punkt fiksacji, procedura)
+dodano biały pasek informujący o tym, na którym obecnie kroku ustawień znajduje się użytkownik.
+- [FUNKCJONALNOŚĆ] Dodano trzecią opcję monitorowania fiksacji o nazwie "Both", będącą połączeniem technik
+"Blindspot" oraz "Fixation point change".
+- [FUNKCJONALNOŚĆ] Dodano możliwość porównywania wyników badania pola widzenia pacjenta z innymi wynikami
+tego samego pacjenta uzyskanymi w przeszłości.
+- [FUNKCJONALNOŚĆ] Wiadomość wyświetlana dla pacjenta po utracie fiksacji znika teraz z ekranu automatycznie
+po określonym interwale czasowym.
+- [FUNKCJONALNOŚĆ] Przycisk "Discard" w oknie podglądu procedury zmienił nazwę na "Back". Jego naciśnięcie
+powoduje teraz powrót do okna ustawień punktu fiksacyjnego i innych, a nie, tak jak poprzednio,
+do startowego ekranu programu Specvis.
+- [FUNKCJONALNOŚĆ] W drugim oknie ustawień (ustawienia ekranu i skali luminancji) zmieniono parametr
+rozdzielczości ekranu na parametr wizualnych granic wyświetlacza. Uruchamianie procedury na niektórych
+ekranach powodowało w wersji 1.0.0 pewne problemy, np. okno procedury wychodziło poza ramy ekranu.
+Opisana tutaj zmiana powinna rozwiązać ten problem.
+- [FUNKCJONALNOŚĆ] Dodano zegar do okna podglądu procedury.
+- [KOD PROGRAMU] Zrefaktoryzowano i zoptymalizowano gruntownie znaczną część kodu programu
+(głównie kodu odpowiedzialnego za procedurę badania pola widzenia "Basic"). Jest on teraz
+o wiele czytelniejszy oraz łatwiejszy w utrzymaniu i modyfikowaniu.
 
-[X] [1-1-0] Zoptymalizować kod procedury Basic.
-
-[X] [1-1-0] Dodać trzecią opcję monitorowania fiksacji.
-
-[X] [1-1-0] Dopasować minimalny czas prezentacji bodźca i przerw między kolejnymi prezentacjami tak,
-żeby procedura nie wariowała i się nie zazębiała.
-
-[X] [1-1-0] Dodać automatyczne zanikanie wiadomości o utracie fiksacji + możliwość włączenia tej opcji
-(wyłączanie albo ręczne, albo automatyczne po x ms).
 
 === Ogólne ===
 [STARE] Dodać możliwość korzystania ze Specvisa bez konieczności posiadania fotometru.
