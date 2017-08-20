@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
-    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS-2016" charset="windows-1250" />
-    <file url="file://$PROJECT_DIR$/GNU GPL v3.txt" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_1_Left_Eye_Test_1_Specvis_Results.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_1_Left_Eye_Test_2_Specvis_Results.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_1_Left_Eye_Test_3_Specvis_Results.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_1_MM700_Results.pdf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_1_Right_Eye_Test_1_Specvis_Results.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_1_Right_Eye_Test_2_Specvis_Results.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_1_Right_Eye_Test_3_Specvis_Results.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_2_Left_Eye_Test_1_Specvis_Results.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_2_Left_Eye_Test_2_Specvis_Results.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_2_Left_Eye_Test_3_Specvis_Results.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_2_MM700_Results.pdf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_2_Right_Eye_Test_1_Specvis_Results.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_2_Right_Eye_Test_2_Specvis_Results.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Additional-Data-For-PLoS/STR_Patient_2_Right_Eye_Test_3_Specvis_Results.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/org/contour2dplot/Contour2DMap.java" charset="windows-1250" />
-    <file url="file://$PROJECT_DIR$/src/org/specvis/model/ChiSquared.java" charset="windows-1250" />
-    <file url="file://$PROJECT_DIR$/src/org/specvis/view/miscellaneous/CustomTableView.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/org/specvis/logic/ChiSquared.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/org/specvis/logic/CustomTableView.java" charset="windows-1250" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

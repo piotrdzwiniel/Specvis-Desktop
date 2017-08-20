@@ -1,0 +1,102 @@
+=== Inne - przed wysłaniem nowej wersji manuskrypty dla recenzentów (14/07/2017) ===
+
+- Przygotować wersję 1.1.0
+- Przygotować dokumentację w formacie *.pdf
+- Uaktualnić folder z danymi z badań, zmienić nazwę z danymi na Additional-Data-For-PLoS
+- Przygotować szablon emailowy HTML w Foundation dla potrzeb newslettera Specvisa
+
+- Zamieścić kod i *.jar na GitHubie, jak również zaktualizować stronę internetową
+- Założyć kanał YouTubue dla Specvisa
+- Nagrać tutoriale z obsługi Specvisa po angielsku i umieścić na stronie
+- Dodać informację o nowej wersji Specvisa, dokumentacji oraz tutorialach na stronie FB
+- Rozesłać info w newsleterze
+
+=== SPECVIS KOD TODO ===
+
+[1-1-0] Dodać przycisk 'Compare' do okna z podglądem mapy. Po jego naciśnięciu ma się pojawić lista
+z wynikami badań korzystających z takich samych ustawień. Po kliknięciu na wybrane wyniki zostanie
+wyświetlona różnica pomiędzy wcześniej podglądanymi wynikami a dopiero co wybranymi.
+
+[1-1-0] Zmodyfikować delikatnie okienko z parametrami procedury w oknie procedury. Nadać temu polu
+tekstowemu tytuł. Wygospodarować też przestrzeń w okienku procedury na mapkę badanego pola widzenia
+ilustrującą aktualnie wyświetlany bodziec i odpowiedź na niego przez badanego.
+
+[1-1-0] Dodać ikonkę przy przycisku zapisu danych. Biały kolor wskazuje, że wyniki badania
+nie zostały jeszcze zapisane. Czerwony, że nie mogą zostać zapisane. Zielony, że zostały zapisane.
+
+[1-1-0] Na ekranie podglądu rozkładu bodźców dodać eliptyczne linie oznaczające
+badane pole widzenia (np. co 10 stopni).
+
+[1-1-0] Zaimplementować czytanie czasów reakcji.
+
+[1-1-0] Dodać godzinę i dzień do wyników tekstowych badania.
+
+[1-1-0] Dodać nową metodę wizualizacji danych opartą o pojedyncze piksele.
+
+[1-1-0] Dodać ekran startowy z wyborem testu.
+
+[1-1-0] Dodać zegar wyświetlający czas trwania procedury (ekran podglądu procedury).
+
+[1-1-0] Dodać możliwość wydruku wyników w postaci pliku pdf zawierającego graficzną oraz liczbową
+reprezentację wyników.
+
+[1-1-0] Dodać możliwość wyświetlania podstawowych informacji o postępie procedury po naciśnięciu
+przycisku pauzy na ekranie badanego (HUD).
+
+[1-1-0] Poprawić kodowanie tekstu (polskie znaki nie wyświetlają się prawidłowo).
+
+[1-1-0] Zmienić format liczb zmiennoprzecinkowych tak, aby zamiast przecinków były kropki.
+
+[1-1-0] Wpisywanie wartości do np. Spinnera powinno być zapamiętywane przy każdym naciśnięciu
+klawisza.
+
+[1-1-0] Zmienić sposób wyświetlania informacji o dostępnych ekranach. Np. w formie graficznej
+ilustrującej ekrany jak w ustawieniach windowsa.
+
+[1-1-0] Dodać napis na koniec procedury, że procedura dobiegła końca.
+
+===== DONE FOR VER 1.1.0 =====
+- [GUI] Dodanie efektu "hover" do wszystkich przycisków.
+- [GUI] Różne style dla edytowalnych i nie-edytowalnych pól tekstowych. Wiadomo teraz co można,
+a czego nie można modyfikować.
+- [GUI] Zmiana stylu kontrolek na styl systemowy - bardziej czytelny.
+- [GUI] W pięciu głównych oknach edycji ustawień (pacjent, ekran, bodziec, punkt fiksacji, procedura)
+dodano biały pasek informujący o tym, na którym obecnie kroku ustawień znajduje się użytkownik.
+- [FUNKCJONALNOŚĆ] Dodano trzecią opcję monitorowania fiksacji o nazwie "Both", będącą połączeniem technik
+"Blindspot" oraz "Fixation point change".
+- [FUNKCJONALNOŚĆ] Dodano możliwość porównywania wyników badania pola widzenia pacjenta z innymi wynikami
+tego samego pacjenta uzyskanymi w przeszłości.
+- [FUNKCJONALNOŚĆ] Wiadomość wyświetlana dla pacjenta po utracie fiksacji znika teraz z ekranu automatycznie
+po określonym interwale czasowym.
+- [FUNKCJONALNOŚĆ] Przycisk "Discard" w oknie podglądu procedury zmienił nazwę na "Back". Jego naciśnięcie
+powoduje teraz powrót do okna ustawień punktu fiksacyjnego i innych, a nie, tak jak poprzednio,
+do startowego ekranu programu Specvis.
+- [FUNKCJONALNOŚĆ] W drugim oknie ustawień (ustawienia ekranu i skali luminancji) zmieniono parametr
+rozdzielczości ekranu na parametr wizualnych granic wyświetlacza. Uruchamianie procedury na niektórych
+ekranach powodowało w wersji 1.0.0 pewne problemy, np. okno procedury wychodziło poza ramy ekranu.
+Opisana tutaj zmiana powinna rozwiązać ten problem.
+- [FUNKCJONALNOŚĆ] Dodano zegar do okna podglądu procedury.
+- [KOD PROGRAMU] Zrefaktoryzowano i zoptymalizowano gruntownie znaczną część kodu programu
+(głównie kodu odpowiedzialnego za procedurę badania pola widzenia "Basic"). Jest on teraz
+o wiele czytelniejszy oraz łatwiejszy w utrzymaniu i modyfikowaniu.
+
+
+=== Ogólne ===
+[STARE] Dodać możliwość korzystania ze Specvisa bez konieczności posiadania fotometru.
+
+[STARE] Dodać funkcjonalność, która pozwalałaby na manualne triggerowanie kolejnych wyświetleń
+bodźców wzrokowych, np. za pośrednictwem naciśnięcia wybranego klawisza. Funkcjonalność ta ma
+szczególne znaczenie w kontekście wykorzystania modułu arduino, który potrafi wysyłać via USB
+sygnał imitujący naciśnięcie wybranego klawisza w momencie, gdy np. moduł odbierze prąd
+o określonej amplitudzie. Mógłbym dzięki temu triggerować Specvisa np. za pośrednictwem
+zewnętrznego stymulatora prądowego.
+
+[STARE] Zmienić technikę rysowania map na bardziej wydajną i dokładną.
+
+[STARE] Zmienić technikę fitowania krzywej do pomiarów luminancji z wielomianowej na wykładniczą.
+
+[STARE] Dodać możliwość porównywania i uśredniania kilku map ze sobą.
+
+[STARE] Dodać możliwość manualnego kreślenia ścieżek dla prezentacji bodźców wzrokowych.
+
+[STARE] Dodać funkcjonalność identyczną z tą z perymetrii kinetycznej.

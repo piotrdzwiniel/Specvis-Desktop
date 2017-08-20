@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.procedure.ViewProcedurePreviewController">
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="85.0" prefWidth="200.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
+            <children>
+                <Button id="backNextButtons" layoutX="785.0" layoutY="31.0" mnemonicParsing="false" onAction="#setOnActionDiscardButton" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Back">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="25.0" />
+                    </HBox.margin>
+                </Button>
+            <HBox id="progressBackground" alignment="CENTER" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" stylesheets="@../MainStylesheet.css" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" selected="true" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="Step 1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" selected="true" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="Step 2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" selected="true" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="Step 3">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" selected="true" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="Step 4">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" selected="true" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="START">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+               </HBox.margin>
+            </HBox>
+                <Button id="greenButton" fx:id="buttonStart" mnemonicParsing="false" onAction="#setOnActionStartButton" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Start">
+                    <HBox.margin>
+                        <Insets right="25.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+    </bottom>
+   <center>
+      <HBox id="hBoxWhite" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" stylesheets="@../MainStylesheet.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="450.0" spacing="10.0">
+               <children>
+                  <TextArea id="textArea" fx:id="textArea" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@../MainStylesheet.css" wrapText="true" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </TextArea>
+                  <Button id="bodyButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setOnActionShowResultsButton" prefHeight="40.0" stylesheets="@../MainStylesheet.css" text="Show results">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="bodyButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setOnActionSaveResultsButton" prefHeight="40.0" stylesheets="@../MainStylesheet.css" text="Save results">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="bodyButton" layoutX="10.0" layoutY="535.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setOnActionSaveSettingsButton" prefHeight="40.0" stylesheets="@../MainStylesheet.css" text="Save settings">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="450.0" spacing="20.0">
+               <children>
+                  <Label fx:id="labelClock" text="00:00:00">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Circle fx:id="circle" fill="#202020" radius="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+                        <Label fx:id="label" text="Start" textFill="WHITE">
+                           <font>
+                              <Font size="34.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <ProgressIndicator id="progressIndicator" fx:id="progressIndicator" prefHeight="240.0" prefWidth="240.0" progress="0.25" stylesheets="@../MainStylesheet.css" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+         </BorderPane.margin>
+      </HBox>
+   </center>
+</BorderPane>

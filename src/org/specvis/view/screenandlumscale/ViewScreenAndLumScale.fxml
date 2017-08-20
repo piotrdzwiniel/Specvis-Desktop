@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.screenandlumscale.ViewScreenAndLumScaleController">
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="85.0" prefWidth="200.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
+            <children>
+                <Button id="backNextButtons" layoutX="785.0" layoutY="31.0" mnemonicParsing="false" onAction="#setScenePatient" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Back">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="25.0" />
+                    </HBox.margin>
+                </Button>
+            <HBox id="progressBackground" alignment="CENTER" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" stylesheets="@../MainStylesheet.css" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" selected="true" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="Step 1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" selected="true" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="Step 2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="Step 3">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="Step 4">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefWidth="100.0">
+                     <children>
+                        <CheckBox id="checkBox" alignment="CENTER" contentDisplay="CENTER" disable="true" ellipsisString="" graphicTextGap="0.0" mnemonicParsing="false" stylesheets="@../MainStylesheet.css" textFill="WHITE" />
+                        <Label text="START">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+               </HBox.margin>
+            </HBox>
+                <Button id="backNextButtons" mnemonicParsing="false" onAction="#setSceneStimulusAndBackground" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Next">
+                    <HBox.margin>
+                        <Insets right="25.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+    </bottom>
+   <center>
+      <VBox id="vBoxWhite" prefHeight="200.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="250.0" text="Screen">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ComboBox id="comboBox" fx:id="comboBoxScreen" onAction="#actionOnScreenSelection" prefHeight="40.0" prefWidth="320.0" promptText="Choose..." stylesheets="@../MainStylesheet.css" />
+                  <Button id="bodyButton" mnemonicParsing="false" onAction="#refreshComboBoxScreen" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Refresh">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="250.0" text="Screen visual bounds (px)">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField id="textFieldUneditable" fx:id="textFieldScreenResolutionX" editable="false" prefHeight="40.0" prefWidth="210.0" stylesheets="@../MainStylesheet.css">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="textFieldUneditable" fx:id="textFieldScreenResolutionY" editable="false" layoutX="38.0" layoutY="10.0" prefHeight="40.0" prefWidth="210.0" stylesheets="@../MainStylesheet.css">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="250.0" text="Screen size (mm)">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Spinner id="spinner" fx:id="spinnerScreenWidth" editable="true" initialValue="500" max="10000" min="1" onKeyReleased="#calculateInvolvedVisualField" onMousePressed="#calculateInvolvedVisualField" prefHeight="40.0" prefWidth="210.0" stylesheets="@../MainStylesheet.css" />
+                  <Spinner id="spinner" fx:id="spinnerScreenHeight" editable="true" initialValue="300" max="10000" min="1" onKeyReleased="#calculateInvolvedVisualField" onMousePressed="#calculateInvolvedVisualField" prefHeight="40.0" prefWidth="210.0" stylesheets="@../MainStylesheet.css" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="210.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="250.0" text="Patient distance (mm)">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Spinner id="spinner" fx:id="spinnerPatientDistanceFromTheScreen" editable="true" initialValue="400" max="10000" min="1" onKeyReleased="#calculateInvolvedVisualField" onMousePressed="#calculateInvolvedVisualField" prefHeight="40.0" prefWidth="210.0" stylesheets="@../MainStylesheet.css" />
+                  <Label layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="210.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="310.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="250.0" text="Tested visual field (°)">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField id="textFieldUneditable" fx:id="textFieldInvolvedVisualFieldX" editable="false" prefHeight="40.0" prefWidth="210.0" stylesheets="@../MainStylesheet.css">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="textFieldUneditable" fx:id="textFieldInvolvedVisualFieldY" editable="false" prefHeight="40.0" prefWidth="210.0" stylesheets="@../MainStylesheet.css">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0">
+               <VBox.margin>
+                  <Insets bottom="15.0" top="15.0" />
+               </VBox.margin>
+            </Separator>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="250.0" text="Stimulus scale">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button id="bodyButton" mnemonicParsing="false" onAction="#setSceneScreenAndLumScaleNew_Stimulus" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="New">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="bodyButton" layoutX="38.0" layoutY="10.0" mnemonicParsing="false" onAction="#setSceneScreenAndLumScaleExisting_Stimulus" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Existing">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="bodyButton" layoutX="90.0" layoutY="10.0" mnemonicParsing="false" onAction="#setSceneScreenAndLumScaleEdit_Stimulus" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Edit">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="bodyButton" layoutX="142.0" layoutY="10.0" mnemonicParsing="false" onAction="#setSceneScreenAndLumScaleFit_Stimulus" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Fit">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="513.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="250.0" text="Scale name">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField id="textFieldUneditable" fx:id="textFieldStimulusLuminanceScaleName" editable="false" prefHeight="40.0" prefWidth="430.0" stylesheets="@../MainStylesheet.css">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="537.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="250.0" text="Background scale">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button id="bodyButton" mnemonicParsing="false" onAction="#setSceneScreenAndLumScaleNew_Background" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="New">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="bodyButton" layoutX="38.0" layoutY="10.0" mnemonicParsing="false" onAction="#setSceneScreenAndLumScaleExisting_Background" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Existing">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="bodyButton" layoutX="90.0" layoutY="10.0" mnemonicParsing="false" onAction="#setSceneScreenAndLumScaleEdit_Background" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Edit">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="bodyButton" layoutX="142.0" layoutY="10.0" mnemonicParsing="false" onAction="#setSceneScreenAndLumScaleFit_Background" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Fit">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="548.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="250.0" text="Scale name">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField id="textFieldUneditable" fx:id="textFieldBackgroundLuminanceScaleName" editable="false" prefHeight="40.0" prefWidth="430.0" stylesheets="@../MainStylesheet.css">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="25.0" top="25.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

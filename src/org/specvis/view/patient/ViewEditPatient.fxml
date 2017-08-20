@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.patient.ViewEditPatientController">
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" prefHeight="85.0" prefWidth="200.0" spacing="25.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
+            <children>
+                <Button id="orangeButton" mnemonicParsing="false" onAction="#setScenePatient" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Cancel">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Button id="greenButton" layoutX="785.0" layoutY="31.0" mnemonicParsing="false" onAction="#saveEditedPatient" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Save">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets right="25.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </bottom>
+    <center>
+        <VBox id="vBoxWhite" prefHeight="200.0" prefWidth="100.0" spacing="40.0" stylesheets="@../MainStylesheet.css" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label prefHeight="40.0" prefWidth="160.0" text="ID">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField id="textFieldUneditable" fx:id="textFieldID" editable="false" prefHeight="40.0" prefWidth="220.0" stylesheets="@../MainStylesheet.css">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label prefHeight="40.0" prefWidth="160.0" text="First name">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField id="textField" fx:id="textFieldFirstName" prefHeight="40.0" prefWidth="220.0" stylesheets="@../MainStylesheet.css">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="60.0" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label prefHeight="40.0" prefWidth="160.0" text="Last name">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField id="textField" fx:id="textFieldLastName" prefHeight="40.0" prefWidth="220.0" stylesheets="@../MainStylesheet.css">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label prefHeight="40.0" prefWidth="160.0" text="Gender">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <ComboBox id="comboBox" fx:id="comboBoxGender" prefHeight="40.0" prefWidth="220.0" promptText="Choose..." stylesheets="@../MainStylesheet.css" />
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="85.0" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label prefHeight="40.0" prefWidth="160.0" text="Date of birth">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <DatePicker id="datePicker" fx:id="datePicker" prefHeight="40.0" prefWidth="220.0" promptText="yyyy-MM-dd" stylesheets="@../MainStylesheet.css" />
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="90.0" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label prefHeight="40.0" prefWidth="160.0" text="Age">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="220.0">
+                                            <children>
+                                                <TextField id="textField" fx:id="textFieldAge" editable="false" prefHeight="40.0" prefWidth="180.0" stylesheets="@../MainStylesheet.css">
+                                                    <font>
+                                                        <Font size="18.0" />
+                                                    </font>
+                                                </TextField>
+                                                <Button id="bodyButton" fx:id="buttonCalculateAge" mnemonicParsing="false" onAction="#calculatePatientAge" prefHeight="40.0" prefWidth="40.0" stylesheets="@../MainStylesheet.css" text="=">
+                                                    <font>
+                                                        <Font size="18.0" />
+                                                    </font>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label prefHeight="40.0" prefWidth="160.0" text="Phone">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField id="textField" fx:id="textFieldPhone" prefHeight="40.0" prefWidth="220.0" stylesheets="@../MainStylesheet.css">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label prefHeight="40.0" prefWidth="160.0" text="Email">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField id="textField" fx:id="textFieldEmail" prefHeight="40.0" prefWidth="220.0" stylesheets="@../MainStylesheet.css">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label prefHeight="40.0" prefWidth="160.0" text="City">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField id="textField" fx:id="textFieldCity" prefHeight="40.0" prefWidth="220.0" stylesheets="@../MainStylesheet.css">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label prefHeight="40.0" prefWidth="160.0" text="Postal code">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField id="textField" fx:id="textFieldPostalCode" prefHeight="40.0" prefWidth="220.0" stylesheets="@../MainStylesheet.css">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="85.0" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label prefHeight="40.0" prefWidth="160.0" text="Visual acuity L">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField id="textField" fx:id="textFieldVisualAcuityL" prefHeight="40.0" prefWidth="220.0" stylesheets="@../MainStylesheet.css">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="90.0" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label prefHeight="40.0" prefWidth="160.0" text="Visual acuity R">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField id="textField" fx:id="textFieldVisualAcuityR" prefHeight="40.0" prefWidth="220.0" stylesheets="@../MainStylesheet.css">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <TextArea id="textAreaEditable" fx:id="textArea" maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" stylesheets="@../MainStylesheet.css" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </TextArea>
+            </children>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+            <padding>
+                <Insets top="25.0" />
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

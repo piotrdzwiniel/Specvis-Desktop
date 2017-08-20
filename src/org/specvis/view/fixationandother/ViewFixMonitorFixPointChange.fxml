@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Copyright 2014-2016 Piotr Dzwiniel
+
+This file is part of Specvis.
+
+Specvis is free software; you can redistribute it
+and/or modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 3 of the License,
+or (at your option) any later version.
+
+Specvis is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Specvis; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="borderPaneWhite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../MainStylesheet.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.specvis.view.fixationandother.ViewFixMonitorFixPointChangeController">
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" prefHeight="85.0" prefWidth="200.0" spacing="25.0" style="-fx-background-color: #202020;" BorderPane.alignment="CENTER">
+            <children>
+                <Button id="orangeButton" layoutX="785.0" layoutY="31.0" mnemonicParsing="false" onAction="#setOnActionCancelButton" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Cancel">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="25.0" />
+                    </HBox.margin>
+                </Button>
+                <Button id="greenButton" mnemonicParsing="false" onAction="#setOnActionSaveButton" prefHeight="50.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Save">
+                    <HBox.margin>
+                        <Insets right="25.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+    </bottom>
+    <center>
+        <TabPane id="tabPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@../MainStylesheet.css" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="General">
+                    <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                            <center>
+                                <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                            <children>
+                                                <RadioButton id="radioButton" fx:id="radioButtonMonitorFixationEveryXStimuli" mnemonicParsing="false" prefHeight="40.0" prefWidth="20.0" selected="true" stylesheets="@../MainStylesheet.css">
+                                                    <toggleGroup>
+                                                        <ToggleGroup fx:id="radioButtonGroup_1" />
+                                                    </toggleGroup>
+                                                </RadioButton>
+                                                <Label prefHeight="40.0" prefWidth="200.0" text="Monitor fixation every">
+                                                    <font>
+                                                        <Font size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Spinner id="spinner" fx:id="spinnerMonitorFixationEveryXStimuli" editable="true" initialValue="10" max="100" min="1" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" />
+                                                <Label prefHeight="40.0" prefWidth="290.0" text="stimuli.">
+                                                    <font>
+                                                        <Font size="20.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                            <children>
+                                                <RadioButton id="radioButton" fx:id="radioButtonMonitorFixationEveryXToYStimuli" mnemonicParsing="false" prefHeight="40.0" prefWidth="20.0" stylesheets="@../MainStylesheet.css" toggleGroup="$radioButtonGroup_1" />
+                                                <Label prefHeight="40.0" prefWidth="200.0" text="Monitor fixation every">
+                                                    <font>
+                                                        <Font size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Spinner id="spinner" fx:id="spinnerMonitorFixationEveryXToYStimuli_1" editable="true" initialValue="1" max="100" min="1" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" />
+                                                <Label prefHeight="40.0" prefWidth="20.0" text="to">
+                                                    <font>
+                                                        <Font size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Spinner id="spinner" fx:id="spinnerMonitorFixationEveryXToYStimuli_2" editable="true" initialValue="10" max="100" min="1" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" />
+                                                <Label prefHeight="40.0" prefWidth="150.0" text="stimuli.">
+                                                    <font>
+                                                        <Font size="20.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                            </VBox.margin>
+                                        </HBox>
+                                        <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" spacing="20.0">
+                                 <children>
+                                    <Pane id="displayPane" fx:id="panePreview" maxHeight="220.0" maxWidth="220.0" minHeight="220.0" minWidth="220.0" prefHeight="220.0" prefWidth="220.0" stylesheets="@../MainStylesheet.css" />
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <VBox alignment="CENTER" prefWidth="550.0">
+                                       <children>
+                                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                                        <children>
+                                                            <Label prefHeight="40.0" prefWidth="310.0" text="Changed fixation point size XY (°)">
+                                                                <font>
+                                                                    <Font size="20.0" />
+                                                                </font>
+                                                                <HBox.margin>
+                                                                    <Insets />
+                                                                </HBox.margin>
+                                                            </Label>
+                                                            <Spinner id="spinner" fx:id="spinnerChangedFixPointSizeX" amountToStepBy="0.1" editable="true" initialValue="1.0" max="100.0" min="0.1" onKeyReleased="#setLookForPanePreview" onMousePressed="#setLookForPanePreview" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" />
+                                                            <Spinner id="spinner" fx:id="spinnerChangedFixPointSizeY" amountToStepBy="0.1" editable="true" initialValue="1.0" max="100.0" min="0.1" onKeyReleased="#setLookForPanePreview" onMousePressed="#setLookForPanePreview" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" />
+                                                        </children>
+                                                    </HBox>
+                                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                                        <children>
+                                                            <Label prefHeight="40.0" prefWidth="310.0" text="Changed fixation point color">
+                                                                <font>
+                                                                    <Font size="20.0" />
+                                                                </font>
+                                                            </Label>
+                                                <ColorPicker id="comboBox" fx:id="colorPickerChangedFixPointColor" onAction="#setOnActionColorPickerChangedFixPointColor" prefHeight="40.0" prefWidth="210.0" stylesheets="@../MainStylesheet.css" />
+                                                        </children>
+                                                    </HBox>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                             <children>
+                                                <Label prefHeight="40.0" prefWidth="310.0" text="Changed fix. point lum. (cd/m2)">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="CENTER">
+                                                   <children>
+                                                      <TextField id="textFieldUneditable" fx:id="textFieldChangedFixPointLuminance" editable="false" prefHeight="40.0" prefWidth="170.0" stylesheets="@../MainStylesheet.css">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Button id="bodyButton" mnemonicParsing="false" onAction="#measureFixationPointLuminance" prefHeight="40.0" prefWidth="40.0" stylesheets="@../MainStylesheet.css" text="=">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" />
+                                    </children>
+                                    <BorderPane.margin>
+                                        <Insets top="25.0" />
+                                    </BorderPane.margin>
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+            <Tab text="Message after fixation loss">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="25.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <CheckBox id="checkBox" fx:id="checkBoxShowMessageForPatient" mnemonicParsing="false" prefHeight="40.0" prefWidth="20.0" stylesheets="@../MainStylesheet.css" />
+                                    <Label prefHeight="40.0" prefWidth="500.0" text="Show message.">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <Label prefHeight="39.0" text="Show message for">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner id="spinner" fx:id="spinnerResumeProcedureAutomaticallyAfterXMsAfterMessage" editable="true" initialValue="1000" max="10000" min="0" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" />
+                                    <Label prefHeight="39.0" prefWidth="170.0" text="ms.">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <Label prefHeight="39.0" text="Show next stimulus following message after">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner id="spinner" fx:id="spinnerResumeToNextStimulusTimeInterval" editable="true" initialValue="1000" max="10000" min="0" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" />
+                                    <Label prefHeight="39.0" prefWidth="50.0" text="ms.">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="10.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="200.0" text="Text of the message">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField id="textField" fx:id="textFieldTextOfTheMessage" prefHeight="40.0" prefWidth="320.0" stylesheets="@../MainStylesheet.css" HBox.hgrow="ALWAYS">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="380.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                             <children>
+                                                <Label prefHeight="40.0" prefWidth="150.0" text="Font size">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <Spinner id="spinner" fx:id="spinnerFontSize" editable="true" initialValue="16" max="100" min="1" prefHeight="40.0" prefWidth="160.0" stylesheets="@../MainStylesheet.css" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                             <children>
+                                                <Label prefHeight="40.0" prefWidth="150.0" text="Font weight">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox id="comboBox" fx:id="comboBoxFontWeight" prefHeight="40.0" prefWidth="160.0" stylesheets="@../MainStylesheet.css" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="60.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                             <children>
+                                                <Label prefHeight="40.0" prefWidth="150.0" text="Font color">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <ColorPicker id="comboBox" fx:id="colorPickerFontColor" prefHeight="40.0" prefWidth="160.0" stylesheets="@../MainStylesheet.css" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="500.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                             <children>
+                                                <Label prefHeight="40.0" prefWidth="270.0" text="Msg. bg. color">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <ColorPicker id="comboBox" fx:id="colorPickerMsgBackgroundColor" prefHeight="40.0" prefWidth="200.0" stylesheets="@../MainStylesheet.css" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                             <children>
+                                                <Label prefHeight="40.0" prefWidth="270.0" text="Msg. bg size (°)">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <Spinner id="spinner" fx:id="spinnerMsgBackgroundSizeX" amountToStepBy="0.1" editable="true" initialValue="12.0" max="100.0" min="0.0" prefHeight="40.0" prefWidth="95.0" stylesheets="@../MainStylesheet.css" />
+                                                <Spinner id="spinner" fx:id="spinnerMsgBackgroundSizeY" amountToStepBy="0.1" editable="true" initialValue="3.0" max="100.0" min="0.0" prefHeight="40.0" prefWidth="95.0" stylesheets="@../MainStylesheet.css" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="60.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                             <children>
+                                                <Label prefHeight="40.0" prefWidth="270.0" text="Msg. dist. from fix. point (°)">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <Spinner id="spinner" fx:id="spinnerMsgDistanceFromFixPointX" amountToStepBy="0.1" editable="true" initialValue="0.0" max="100.0" min="-100.0" prefHeight="40.0" prefWidth="95.0" stylesheets="@../MainStylesheet.css" />
+                                                <Spinner id="spinner" fx:id="spinnerMsgDistanceFromFixPointY" amountToStepBy="0.1" editable="true" initialValue="-3.0" max="100.0" min="-100.0" prefHeight="40.0" prefWidth="95.0" stylesheets="@../MainStylesheet.css" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <Button id="bodyButton" mnemonicParsing="false" onAction="#previewStimuliDistribution" prefHeight="40.0" stylesheets="@../MainStylesheet.css" text="Preview message location">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <BorderPane.margin>
+                              <Insets top="25.0" />
+                           </BorderPane.margin>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+            </tabs>
+            <BorderPane.margin>
+                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+            </BorderPane.margin>
+        </TabPane>
+    </center>
+</BorderPane>
