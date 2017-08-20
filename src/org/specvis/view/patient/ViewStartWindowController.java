@@ -172,6 +172,7 @@ public class ViewStartWindowController implements Initializable {
 
         File selectedFile = fileChooser.showOpenDialog(new Stage());
         if (selectedFile != null) {
+
             ArrayList<String> settingsFileContent = readSettingsFile(selectedFile);
 
             // Set settings for Screen and luminance.
@@ -462,6 +463,11 @@ public class ViewStartWindowController implements Initializable {
                     resumeNextStimulusTimeInterval = Integer.valueOf(settingsFileContent.get(57).split("=")[1]);
                     fixAndOtherFixPointChange.setResumeToNextStimulusTimeInterval(resumeNextStimulusTimeInterval);
 
+                    break;
+                case "Both":
+                    // TODO: Implementacja.
+                    break;
+                default:
                     break;
             }
 

@@ -333,13 +333,13 @@ public class ViewProcedurePreviewController implements Initializable {
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()) {
 
-            // Create a folder "ProcedureBasicSettingsGeneral" if it does not exist.
-            File dirSettings = new File("ProcedureBasicSettingsGeneral");
+            // Create a folder "Settings" if it does not exist.
+            File dirSettings = new File("Settings");
             if (!dirSettings.exists()) {
                 dirSettings.mkdir();
             }
 
-            File settingsFile = new File("ProcedureBasicSettingsGeneral/" + result.get() + ".sset");
+            File settingsFile = new File("Settings/" + result.get() + ".sset");
 
             boolean shouldIWriteThisFile = false;
 
@@ -470,6 +470,9 @@ public class ViewProcedurePreviewController implements Initializable {
                             bufferedWriter.write("resume->NextStimulusTimeInterval=" + fixAndOtherFixPointChange.getResumeToNextStimulusTimeInterval() + "\n\n");
 
                             break;
+
+                        case "Both":
+                            // TODO: Implementacja.
                     }
 
                     // Write settings from Fixation and other scene -> DEPRECATED_Procedure.
