@@ -85,19 +85,43 @@ public class ViewComparePatientResultsMapsController implements Initializable {
 
     private void drawMaps() {
 
+        /* Get patient data */
+        Patient patient = StartApplication.getSpecvisData().getPatient();
+
         /* Parameters for maps */
         double isoFactor = 0.5;
         int interpolation = 5;
         String cmap = "Color";
 
-        /* Get patient data */
-        Patient patient = StartApplication.getSpecvisData().getPatient();
+        /* Min and max dB values */
+        double bgLuminance = 0.0;
+        double stimMinLuminance = 0.0;
+        double stimMaxLuminance = 0.0;
+
+        for (int i = 0; i < patient.getResultsInfo().size(); i++) {
+            String[] str = patient.getResultsInfo().get(i).split(": ");
+
+            if (str[0].equals("Stimulus max luminance (cd/m2)")) {
+                stimMaxLuminance = Double.valueOf(str[1]);
+            }
+
+            if (str[0].equals("Stimulus min luminance (cd/m2)")) {
+                stimMinLuminance = Double.valueOf(str[1]);
+            }
+
+            if (str[0].equals("Background luminance (cd/m2)")) {
+                bgLuminance = Double.valueOf(str[1]);
+                break;
+            }
+        }
+
+        double maxDBValue = StartApplication.getFunctions().decibelsValue(stimMaxLuminance, stimMinLuminance, bgLuminance, 2);
 
         /* Draw map for results 1 */
         double[][] dataResults_1 = patient.getResultsData();
-        double minValue_1 = Arrays.stream(dataResults_1).flatMapToDouble(a -> Arrays.stream(a)).min().getAsDouble();
-        double maxValue_1 = Arrays.stream(dataResults_1).flatMapToDouble(a -> Arrays.stream(a)).max().getAsDouble();
-        Contour2DMap contour2DMap_1 = new Contour2DMap(250, 250, minValue_1, maxValue_1);
+        // double minValue_1 = Arrays.stream(dataResults_1).flatMapToDouble(a -> Arrays.stream(a)).min().getAsDouble();
+        // double maxValue_1 = Arrays.stream(dataResults_1).flatMapToDouble(a -> Arrays.stream(a)).max().getAsDouble();
+        Contour2DMap contour2DMap_1 = new Contour2DMap(250, 250, -1, maxDBValue);
         contour2DMap_1.setMinSize(250, 250);
         contour2DMap_1.setPrefSize(250, 250);
         contour2DMap_1.setMaxSize(250, 250);
@@ -110,9 +134,9 @@ public class ViewComparePatientResultsMapsController implements Initializable {
 
         /* Draw map for results 2 */
         double[][] dataResults_2 = patient.getResultsDataToCompare();
-        double minValue_2 = Arrays.stream(dataResults_2).flatMapToDouble(a -> Arrays.stream(a)).min().getAsDouble();
-        double maxValue_2 = Arrays.stream(dataResults_2).flatMapToDouble(a -> Arrays.stream(a)).max().getAsDouble();
-        Contour2DMap contour2DMap_2 = new Contour2DMap(250, 250, minValue_2, maxValue_2);
+        // double minValue_2 = Arrays.stream(dataResults_2).flatMapToDouble(a -> Arrays.stream(a)).min().getAsDouble();
+        // double maxValue_2 = Arrays.stream(dataResults_2).flatMapToDouble(a -> Arrays.stream(a)).max().getAsDouble();
+        Contour2DMap contour2DMap_2 = new Contour2DMap(250, 250, -1, maxDBValue);
         contour2DMap_2.setMinSize(250, 250);
         contour2DMap_2.setPrefSize(250, 250);
         contour2DMap_2.setMaxSize(250, 250);
@@ -125,9 +149,9 @@ public class ViewComparePatientResultsMapsController implements Initializable {
 
         /* Draw map for results difference */
         double[][] dataDifference = subtractTwo2DArrays(dataResults_1, dataResults_2);
-        double minValue_diff = Arrays.stream(dataDifference).flatMapToDouble(a -> Arrays.stream(a)).min().getAsDouble();
-        double maxValue_diff = Arrays.stream(dataDifference).flatMapToDouble(a -> Arrays.stream(a)).max().getAsDouble();
-        contour2DMapDiff = new Contour2DMap(250, 250, minValue_diff, maxValue_diff);
+        // double minValue_diff = Arrays.stream(dataDifference).flatMapToDouble(a -> Arrays.stream(a)).min().getAsDouble();
+        // double maxValue_diff = Arrays.stream(dataDifference).flatMapToDouble(a -> Arrays.stream(a)).max().getAsDouble();
+        contour2DMapDiff = new Contour2DMap(250, 250, -maxDBValue, maxDBValue);
         contour2DMapDiff.setMinSize(250, 250);
         contour2DMapDiff.setPrefSize(250, 250);
         contour2DMapDiff.setMaxSize(250, 250);
@@ -162,7 +186,7 @@ public class ViewComparePatientResultsMapsController implements Initializable {
         }
 
         /* Set text area for results 2 */
-        ArrayList<String> resultsInfo_2 = patient.getResultsInfo();
+        ArrayList<String> resultsInfo_2 = patient.getResultsInfoToCompare();
         for (int i = 0; i < resultsInfo_2.size(); i++) {
             textAreaResults_2.appendText(resultsInfo_2.get(i) + "\n");
         }

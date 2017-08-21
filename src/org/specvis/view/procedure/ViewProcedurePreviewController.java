@@ -360,119 +360,155 @@ public class ViewProcedurePreviewController implements Initializable {
             if (shouldIWriteThisFile) {
                 try {
 
-                    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(settingsFile));
+                    BufferedWriter bf = new BufferedWriter(new FileWriter(settingsFile));
 
                     UISettingsScreenAndLuminanceScale screenAndLum = StartApplication.getSpecvisData().getUiSettingsScreenAndLuminanceScale();
                     UISettingsStimulusAndBackground stimAndBg = StartApplication.getSpecvisData().getUiSettingsStimulusAndBackground();
                     UISettingsFixationAndOther fixAndOther = StartApplication.getSpecvisData().getUiSettingsFixationAndOther();
 
                     // Write settings from Screen and luminance scene.
-                    bufferedWriter.write("screenIndex=" + screenAndLum.getChosenScreenIndex() + "\n");
-                    bufferedWriter.write("screenResolutionX=" + screenAndLum.getScreenResolutionX() + "\n");
-                    bufferedWriter.write("screenResolutionY=" + screenAndLum.getScreenResolutionY() + "\n");
-                    bufferedWriter.write("screenWidth=" + screenAndLum.getScreenWidth() + "\n");
-                    bufferedWriter.write("screenHeight=" + screenAndLum.getScreenHeight() + "\n");
-                    bufferedWriter.write("patientDistance=" + screenAndLum.getPatientDistanceFromTheScreen() + "\n");
-                    bufferedWriter.write("involvedVisualFieldX=" + screenAndLum.getInvolvedVisualFieldX() + "\n");
-                    bufferedWriter.write("involvedVisualFieldY=" + screenAndLum.getInvolvedVisualFieldY() + "\n");
-                    bufferedWriter.write("stimulusScaleID=" + screenAndLum.getStimulusLuminanceScale().getId() + "\n");
-                    bufferedWriter.write("backgroundScaleID=" + screenAndLum.getBackgroundLuminanceScale().getId() + "\n\n");
+                    bf.write("screenIndex=" + screenAndLum.getChosenScreenIndex() + "\n");
+                    bf.write("screenResolutionX=" + screenAndLum.getScreenResolutionX() + "\n");
+                    bf.write("screenResolutionY=" + screenAndLum.getScreenResolutionY() + "\n");
+                    bf.write("screenWidth=" + screenAndLum.getScreenWidth() + "\n");
+                    bf.write("screenHeight=" + screenAndLum.getScreenHeight() + "\n");
+                    bf.write("patientDistance=" + screenAndLum.getPatientDistanceFromTheScreen() + "\n");
+                    bf.write("involvedVisualFieldX=" + screenAndLum.getInvolvedVisualFieldX() + "\n");
+                    bf.write("involvedVisualFieldY=" + screenAndLum.getInvolvedVisualFieldY() + "\n");
+                    bf.write("stimulusScaleID=" + screenAndLum.getStimulusLuminanceScale().getId() + "\n");
+                    bf.write("backgroundScaleID=" + screenAndLum.getBackgroundLuminanceScale().getId() + "\n\n");
 
                     // Write settings from Stimulus and background scene.
-                    bufferedWriter.write("stimulusMaxBrightness=" + stimAndBg.getStimulusMaxBrightness() + "\n");
-                    bufferedWriter.write("stimulusMaxLuminance=" + stimAndBg.getStimulusMaxLuminance() + "\n");
-                    bufferedWriter.write("stimulusMinBrightness=" + stimAndBg.getStimulusMinBrightness() + "\n");
-                    bufferedWriter.write("stimulusMinLuminance=" + stimAndBg.getStimulusMinLuminance() + "\n");
-                    bufferedWriter.write("stimulusShape=" + stimAndBg.getStimulusShape() + "\n");
-                    bufferedWriter.write("stimulusInclination=" + stimAndBg.getStimulusInclination() + "\n");
-                    bufferedWriter.write("stimulusSizeX=" + stimAndBg.getStimulusSizeX() + "\n");
-                    bufferedWriter.write("stimulusSizeY=" + stimAndBg.getStimulusSizeY() + "\n");
-                    bufferedWriter.write("stimulusDisplayTime=" + stimAndBg.getStimulusDisplayTime() + "\n");
-                    bufferedWriter.write("interStimuliIntervalConstantPart=" + stimAndBg.getConstantPartOfInterval() + "\n");
-                    bufferedWriter.write("interStimuliIntervalRandomPart=" + stimAndBg.getRandomPartOfInterval() + "\n");
-                    bufferedWriter.write("backgroundBrightness=" + stimAndBg.getBackgroundBrightness() + "\n");
-                    bufferedWriter.write("backgroundLuminance=" + stimAndBg.getBackgroundLuminance() + "\n");
-                    bufferedWriter.write("distanceBetweenStimuliX=" + stimAndBg.getDistanceBetweenStimuliInDegreesX() + "\n");
-                    bufferedWriter.write("distanceBetweenStimuliY=" + stimAndBg.getDistanceBetweenStimuliInDegreesY() + "\n");
-                    bufferedWriter.write("isCorrectionForSphericitySelected=" + stimAndBg.isCorrectionForSphericityCheckBoxChecked() + "\n\n");
+                    bf.write("stimulusMaxBrightness=" + stimAndBg.getStimulusMaxBrightness() + "\n");
+                    bf.write("stimulusMaxLuminance=" + stimAndBg.getStimulusMaxLuminance() + "\n");
+                    bf.write("stimulusMinBrightness=" + stimAndBg.getStimulusMinBrightness() + "\n");
+                    bf.write("stimulusMinLuminance=" + stimAndBg.getStimulusMinLuminance() + "\n");
+                    bf.write("stimulusShape=" + stimAndBg.getStimulusShape() + "\n");
+                    bf.write("stimulusInclination=" + stimAndBg.getStimulusInclination() + "\n");
+                    bf.write("stimulusSizeX=" + stimAndBg.getStimulusSizeX() + "\n");
+                    bf.write("stimulusSizeY=" + stimAndBg.getStimulusSizeY() + "\n");
+                    bf.write("stimulusDisplayTime=" + stimAndBg.getStimulusDisplayTime() + "\n");
+                    bf.write("interStimuliIntervalConstantPart=" + stimAndBg.getConstantPartOfInterval() + "\n");
+                    bf.write("interStimuliIntervalRandomPart=" + stimAndBg.getRandomPartOfInterval() + "\n");
+                    bf.write("backgroundBrightness=" + stimAndBg.getBackgroundBrightness() + "\n");
+                    bf.write("backgroundLuminance=" + stimAndBg.getBackgroundLuminance() + "\n");
+                    bf.write("distanceBetweenStimuliX=" + stimAndBg.getDistanceBetweenStimuliInDegreesX() + "\n");
+                    bf.write("distanceBetweenStimuliY=" + stimAndBg.getDistanceBetweenStimuliInDegreesY() + "\n");
+                    bf.write("isCorrectionForSphericitySelected=" + stimAndBg.isCorrectionForSphericityCheckBoxChecked() + "\n\n");
 
                     // Write settings from Fixation and other scene.
-                    bufferedWriter.write("fixationPointColor=" + functions.toHexCode(fixAndOther.getFixationPointColor()) + "\n");
-                    bufferedWriter.write("fixationPointLuminance=" + fixAndOther.getFixationPointLuminance() + "\n");
-                    bufferedWriter.write("fixationPointSizeX=" + fixAndOther.getFixationPointSizeX() + "\n");
-                    bufferedWriter.write("fixationPointSizeY=" + fixAndOther.getFixationPointSizeY() + "\n");
-                    bufferedWriter.write("fixationPointLocationX=" + fixAndOther.getFixationPointLocationX() + "\n");
-                    bufferedWriter.write("fixationPointLocationY=" + fixAndOther.getFixationPointLocationY() + "\n");
-                    bufferedWriter.write("answerToStimulusKey=" + fixAndOther.getAnswerToStimulus() + "\n");
-                    bufferedWriter.write("pauseProcedureKey=" + fixAndOther.getPauseProcedure() + "\n");
-                    bufferedWriter.write("cancelProcedureKey=" + fixAndOther.getCancelProcedure() + "\n\n");
+                    bf.write("fixationPointColor=" + functions.toHexCode(fixAndOther.getFixationPointColor()) + "\n");
+                    bf.write("fixationPointLuminance=" + fixAndOther.getFixationPointLuminance() + "\n");
+                    bf.write("fixationPointSizeX=" + fixAndOther.getFixationPointSizeX() + "\n");
+                    bf.write("fixationPointSizeY=" + fixAndOther.getFixationPointSizeY() + "\n");
+                    bf.write("fixationPointLocationX=" + fixAndOther.getFixationPointLocationX() + "\n");
+                    bf.write("fixationPointLocationY=" + fixAndOther.getFixationPointLocationY() + "\n");
+                    bf.write("answerToStimulusKey=" + fixAndOther.getAnswerToStimulus() + "\n");
+                    bf.write("pauseProcedureKey=" + fixAndOther.getPauseProcedure() + "\n");
+                    bf.write("cancelProcedureKey=" + fixAndOther.getCancelProcedure() + "\n\n");
 
                     // Write settings from Fixation and other scene -> Monitor fixation technique.
                     switch (fixAndOther.getFixationMonitorTechnique()) {
                         case "None":
 
-                            bufferedWriter.write("fixationMonitorTechnique=" + fixAndOther.getFixationMonitorTechnique() + "\n\n");
+                            bf.write("fixationMonitorTechnique=" + fixAndOther.getFixationMonitorTechnique() + "\n\n");
 
                             break;
                         case "Blindspot":
 
                             UISettingsFixMonitorBlindspot fixAndOtherBlindspot = StartApplication.getSpecvisData().getUiSettingsFixMonitorBlindspot();
 
-                            bufferedWriter.write("fixationMonitorTechnique=" + fixAndOther.getFixationMonitorTechnique() + "\n");
-                            bufferedWriter.write("monitorFixationEveryXStimuli=" + fixAndOtherBlindspot.getMonitorFixationEveryXStimuli() + "\n");
-                            bufferedWriter.write("monitorFixationEveryXToYStimuli_1=" + fixAndOtherBlindspot.getMonitorFixationEveryXYStimuli_1() + "\n");
-                            bufferedWriter.write("monitorFixationEveryXToYStimuli_2=" + fixAndOtherBlindspot.getMonitorFixationEveryXYStimuli_2() + "\n");
-                            bufferedWriter.write("isMonitorFixationEveryXStimuliSelected=" + fixAndOtherBlindspot.isMonitorFixationEveryXStimuliSelected() + "\n");
-                            bufferedWriter.write("monitorStimulusSizeX=" + fixAndOtherBlindspot.getFixationMonitorStimulusSizeX() + "\n");
-                            bufferedWriter.write("monitorStimulusSizeY=" + fixAndOtherBlindspot.getFixationMonitorStimulusSizeY() + "\n");
-                            bufferedWriter.write("monitorStimulusBrightness=" + fixAndOtherBlindspot.getFixationMonitorStimulusBrightness() + "\n");
-                            bufferedWriter.write("monitorStimulusLuminance=" + fixAndOtherBlindspot.getFixationMonitorStimulusLuminance() + "\n");
-                            bufferedWriter.write("blindspotDistanceFromFixationPointX=" + fixAndOtherBlindspot.getBlindspotDistanceFromFixPointX() + "\n");
-                            bufferedWriter.write("blindspotDistanceFromFixationPointY=" + fixAndOtherBlindspot.getBlindspotDistanceFromFixPointY() + "\n");
+                            bf.write("fixationMonitorTechnique=" + fixAndOther.getFixationMonitorTechnique() + "\n");
+                            bf.write("monitorFixationEveryXStimuli=" + fixAndOtherBlindspot.getMonitorFixationEveryXStimuli() + "\n");
+                            bf.write("monitorFixationEveryXToYStimuli_1=" + fixAndOtherBlindspot.getMonitorFixationEveryXYStimuli_1() + "\n");
+                            bf.write("monitorFixationEveryXToYStimuli_2=" + fixAndOtherBlindspot.getMonitorFixationEveryXYStimuli_2() + "\n");
+                            bf.write("isMonitorFixationEveryXStimuliSelected=" + fixAndOtherBlindspot.isMonitorFixationEveryXStimuliSelected() + "\n");
+                            bf.write("monitorStimulusSizeX=" + fixAndOtherBlindspot.getFixationMonitorStimulusSizeX() + "\n");
+                            bf.write("monitorStimulusSizeY=" + fixAndOtherBlindspot.getFixationMonitorStimulusSizeY() + "\n");
+                            bf.write("monitorStimulusBrightness=" + fixAndOtherBlindspot.getFixationMonitorStimulusBrightness() + "\n");
+                            bf.write("monitorStimulusLuminance=" + fixAndOtherBlindspot.getFixationMonitorStimulusLuminance() + "\n");
+                            bf.write("blindspotDistanceFromFixationPointX=" + fixAndOtherBlindspot.getBlindspotDistanceFromFixPointX() + "\n");
+                            bf.write("blindspotDistanceFromFixationPointY=" + fixAndOtherBlindspot.getBlindspotDistanceFromFixPointY() + "\n");
 
-                            bufferedWriter.write("isShowPatientMessageWhenItLosesFixation=" + fixAndOtherBlindspot.isShowPatientMsgSelected() + "\n");
-                            bufferedWriter.write("textOfTheMessage=" + fixAndOtherBlindspot.getTextOfTheMsg() + "\n");
-                            bufferedWriter.write("fontSize=" + fixAndOtherBlindspot.getFontSize() + "\n");
-                            bufferedWriter.write("fontWeight=" + fixAndOtherBlindspot.getFontWeight() + "\n");
-                            bufferedWriter.write("fontColor=" + functions.toHexCode(fixAndOtherBlindspot.getFontColor()) + "\n");
-                            bufferedWriter.write("messageBackgroundColor=" + functions.toHexCode(fixAndOtherBlindspot.getMsgBackgroundColor()) + "\n");
-                            bufferedWriter.write("messageBackgroundSizeX=" + fixAndOtherBlindspot.getMsgBackgroundSizeX() + "\n");
-                            bufferedWriter.write("messageBackgroundSizeY=" + fixAndOtherBlindspot.getMsgBackgroundSizeY() + "\n");
-                            bufferedWriter.write("messageDistanceFromFixationPointX=" + fixAndOtherBlindspot.getMsgDistanceFromFixPointX() + "\n");
-                            bufferedWriter.write("messageDistanceFromFixationPointY=" + fixAndOtherBlindspot.getMsgDistanceFromFixPointY() + "\n");
-                            bufferedWriter.write("resume->NextStimulusTimeInterval=" + fixAndOtherBlindspot.getResumeToNextStimulusTimeInterval() + "\n\n");
+                            bf.write("isShowPatientMessageWhenItLosesFixation=" + fixAndOtherBlindspot.isShowPatientMsgSelected() + "\n");
+                            bf.write("textOfTheMessage=" + fixAndOtherBlindspot.getTextOfTheMsg() + "\n");
+                            bf.write("fontSize=" + fixAndOtherBlindspot.getFontSize() + "\n");
+                            bf.write("fontWeight=" + fixAndOtherBlindspot.getFontWeight() + "\n");
+                            bf.write("fontColor=" + functions.toHexCode(fixAndOtherBlindspot.getFontColor()) + "\n");
+                            bf.write("messageBackgroundColor=" + functions.toHexCode(fixAndOtherBlindspot.getMsgBackgroundColor()) + "\n");
+                            bf.write("messageBackgroundSizeX=" + fixAndOtherBlindspot.getMsgBackgroundSizeX() + "\n");
+                            bf.write("messageBackgroundSizeY=" + fixAndOtherBlindspot.getMsgBackgroundSizeY() + "\n");
+                            bf.write("messageDistanceFromFixationPointX=" + fixAndOtherBlindspot.getMsgDistanceFromFixPointX() + "\n");
+                            bf.write("messageDistanceFromFixationPointY=" + fixAndOtherBlindspot.getMsgDistanceFromFixPointY() + "\n");
+                            bf.write("resume->NextStimulusTimeInterval=" + fixAndOtherBlindspot.getResumeToNextStimulusTimeInterval() + "\n\n");
 
                             break;
                         case "Fixation point change":
 
                             UISettingsFixMonitorFixPointChange fixAndOtherFixPointChange = StartApplication.getSpecvisData().getUiSettingsProcedureBasicFixPointChange();
 
-                            bufferedWriter.write("fixationMonitorTechnique=" + fixAndOther.getFixationMonitorTechnique() + "\n");
-                            bufferedWriter.write("monitorFixationEveryXStimuli=" + fixAndOtherFixPointChange.getMonitorFixationEveryXStimuli() + "\n");
-                            bufferedWriter.write("monitorFixationEveryXToYStimuli_1=" + fixAndOtherFixPointChange.getMonitorFixationEveryXYStimuli_1() + "\n");
-                            bufferedWriter.write("monitorFixationEveryXToYStimuli_2=" + fixAndOtherFixPointChange.getMonitorFixationEveryXYStimuli_2() + "\n");
-                            bufferedWriter.write("isMonitorFixationEveryXStimuliSelected=" + fixAndOtherFixPointChange.isMonitorFixationEveryXStimuliSelected() + "\n");
-                            bufferedWriter.write("changedFixationPointSizeX=" + fixAndOtherFixPointChange.getChangedFixPointSizeX() + "\n");
-                            bufferedWriter.write("changedFixationPointSizeY=" + fixAndOtherFixPointChange.getChangedFixPointSizeY() + "\n");
-                            bufferedWriter.write("changedFixationPointColor=" + functions.toHexCode(fixAndOtherFixPointChange.getChangedFixPointColor()) + "\n");
-                            bufferedWriter.write("changedFixationPointLuminance=" + fixAndOtherFixPointChange.getChangedFixPointLuminance() + "\n");
+                            bf.write("fixationMonitorTechnique=" + fixAndOther.getFixationMonitorTechnique() + "\n");
+                            bf.write("monitorFixationEveryXStimuli=" + fixAndOtherFixPointChange.getMonitorFixationEveryXStimuli() + "\n");
+                            bf.write("monitorFixationEveryXToYStimuli_1=" + fixAndOtherFixPointChange.getMonitorFixationEveryXYStimuli_1() + "\n");
+                            bf.write("monitorFixationEveryXToYStimuli_2=" + fixAndOtherFixPointChange.getMonitorFixationEveryXYStimuli_2() + "\n");
+                            bf.write("isMonitorFixationEveryXStimuliSelected=" + fixAndOtherFixPointChange.isMonitorFixationEveryXStimuliSelected() + "\n");
+                            bf.write("changedFixationPointSizeX=" + fixAndOtherFixPointChange.getChangedFixPointSizeX() + "\n");
+                            bf.write("changedFixationPointSizeY=" + fixAndOtherFixPointChange.getChangedFixPointSizeY() + "\n");
+                            bf.write("changedFixationPointColor=" + functions.toHexCode(fixAndOtherFixPointChange.getChangedFixPointColor()) + "\n");
+                            bf.write("changedFixationPointLuminance=" + fixAndOtherFixPointChange.getChangedFixPointLuminance() + "\n");
 
-                            bufferedWriter.write("isShowPatientMessageWhenItLosesFixation=" + fixAndOtherFixPointChange.isShowPatientMsgSelected() + "\n");
-                            bufferedWriter.write("textOfTheMessage=" + fixAndOtherFixPointChange.getTextOfTheMsg() + "\n");
-                            bufferedWriter.write("fontSize=" + fixAndOtherFixPointChange.getFontSize() + "\n");
-                            bufferedWriter.write("fontWeight=" + fixAndOtherFixPointChange.getFontWeight() + "\n");
-                            bufferedWriter.write("fontColor=" + functions.toHexCode(fixAndOtherFixPointChange.getFontColor()) + "\n");
-                            bufferedWriter.write("messageBackgroundColor=" + functions.toHexCode(fixAndOtherFixPointChange.getMsgBackgroundColor()) + "\n");
-                            bufferedWriter.write("messageBackgroundSizeX=" + fixAndOtherFixPointChange.getMsgBackgroundSizeX() + "\n");
-                            bufferedWriter.write("messageBackgroundSizeY=" + fixAndOtherFixPointChange.getMsgBackgroundSizeY() + "\n");
-                            bufferedWriter.write("messageDistanceFromFixationPointX=" + fixAndOtherFixPointChange.getMsgDistanceFromFixPointX() + "\n");
-                            bufferedWriter.write("messageDistanceFromFixationPointY=" + fixAndOtherFixPointChange.getMsgDistanceFromFixPointY() + "\n");
-                            bufferedWriter.write("resume->NextStimulusTimeInterval=" + fixAndOtherFixPointChange.getResumeToNextStimulusTimeInterval() + "\n\n");
+                            bf.write("isShowPatientMessageWhenItLosesFixation=" + fixAndOtherFixPointChange.isShowPatientMsgSelected() + "\n");
+                            bf.write("textOfTheMessage=" + fixAndOtherFixPointChange.getTextOfTheMsg() + "\n");
+                            bf.write("fontSize=" + fixAndOtherFixPointChange.getFontSize() + "\n");
+                            bf.write("fontWeight=" + fixAndOtherFixPointChange.getFontWeight() + "\n");
+                            bf.write("fontColor=" + functions.toHexCode(fixAndOtherFixPointChange.getFontColor()) + "\n");
+                            bf.write("messageBackgroundColor=" + functions.toHexCode(fixAndOtherFixPointChange.getMsgBackgroundColor()) + "\n");
+                            bf.write("messageBackgroundSizeX=" + fixAndOtherFixPointChange.getMsgBackgroundSizeX() + "\n");
+                            bf.write("messageBackgroundSizeY=" + fixAndOtherFixPointChange.getMsgBackgroundSizeY() + "\n");
+                            bf.write("messageDistanceFromFixationPointX=" + fixAndOtherFixPointChange.getMsgDistanceFromFixPointX() + "\n");
+                            bf.write("messageDistanceFromFixationPointY=" + fixAndOtherFixPointChange.getMsgDistanceFromFixPointY() + "\n");
+                            bf.write("resume->NextStimulusTimeInterval=" + fixAndOtherFixPointChange.getResumeToNextStimulusTimeInterval() + "\n\n");
 
                             break;
 
                         case "Both":
-                            // TODO: Implementacja.
+
+                            UISettingsFixMonitorBoth uiSettingsFixMonitorBoth = StartApplication.getSpecvisData().getUiSettingsFixMonitorBoth();
+
+                            bf.write("fixationMonitorTechnique=" + fixAndOther.getFixationMonitorTechnique() + "\n");
+
+                            bf.write("monitorFixationEveryXStimuli=" + uiSettingsFixMonitorBoth.getMonitorFixationEveryXStimuli() + "\n");
+                            bf.write("monitorFixationEveryXToYStimuli_1=" + uiSettingsFixMonitorBoth.getMonitorFixationEveryXYStimuli_1() + "\n");
+                            bf.write("monitorFixationEveryXToYStimuli_2=" + uiSettingsFixMonitorBoth.getMonitorFixationEveryXYStimuli_2() + "\n");
+                            bf.write("isMonitorFixationEveryXStimuliSelected=" + uiSettingsFixMonitorBoth.isMonitorFixationEveryXStimuliSelected() + "\n");
+
+                            bf.write("monitorStimulusSizeX=" + uiSettingsFixMonitorBoth.getFixMonitorStimulusSizeInDgX() + "\n");
+                            bf.write("monitorStimulusSizeY=" + uiSettingsFixMonitorBoth.getFixMonitorStimulusSizeInDgY() + "\n");
+                            bf.write("monitorStimulusBrightness=" + uiSettingsFixMonitorBoth.getFixMonitorStimulusBrightness() + "\n");
+                            bf.write("monitorStimulusLuminance=" + uiSettingsFixMonitorBoth.getFixMonitorStimulusLuminance() + "\n");
+                            bf.write("blindspotDistanceFromFixationPointX=" + uiSettingsFixMonitorBoth.getFixMonitorStimulusDistanceFromFixPointInDgX() + "\n");
+                            bf.write("blindspotDistanceFromFixationPointY=" + uiSettingsFixMonitorBoth.getFixMonitorStimulusDistanceFromFixPointInDgY() + "\n");
+
+                            bf.write("changedFixationPointSizeX=" + uiSettingsFixMonitorBoth.getChangedFixPointSizeInDgX() + "\n");
+                            bf.write("changedFixationPointSizeY=" + uiSettingsFixMonitorBoth.getChangedFixPointSizeInDgY() + "\n");
+                            bf.write("changedFixationPointColor=" + functions.toHexCode(uiSettingsFixMonitorBoth.getChangedFixPointColor()) + "\n");
+                            bf.write("changedFixationPointLuminance=" + uiSettingsFixMonitorBoth.getChangedFixPointColorLuminance() + "\n");
+
+                            bf.write("isShowPatientMessageWhenItLosesFixation=" + uiSettingsFixMonitorBoth.isShowPatientMsgSelected() + "\n");
+                            bf.write("showMessageForXMs=" + uiSettingsFixMonitorBoth.getResumeProcedureAutomaticallyAfterXMs() + "\n");
+                            bf.write("showNextStimulusFollowingMessageAfterXMs=" + uiSettingsFixMonitorBoth.getShowNextStimAfterMsgAfterXMs() + "\n");
+
+                            bf.write("textOfTheMessage=" + uiSettingsFixMonitorBoth.getTextOfTheMsg() + "\n");
+                            bf.write("fontSize=" + uiSettingsFixMonitorBoth.getFontSize() + "\n");
+                            bf.write("fontWeight=" + uiSettingsFixMonitorBoth.getFontWeight() + "\n");
+                            bf.write("fontColor=" + functions.toHexCode(uiSettingsFixMonitorBoth.getFontColor()) + "\n");
+                            bf.write("messageBackgroundColor=" + functions.toHexCode(uiSettingsFixMonitorBoth.getMsgBackgroundColor()) + "\n");
+                            bf.write("messageBackgroundSizeX=" + uiSettingsFixMonitorBoth.getMsgBackgroundSizeInDgX() + "\n");
+                            bf.write("messageBackgroundSizeY=" + uiSettingsFixMonitorBoth.getMsgBackgroundSizeInDgY() + "\n");
+                            bf.write("messageDistanceFromFixationPointX=" + uiSettingsFixMonitorBoth.getMsgDistanceFromFixPointInDgX() + "\n");
+                            bf.write("messageDistanceFromFixationPointY=" + uiSettingsFixMonitorBoth.getMsgDistanceFromFixPointInDgY() + "\n\n");
+
+                            break;
                     }
 
                     // Write settings from Fixation and other scene -> DEPRECATED_Procedure.
@@ -481,13 +517,13 @@ public class ViewProcedurePreviewController implements Initializable {
 
                             UISettingsProcedureBasic basicProcSet = StartApplication.getSpecvisData().getUiSettingsProcedureBasic();
 
-                            bufferedWriter.write("procedure=" + fixAndOther.getProcedure() + "\n");
-                            bufferedWriter.write("spreadValuesLogarithmically=" + basicProcSet.isSpreadValuesLogarithmically() + "\n");
-                            bufferedWriter.write("lengthOfTheTestedBrightnessVector=" + basicProcSet.getVisualFieldTestBrightnessVectorLength() + "\n");
+                            bf.write("procedure=" + fixAndOther.getProcedure() + "\n");
+                            bf.write("spreadValuesLogarithmically=" + basicProcSet.isSpreadValuesLogarithmically() + "\n");
+                            bf.write("lengthOfTheTestedBrightnessVector=" + basicProcSet.getVisualFieldTestBrightnessVectorLength() + "\n");
 
                             break;
                     }
-                    bufferedWriter.close();
+                    bf.close();
 
                     // Show information dialog.
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
