@@ -465,7 +465,44 @@ public class ViewStartWindowController implements Initializable {
 
                     break;
                 case "Both":
-                    // TODO: Implementacja.
+
+                    UISettingsFixMonitorBoth uiSettingsBoth = StartApplication.getSpecvisData().getUiSettingsFixMonitorBoth();
+
+                    if (uiSettingsBoth == null) {
+                        uiSettingsBoth = new UISettingsFixMonitorBoth();
+                        StartApplication.getSpecvisData().setUiSettingsFixMonitorBoth(uiSettingsBoth);
+                    }
+
+                    uiSettingsBoth.setMonitorFixationEveryXStimuli(Integer.valueOf(settingsFileContent.get(39).split("=")[1]));
+                    uiSettingsBoth.setMonitorFixationEveryXYStimuli_1(Integer.valueOf(settingsFileContent.get(40).split("=")[1]));
+                    uiSettingsBoth.setMonitorFixationEveryXYStimuli_2(Integer.valueOf(settingsFileContent.get(41).split("=")[1]));
+                    uiSettingsBoth.setMonitorFixationEveryXStimuliSelected(Boolean.valueOf(settingsFileContent.get(42).split("=")[1]));
+
+                    uiSettingsBoth.setFixMonitorStimulusSizeInDgX(Double.valueOf(settingsFileContent.get(43).split("=")[1]));
+                    uiSettingsBoth.setFixMonitorStimulusSizeInDgY(Double.valueOf(settingsFileContent.get(44).split("=")[1]));
+                    uiSettingsBoth.setFixMonitorStimulusBrightness(Integer.valueOf(settingsFileContent.get(45).split("=")[1]));
+                    uiSettingsBoth.setFixMonitorStimulusLuminance(Double.valueOf(settingsFileContent.get(46).split("=")[1]));
+                    uiSettingsBoth.setFixMonitorStimulusDistanceFromFixPointInDgX(Double.valueOf(settingsFileContent.get(47).split("=")[1]));
+                    uiSettingsBoth.setFixMonitorStimulusDistanceFromFixPointInDgY(Double.valueOf(settingsFileContent.get(48).split("=")[1]));
+
+                    uiSettingsBoth.setChangedFixPointSizeInDgX(Double.valueOf(settingsFileContent.get(49).split("=")[1]));
+                    uiSettingsBoth.setChangedFixPointSizeInDgY(Double.valueOf(settingsFileContent.get(50).split("=")[1]));
+                    uiSettingsBoth.setChangedFixPointColor(Color.web(settingsFileContent.get(51).split("=")[1]));
+                    uiSettingsBoth.setChangedFixPointColorLuminance(Double.valueOf(settingsFileContent.get(52).split("=")[1]));
+
+                    uiSettingsBoth.setShowPatientMsgSelected(Boolean.valueOf(settingsFileContent.get(53).split("=")[1]));
+                    uiSettingsBoth.setResumeProcedureAutomaticallyAfterXMs(Integer.valueOf(settingsFileContent.get(54).split("=")[1]));
+                    uiSettingsBoth.setShowNextStimAfterMsgAfterXMs(Integer.valueOf(settingsFileContent.get(55).split("=")[1]));
+                    uiSettingsBoth.setTextOfTheMsg(settingsFileContent.get(56).split("=")[1]);
+                    uiSettingsBoth.setFontSize(Integer.valueOf(settingsFileContent.get(57).split("=")[1]));
+                    uiSettingsBoth.setFontWeight(settingsFileContent.get(58).split("=")[1]);
+                    uiSettingsBoth.setFontColor(Color.web(settingsFileContent.get(59).split("=")[1]));
+                    uiSettingsBoth.setMsgBackgroundColor(Color.web(settingsFileContent.get(60).split("=")[1]));
+                    uiSettingsBoth.setMsgBackgroundSizeInDgX(Double.valueOf(settingsFileContent.get(61).split("=")[1]));
+                    uiSettingsBoth.setMsgBackgroundSizeInDgY(Double.valueOf(settingsFileContent.get(62).split("=")[1]));
+                    uiSettingsBoth.setFixMonitorStimulusDistanceFromFixPointInDgX(Double.valueOf(settingsFileContent.get(63).split("=")[1]));
+                    uiSettingsBoth.setFixMonitorStimulusDistanceFromFixPointInDgY(Double.valueOf(settingsFileContent.get(64).split("=")[1]));
+
                     break;
                 default:
                     break;
