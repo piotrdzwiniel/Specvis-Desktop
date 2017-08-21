@@ -5,13 +5,13 @@ Specvis is a desktop application designed for visual field examination in humans
 <br>
 
 <img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/1.png" width="60%">
-Figure 1. Specvis starting window. Here you can manage patient data as well as choose previously saved settings, so there no need to adjust everything at each diagnostic session.
+Figure 1. Specvis starting window. Here you can manage patient data as well as choose previously saved settings, so there is no need to adjust everything at each diagnostic session.
 
 <img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/2.png" width="60%">
 Figure 2. You can easily preview patient's visual field results for example in a form of a visual field graphical map. Here, we present example results for stroke patient with homonymous right hemianopia.
 
 <img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/3.png" width="60%">
-Figure 3. Specvis offers at the moment three different fixaiton monitor techniques. One of them called "Both" incorporates testing assumed blind spot location as well as displaying test stimulus in a fixation point location.
+Figure 3. Specvis offers at the moment three different fixation monitor techniques. One of them called "Both" incorporates testing assumed blind spot location as well as displaying test stimulus in a fixation point location.
 
 <img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/4.png" width="60%">
 Figure 4. If you use Specvis on computer with two screens you can supervise conductance of the test procedure in a dedicated window.
