@@ -1,11 +1,24 @@
-<h1>Specvis v1.0</h1>
+<h1>Specvis v1.1.0</h1>
 <h3>Definition and usage of the application</h3>
-Specvis is a desktop application designed for visual field examination in humans written in the Java programming language ensuring unrestricted portability on any personal computer or laptop. It has an intuitive and easy to use graphical user interface and does not require special computer or programming skills. We have made Specvis freely available as an open-source application based on GNU GPLv3 license. It can be downloaded and used without charge, and allows unrestricted modification. Similar to other Automated Static Perimeters, Specvis displays a single, specific, light stimulus at different locations on the computer screen, in order to assess a luminance threshold across the visual field. A comprehensive description of the application can be found in its <a href="http://specvis.pl/documentation.html">documentation</a>.
+Specvis is a desktop application designed for visual field examination in humans written in the Java programming language ensuring unrestricted portability on any personal computer or laptop. It has an intuitive and easy to use graphical user interface and does not require special computer or programming skills. We have made Specvis freely available as an open-source application based on GNU GPLv3 license. It can be downloaded and used without charge, and allows unrestricted modification. Similar to other Automated Static Perimeters, Specvis displays a single, specific, light stimulus at different locations on the computer screen, in order to assess a luminance threshold across the visual field. A comprehensive description of the application can be found in its <a href="http://specvis.pl/documentation.pdf">documentation</a>.
 
-<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/Fig1.jpg" width="100%">
+<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/1.png" width="60%">
+Figure 1. Specvis starting window. Here you can manage patient data as well as choose previously saved settings, so there no need to adjust everything at each diagnostic session.
+
+<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/2.png" width="60%">
+Figure 2. You can easily preview patient's visual field results for example in a form of a visual field graphical map. Here, we present example results for stroke patient with homonymous right hemianopia.
+
+<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/3.png" width="60%">
+Figure 3. Specvis offers at the moment three different fixaiton monitor techniques. One of them called "Both" incorporates testing assumed blind spot location as well as displaying test stimulus in a fixation point location.
+
+<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/4.png" width="60%">
+Figure 4. If you use Specvis on computer with two screens you can supervise conductance of the test procedure in a dedicated window.
+
+<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/5.png" width="60%">
+Figure 5. From Specvis in version 1.1.0 you can also compare two datasets for the same patient, so it is possible to monitor visual field condition between subsequent tests.
 
 <h3>Source code, requirements and availability</h3>
-Specvis was written in the Java programming language and requires installation of the Java Runtime Environment (JRE) in version 8u74 or above. You can check the JRE version by typing in the terminal or command window `java -version`. The latest version of JRE can be downloaded from <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">here</a>.
+Specvis was written in the Java programming language and requires installation of the Java Runtime Environment (JRE) in version 8u121 or above. You can check the JRE version by typing in the terminal or command window `java -version`. The latest version of JRE can be downloaded from <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">here</a>.
 
 After ensuring that the appropriate version of the JRE is installed, the current version of Specvis can be found in the <a href="https://github.com/piotrdzwiniel/Specvis/tree/master/latest_build">latest_build</a> folder. You can find there two main directories, i.e. `Specvis IntelliJ Project` and `Specvis Executable Pack`.
 
@@ -23,7 +36,7 @@ After you downloaded and unpacked the `Specvis Executable Pack/Specvis.zip` file
 
 <h3>Support</h3>
 
-If you have a problem with the application, please first make sure that you are familiar with <a href="http://specvis.pl/tutorials.html">Tutorials</a> and <a href="http://specvis.pl/documentation.html">Documentation</a>, and if you still need help, please go to the <a href="https://github.com/piotrdzwiniel/Specvis/issues">Issues</a> section. While you are there try to look for the solution to your problem in existing issues. If you can't find solution, than create a new issue keeping in mind - the more accurately the problem is described the greater is chance for fast answer to it.
+If you have a problem with the application, please first make sure that you are familiar with <a href="http://www.specvis.pl/index.html">content of the Specvis homepage</a>, and if you still need help, please go to the <a href="https://github.com/piotrdzwiniel/Specvis/issues">Issues</a> section. While you are there try to look for the solution to your problem in existing issues. If you can't find solution, than create a new issue keeping in mind - the more accurately the problem is described the greater is chance for fast answer to it.
 
 <h3>License</h3>
 
