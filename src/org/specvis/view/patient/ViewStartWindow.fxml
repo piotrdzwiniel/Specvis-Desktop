@@ -193,11 +193,19 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextField id="textFieldUneditable" fx:id="textFieldSettings" editable="false" prefHeight="40.0" prefWidth="350.0" stylesheets="@../MainStylesheet.css">
+                        <TextField id="textFieldUneditable" fx:id="textFieldSettings" editable="false" prefHeight="40.0" prefWidth="290.0" stylesheets="@../MainStylesheet.css">
                            <font>
                               <Font size="18.0" />
                            </font></TextField>
-                        <Button id="bodyButton" mnemonicParsing="false" onAction="#setOnActionForLoadButton" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Load">
+                        <Button id="bodyButton" fx:id="buttonLoadSettings" mnemonicParsing="false" onAction="#setOnActionForLoadButton" prefHeight="40.0" prefWidth="40.0" stylesheets="@../MainStylesheet.css">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                        <Button id="greenButton" fx:id="buttonSkipToSTART" disable="true" layoutX="690.0" layoutY="10.0" mnemonicParsing="false" onAction="#skipToSTART" prefHeight="40.0" prefWidth="100.0" stylesheets="@../MainStylesheet.css" text="Start">
                            <font>
                               <Font size="18.0" />
                            </font>

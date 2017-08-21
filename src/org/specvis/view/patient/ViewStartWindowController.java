@@ -4,10 +4,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -64,6 +63,12 @@ public class ViewStartWindowController implements Initializable {
     @FXML
     private TextField textFieldSettings;
 
+    @FXML
+    private Button buttonLoadSettings;
+
+    @FXML
+    private Button buttonSkipToSTART;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -71,6 +76,32 @@ public class ViewStartWindowController implements Initializable {
 
         setPatientIdAndNameAndTestedEye();
         setItemsForComboBoxTestedEye();
+        setLookForButtonLoadSettings();
+    }
+
+    private void setLookForButtonLoadSettings() {
+
+        /* Create image for the button */
+        Image icon = new Image("file:Resources/images/folder_icon.png");
+        ImageView imageView = new ImageView(icon);
+        imageView.setFitHeight(25);
+        imageView.setFitWidth(25);
+
+        buttonLoadSettings.setGraphic(imageView);
+    }
+
+    @FXML
+    private void skipToSTART() throws Exception {
+
+        if (isTestedEyeSelected()) {
+            StartApplication.setSceneProcedure();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Lack of key information.");
+            alert.setContentText("You must choose the tested eye.");
+            alert.showAndWait();
+        }
     }
 
     private void setPatientIdAndNameAndTestedEye() {
@@ -540,6 +571,8 @@ public class ViewStartWindowController implements Initializable {
             String settingsName = selectedFile.getName().split("\\.")[0];
             StartApplication.getSpecvisData().getPatient().setSettingsName(settingsName);
             textFieldSettings.setText(settingsName);
+
+            buttonSkipToSTART.setDisable(false);
         }
     }
 
