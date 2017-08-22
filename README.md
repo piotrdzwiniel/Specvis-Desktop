@@ -2,22 +2,20 @@
 <h3>Definition and usage of the application</h3>
 Specvis is a desktop application designed for visual field examination in humans written in the Java programming language ensuring unrestricted portability on any personal computer or laptop. It has an intuitive and easy to use graphical user interface and does not require special computer or programming skills. We have made Specvis freely available as an open-source application based on GNU GPLv3 license. It can be downloaded and used without charge, and allows unrestricted modification. Similar to other Automated Static Perimeters, Specvis displays a single, specific, light stimulus at different locations on the computer screen, in order to assess a luminance threshold across the visual field. A comprehensive description of the application can be found in its <a href="http://specvis.pl/documentation.pdf">documentation</a>.
 
-<br>
-
 <img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/1.png" width="60%">
-Figure 1. Specvis starting window. Here you can manage patient data as well as choose previously saved settings, so there is no need to adjust everything at each diagnostic session.
+<b>Figure 1.</b> Specvis starting window. Here you can manage patient data as well as choose previously saved settings, so there is no need to adjust everything at each diagnostic session.
 
 <img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/2.png" width="60%">
-Figure 2. You can easily preview patient's visual field results for example in a form of a visual field graphical map. Here, we present example results for stroke patient with homonymous right hemianopia.
+<b>Figure 2.</b> You can easily preview patient's visual field results for example in a form of a visual field graphical map. Here, we present example results for stroke patient with homonymous right hemianopia.
 
 <img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/3.png" width="60%">
-Figure 3. Specvis offers at the moment three different fixation monitor techniques. One of them called "Both" incorporates testing assumed blind spot location as well as displaying test stimulus in a fixation point location.
+<b>Figure 3.</b> Specvis offers at the moment three different fixation monitor techniques. One of them called "Both" incorporates testing assumed blind spot location as well as displaying test stimulus in a fixation point location.
 
 <img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/4.png" width="60%">
-Figure 4. If you use Specvis on computer with two screens you can supervise conductance of the test procedure in a dedicated window.
+<b>Figure 4.</b> If you use Specvis on computer with two screens you can supervise conductance of the test procedure in a dedicated window.
 
 <img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/5.png" width="60%">
-Figure 5. From Specvis in version 1.1.0 you can also compare two datasets for the same patient, so it is possible to monitor visual field condition between subsequent tests.
+<b>Figure 5.</b> From Specvis in version 1.1.0 you can also compare two datasets for the same patient, so it is possible to monitor visual field condition between subsequent tests.
 
 <h3>Source code, requirements and availability</h3>
 Specvis was written in the Java programming language and requires installation of the Java Runtime Environment (JRE) in version 8u121 or above. You can check the JRE version by typing in the terminal or command window `java -version`. The latest version of JRE can be downloaded from <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">here</a>.
@@ -32,9 +30,10 @@ Everything "around" the `latest_build` and the `old_builds` folders is a working
 
 <h3>Running the application</h3>
 
-After you downloaded and unpacked the `Specvis Executable Pack/Specvis.zip` file, you can just double click on the `Specvis.jar`. You can also run Specvis from the terminal by typing `java -jar Specvis.jar`.
+After you downloaded and unpacked the `Specvis Executable Pack/Specvis.zip` file (content of the zip file in shown in the Figure 6), you can just double click on the `Specvis.jar`. You can also run Specvis from the terminal by typing `java -jar Specvis.jar`.
 
-<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/Fig2.png" width="50%">
+<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/directory.png" width="50%">
+<b>Figure 6.</b> Content of the downloaded Specvis zip archive.
 
 <h3>Support</h3>
 
