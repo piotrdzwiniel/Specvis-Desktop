@@ -44,6 +44,8 @@ Everything "around" the `latest_build` and the `old_builds` folders is a working
 
 After you downloaded and unpacked the `Specvis Executable Pack/Specvis.zip` file (content of the zip file in shown in the Figure 6), you can just double click on the `Specvis.jar`. You can also run Specvis from the terminal by typing `java -jar Specvis.jar`.
 
+&nbsp;
+
 <img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/directory.png" width="50%">
 <b>Figure 6.</b> Content of the downloaded Specvis zip archive.
 
