@@ -2,7 +2,9 @@
 <h3>Definition and usage of the application</h3>
 Specvis is a desktop application designed for visual field examination in humans written in the Java programming language ensuring unrestricted portability on any personal computer or laptop. It has an intuitive and easy to use graphical user interface and does not require special computer or programming skills. We have made Specvis freely available as an open-source application based on GNU GPLv3 license. It can be downloaded and used without charge, and allows unrestricted modification. Similar to other Automated Static Perimeters, Specvis displays a single, specific, light stimulus at different locations on the computer screen, in order to assess a luminance threshold across the visual field. A comprehensive description of the application can be found in its <a href="http://specvis.pl/documentation.pdf">documentation</a>.
 
-<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/1.png" width="60%" margin-top:"10em">
+&nbsp;
+
+<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/1.png" width="60%">
 <b>Figure 1.</b> Specvis starting window. Here you can manage patient data as well as choose previously saved settings, so there is no need to adjust everything at each diagnostic session.
 
 <img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/2.png" width="60%">
