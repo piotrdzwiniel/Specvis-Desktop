@@ -7,6 +7,8 @@ Specvis is a desktop application designed for visual field examination in humans
 <img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/1.png" width="60%">
 <b>Figure 1.</b> Specvis starting window. Here you can manage patient data as well as choose previously saved settings, so there is no need to adjust everything at each diagnostic session.
 
+&nbsp;
+
 <img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/2.png" width="60%">
 <b>Figure 2.</b> You can easily preview patient's visual field results for example in a form of a visual field graphical map. Here, we present example results for stroke patient with homonymous right hemianopia.
 
