@@ -531,8 +531,8 @@ public class ViewStartWindowController implements Initializable {
                     uiSettingsBoth.setMsgBackgroundColor(Color.web(settingsFileContent.get(60).split("=")[1]));
                     uiSettingsBoth.setMsgBackgroundSizeInDgX(Double.valueOf(settingsFileContent.get(61).split("=")[1]));
                     uiSettingsBoth.setMsgBackgroundSizeInDgY(Double.valueOf(settingsFileContent.get(62).split("=")[1]));
-                    uiSettingsBoth.setFixMonitorStimulusDistanceFromFixPointInDgX(Double.valueOf(settingsFileContent.get(63).split("=")[1]));
-                    uiSettingsBoth.setFixMonitorStimulusDistanceFromFixPointInDgY(Double.valueOf(settingsFileContent.get(64).split("=")[1]));
+                    uiSettingsBoth.setMsgDistanceFromFixPointInDgX(Double.valueOf(settingsFileContent.get(63).split("=")[1]));
+                    uiSettingsBoth.setMsgDistanceFromFixPointInDgY(Double.valueOf(settingsFileContent.get(64).split("=")[1]));
 
                     break;
                 default:

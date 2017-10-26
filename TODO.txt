@@ -1,21 +1,37 @@
-===== TODO in version 1.1.1 or in future version 1.2 =====
-- [1.1.1] Clean and optimize code.
-- [1.1.1] Change comas in spinners to dots.
-- [1.1.1] Add ellipsoid shapes to stimuli distribution preview.
-- [1.1.1] Add icon nearly Save data in procedure preview window.
-- [1.1.1] Add date and time of the test.
-- [1.1.1] Providing values in Spinner should be saved already after key release.
-- [1.1.1] Add text information at the end of the procedure that test came to the end.
-- [1.1.1] Change polynomial fit to exponential fit for luminance scales.
+===== Things planned to do in Specvis in future =====
+- [!!!] [UTILITY] Add transparency parameter for the stimuli, so it would be possible to perform eg.
+blue on yellow visual field examination (similar to the Humphrey Zeiss perimeter possibilities).
+- [UTILITY] Add exponential gamma fit for luminance scales creation pipeline.
+- [UTILITY] Add reading time reactions.
+- [UTILITY] Use different approach for generation of visual field graphical maps than the current one.
+- [UTILITY] Add menu bar.
+- [UTILITY] Add functionality of printing/saving patient's results in *.pdf.
+- [UTILITY] Create procedure for kinetic perimetry.
+- [UTILITY] Create procedure for static perimetry, where you will can choose specific area to test.
+- [UTILITY] Add possibility to average chosen results of one patient.
+- [UTILITY] Add possibility to use unicode symbols in message after fixation loss, such as arrows etc.
+- [UTILITY] Add border and transparent background options for message box shown after fixation loss.
+- [UTILITY] Add elipsoid indicators of the visual field in the stimuli distribution
+preview (10° step).
 
-- [1.2.0] [prototype solution] Add reading time reactions.
-- [1.2.0] [prototype solution] Add new method for visualizing results based on simple pixels. Interpolation will be done for all number of pixels in display pane.
-- [1.2.0] [prototype solution] Add menu with the possibility to add and run plugins [java, python] and print results.
-- [1.2.0] [prototype solution] Add possibility to print results with graphical map and with text information about the test.
+- [NOT YET CONFIRMED] [BUG] When going back to the initial Specvis window, button START is
+enabled, but it does not answer to any action.
 
-- Create new procedure for kinetic perimetry.
-- Create new procedure with the possibility to test chosen regions of the visual field.
-- Add possibility to average chosen results.
-- Add possibility to turn on displaying basic information about the test via some kind of HUD to the patient when procedure is paused.
+===== Done for version 1.1.1 =====
+- [FIXED] [BUG] When using fixation monitor technique "Blindspot" or "Both", Specvis had displayed
+"message after fixation loss" after lack of patient's response to control stimulus shown in the predefined
+blind spot location. Now, it displays mentioned message properly, ie. when patient respond to the control
+stimulus shown in the predefined blind spot location, which should not be perceived.
+- [FIXED] [BUG] When loading settings which use fixation monitor technique "Both", XY positions
+of the "message after fixation loss" were placed in the fields corresponding to predefined
+blind spot location in the Specvis GUI. Now, settings are loading properly.
+- [FIXED] [BUG] When using fixation monitor technique "Both", Specvis did not display information
+about its settings in the text area located on the left of the procedure preview window. Now, it
+displays it properly.
+- [MATERIALS] 6 new predefined settings templates added to the "Settings" folder.
+- [MATERIALS] 5 new predefined luminance scales based on relative luminance principles
+(https://en.wikipedia.org/wiki/Relative_luminance) added to the "screenLuminanceScales.s" file.
+All new luminance scales names start with "RELATIVE" prefix. I recommend using this scales, if you
+don't have access to the photometer needed for configuration real luminance scales expressed in cd/m2.
 
-===== Done in version 1.1.1 =====
+

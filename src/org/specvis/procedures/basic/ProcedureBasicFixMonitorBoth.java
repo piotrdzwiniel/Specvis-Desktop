@@ -1161,34 +1161,61 @@ public class ProcedureBasicFixMonitorBoth extends Stage {
         /* Create KeyFrame for time interval between stimuli */
         KeyFrame keyFrameIntervalBetweenStimuli = new KeyFrame(Duration.millis(cumulativeTimeInterval), event -> {
 
-            /* Write negative answer to fixation monitor if there was no answer to it */
-            /* and show optionally message after fixation loss */
-            if (youCanRespondToStimulus) {
+            /* Fixation monitor turn = "Blindspot" */
+            if (fixationMonitorTurn.equals("Blindspot")) {
 
-                if (fixationMonitorTurn.equals("Blindspot")) {
+                fixationMonitorTurn = "Fixation point change";
+
+                /* Write negative answer to fixation monitor if there was no answer to it */
+                /* and show optionally message after fixation loss */
+                if (!youCanRespondToStimulus) {
+
                     arrayListAnswersToFixMonitor_Blindspot.add(false);
-                } else {
-                    /* If fixationMonitorTurn.equals("Fixation point change") */
-                    arrayListAnswersToFixMonitor_FixPointChange.add(false);
+                    timelineFixationMonitor.stop();
+
+                    if (settingsFixMonitorBoth.isShowPatientMsgSelected()) {
+                        isMsgAfterFixLossOnScreen = true;
+                        initAndRunMsgAfterFixLossTimeline();
+                    } else {
+                        initAndRunStimulusTimeline();
+                    }
                 }
 
-                fixationMonitorTurn = fixationMonitorTurn.equals("Blindspot") ? "Fixation point change" : "Blindspot";
-
-                timelineFixationMonitor.stop();
-
-                if (settingsFixMonitorBoth.isShowPatientMsgSelected()) {
-                    isMsgAfterFixLossOnScreen = true;
-                    initAndRunMsgAfterFixLossTimeline();
-                } else {
-                    initAndRunStimulusTimeline();
+                /* Run timeline for next stimulus */
+                else {
+                    if (!procedureIsFinished) {
+                        timelineFixationMonitor.stop();
+                        initAndRunStimulusTimeline();
+                    }
                 }
             }
 
-            /* Run timeline for next stimulus */
+            /* Fixation monitor turn = "Fixation point change" */
             else {
-                if (!procedureIsFinished) {
+
+                fixationMonitorTurn = "Blindspot";
+
+                /* Write negative answer to fixation monitor if there was no answer to it */
+                /* and show optionally message after fixation loss */
+                if (youCanRespondToStimulus) {
+
+                    arrayListAnswersToFixMonitor_FixPointChange.add(false);
                     timelineFixationMonitor.stop();
-                    initAndRunStimulusTimeline();
+
+                    if (settingsFixMonitorBoth.isShowPatientMsgSelected()) {
+                        isMsgAfterFixLossOnScreen = true;
+                        initAndRunMsgAfterFixLossTimeline();
+                    } else {
+                        initAndRunStimulusTimeline();
+                    }
+                }
+
+                /* Run timeline for next stimulus */
+                else {
+                    if (!procedureIsFinished) {
+                        timelineFixationMonitor.stop();
+                        initAndRunStimulusTimeline();
+                    }
                 }
             }
         });

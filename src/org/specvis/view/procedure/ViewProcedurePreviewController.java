@@ -88,7 +88,7 @@ public class ViewProcedurePreviewController implements Initializable {
 
         textArea.appendText("BASIC INFORMATION" + "\n\n");
 
-        textArea.appendText("DEPRECATED_Procedure: " + specvisData.getUiSettingsFixationAndOther().getProcedure().toLowerCase() + "\n\n");
+        textArea.appendText("Procedure: " + specvisData.getUiSettingsFixationAndOther().getProcedure().toLowerCase() + "\n\n");
 
         Date date = new Date();
         String modifiedDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
@@ -172,6 +172,33 @@ public class ViewProcedurePreviewController implements Initializable {
                     showMsgFixPointChange = "no";
                 }
                 textArea.appendText("Show the patient a message when it loses fixation: " + showMsgFixPointChange + "\n\n");
+                break;
+            case "Both":
+
+                textArea.appendText("Fixation monitor technique: both" + "\n");
+                if (specvisData.getUiSettingsFixMonitorBoth().isMonitorFixationEveryXStimuliSelected()) {
+                    textArea.appendText("Monitor fixation every " + specvisData.getUiSettingsFixMonitorBoth().getMonitorFixationEveryXStimuli() + " stimuli" + "\n");
+                } else {
+                    textArea.appendText("Monitor fixation every " + specvisData.getUiSettingsFixMonitorBoth().getMonitorFixationEveryXYStimuli_1() + " to " + specvisData.getUiSettingsFixMonitorBoth().getMonitorFixationEveryXYStimuli_2() + " stimuli" + "\n");
+                }
+
+                textArea.appendText("Control stimulus size (\u00b0): " + specvisData.getUiSettingsFixMonitorBoth().getFixMonitorStimulusSizeInDgX() + "/" + specvisData.getUiSettingsFixMonitorBoth().getFixMonitorStimulusSizeInDgY() + "\n");
+                textArea.appendText("Control stimulus brightness (%): " + specvisData.getUiSettingsFixMonitorBoth().getFixMonitorStimulusBrightness() + "\n");
+                textArea.appendText("Control stimulus luminance (cd/m2): " + StartApplication.getFunctions().round(specvisData.getUiSettingsFixMonitorBoth().getFixMonitorStimulusLuminance(), 2) + "\n");
+                textArea.appendText("Predefined blind spot distance from the fixation point (\u00b0): " + specvisData.getUiSettingsFixMonitorBoth().getFixMonitorStimulusDistanceFromFixPointInDgX() + "/" + specvisData.getUiSettingsFixMonitorBoth().getFixMonitorStimulusDistanceFromFixPointInDgY() + "\n");
+
+                textArea.appendText("Changed fixation point size (\u00b0): " + specvisData.getUiSettingsFixMonitorBoth().getChangedFixPointSizeInDgX() + "/" + specvisData.getUiSettingsFixMonitorBoth().getChangedFixPointSizeInDgY() + "\n");
+                textArea.appendText("Changed fixation point color: " + StartApplication.getFunctions().toHexCode(specvisData.getUiSettingsFixMonitorBoth().getChangedFixPointColor()) + "\n");
+                textArea.appendText("Changed fixation point luminance (cd/m2): " + StartApplication.getFunctions().round(specvisData.getUiSettingsFixMonitorBoth().getChangedFixPointColorLuminance(), 2) + "\n");
+
+                String showMsgBoth;
+                if (specvisData.getUiSettingsFixMonitorBoth().isShowPatientMsgSelected()) {
+                    showMsgBoth = "yes";
+                } else {
+                    showMsgBoth = "no";
+                }
+                textArea.appendText("Show the patient a message when it loses fixation: " + showMsgBoth + "\n\n");
+
                 break;
             default:
                 textArea.appendText("Fixation monitor technique: none" + "\n\n");

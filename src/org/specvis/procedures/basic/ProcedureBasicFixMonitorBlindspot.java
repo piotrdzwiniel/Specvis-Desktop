@@ -1144,7 +1144,7 @@ public class ProcedureBasicFixMonitorBlindspot extends Stage {
 
             /* Write negative answer to fixation monitor if there was no answer to it */
             /* and show optionally message after fixation loss */
-            if (youCanRespondToStimulus) {
+            if (!youCanRespondToStimulus) {
                 arrayListAnswersToFixMonitor.add(false);
 
                 timelineFixationMonitor.stop();
