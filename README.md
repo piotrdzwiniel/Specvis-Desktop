@@ -1,56 +1,148 @@
 <h1>Specvis v1.1.1</h1>
-<h3>Definition and usage of the application</h3>
-Specvis is a desktop application designed for visual field examination in humans written in the Java programming language ensuring unrestricted portability on any personal computer. It has an intuitive and easy to use graphical user interface and does not require special computer or programming skills. We have made Specvis freely available as an open-source application based on GNU GPLv3 license. It can be downloaded and used without charge, and allows unrestricted modification. Similar to other automated static perimeters, Specvis displays a single, specific, light stimulus at different locations on the computer screen, in order to assess a luminance threshold across the visual field. A comprehensive description of the application with its scientific and clinical validation can be found in <a href="http://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0186224">PLoS ONE article</a>. A complementary materials can be also found in its <a href="http://www.specvis.pl/documentation.pdf">documentation</a>. In addition, a quick start guide can be found <a href="http://www.specvis.pl/quick-start.html">here</a>.
 
-<h3>Source code, requirements and availability</h3>
-Specvis was written in the Java programming language and requires installation of the Java Runtime Environment (JRE) in version 8u121 or above. You can check the JRE version by typing in the terminal or command window `java -version`. The latest version of JRE can be downloaded from <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">here</a>. After ensuring that the appropriate version of the JRE is installed, the current version of Specvis can be downloaded <a href="https://github.com/piotrdzwiniel/Specvis/raw/master/latest_build/Specvis_v1_1_1/Specvis%20Executable%20Pack/Specvis.zip">here</a>. From the other hand, if you are interested in older versions of Specvis, you can find them in the <a href="https://github.com/piotrdzwiniel/Specvis/tree/master/old_builds">old_builds</a> folder. The master branch is the equivalent of “stable” and most recent Specvis version (release). All Specvis development and improvement actions are performed in side-branches. Everyone is encouraged to provide ideas about software development and its improvement. If you want to share with some useful functionality, that can be included in future releases write directly at my email (piotr.dzwiniel@gmail.com) or in appropriate place on Specvis GitHub repository, eg. in the Issues section, available at <a href="https://github.com/piotrdzwiniel/Specvis/issues">https://github.com/piotrdzwiniel/Specvis/issues</a>.
+<h3>Contents</h3>
+<ul>
+    <li><a href="#About">About</a></li>
+    <li><a href="#Requirements">Requirements</a></li>
+    <li><a href="#Download">Download</a></li>
+    <li><a href="#QuickStart">Quick Start</a></li>
+    <li><a href="#Resources">Resources for Learning Specvis</a></li>
+    <li><a href="#CiteSpecvis">Cite Specvis</a></li>
+    <li><a href="#Contribute"></a>Contribute</li>
+        <ul>
+            <li><a href="#CodingGuidelines">Coding Guidelines</a></li>
+            <ul>
+                <li><a href="#Branches">Branches</a></li>
+                <li><a href="#PullRequests">Pull Requests</a></li>
+                <li><a href="#CodeStyle">Code Style</a></li>
+            </ul>
+        </ul>
+    <li><a href="#Support"></a>Support</li>
+</ul>
 
-<h3>Running the application</h3>
+<h3 id="About">About</h3>
+<p>
+    Specvis is a desktop application designed for fast and reliable perimetry-like
+    <a href="https://en.wikipedia.org/wiki/Visual_field_test">visual field examination</a>.
+    It is written in <a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a>
+    to ensure considerable portability and is licensed under
+    <a href="https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3">GNU GPLv3</a>.
+</p>
 
-After you downloaded and unpacked the `Specvis.zip` file (content of the zip file in shown in the Figure 1), you can just double click on the `Specvis.jar`. You can also run Specvis from the terminal by typing `java -jar Specvis.jar`.
+<h3 id="Requirements">Requirements</h3>
+<p>
+    Specvis requires <a href="https://en.wikipedia.org/wiki/Java_virtual_machine#Execution_environment">
+    Java Runtime Environment (JRE)</a></p> in version 8u121 or above. You can check whether your computer
+    has an appropriate JRE version by typing <code>java -version</code> in the terminal/ command window.
+    You can download the newest JRE version <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">here</a>.
+</p>
 
-&nbsp;
+<h3 id="Download">Download</h3>
+<p>
+    You can download Specvis on its <a href="http://specvis.pl/index.html">website</a>. What will be
+    downloaded is a *.zip archive. Unzip it in a desired location. The content of the unzipped folder
+    should contain <code>Specvis.jar</code> file. You will use this file to launch Specvis application.
+</p>
 
-<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/directory.png" width="50%">
-<b>Figure 1.</b> Content of the downloaded Specvis zip archive.
+<h3 id="QuickStart">Quick Start</h3>
+<p>
+    In order to launch Specvis application double click on the <code>Specvis.jar</code> file,
+    or type <code>java -jar Specvis.jar</code> in the terminal/ command window (while in the Specvis
+    main directory). For further information about conducting a very first visual field examination
+    please visit Specvis <a href="http://specvis.pl/quick-start.html#step-4">quick start guide</a> on its
+    website.
+</p>
 
-&nbsp;
+<h3 id="Resources">Resources for Learning Specvis</h3>
+<ul>
+    <li><a href="http://specvis.pl/index.html">Specvis Website</a></li>
+    <li><a href="http://specvis.pl/documentation.pdf">Specvis Documentation</a></li>
+    <li><a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0186224">Article in PLoS ONE describing Specvis validation and implementation</a></li>
+</ul>
 
-<h3>Support</h3>
+<h3 id="CiteSpecvis">Cite Specvis</h3>
+<p>
+    If you use Specvis in your research, please cite:
+    <ul>
+        <li>Dzwiniel P, Gola M, Wójcik-Gryciuk A, Waleszczyk WJ (2017) Specvis: Free and open-source
+        software for visual field examination. PLoS ONE 12 (10): e0186224.
+        <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0186224">
+        https://doi.org/10.1371/journal.pone.0186224</a>.</li>
+    </ul>
+</p>
 
-If you have a problem with the application, please first make sure that you are familiar with <a href="http://www.specvis.pl/index.html">content of the Specvis homepage</a>, and if you still need help, please go to the <a href="https://github.com/piotrdzwiniel/Specvis/issues">Issues</a> section. While you are there try to look for the solution to your problem in existing issues. If you can't find solution, than create a new issue keeping in mind - the more accurately the problem is described the greater is chance for fast answer to it.
+<h3 id="Contribute">Contribute</h3>
+<p>
+    I'm open to many types of contributions, from bugfixes to functionality enhancement and introduction.
+    Specvis was created by one person, but is meant to be maintained by a community of academics and clinicians,
+    and as such, I seek enhancements that will likely benefit a large proportion of the users who use the application.
+</p>
 
-<h3>License</h3>
+<p>
+    Before starting new code, I highly recommend to get acquainted with <code>Specvis/TODO.txt</code>
+    list and opening an issue on <a href="https://github.com/piotrdzwiniel/Specvis/issues">
+    Specvis GitHub</a> to discuss potential changes. Getting on the same page as the maintainers about changes
+    or enhancements before to much coding is done saves everyone time and effort! Of course, I encourage
+    to propose changes, that are not listed in <code>Specvis/TODO.txt</code>.
+</p>
 
-The source code and the application itself are released under the terms of <a href="https://github.com/piotrdzwiniel/Specvis/blob/master/GNU%20GPL%20v3.txt">GNU General Public License in version 3</a> as published by the Free Software Foundation. Software covered by this license is and will be free and open-source. In general, this license ensures, that everyone can use the software and modify it, however, each new release is also covered by the same license, so the freedom and capacity of the software remains preserved. This policy refers to the software as whole but also to each individual source code file.
+<p>
+    Any contributions to Specvis, whether bug fixes, improvements or completely new functionalities,
+    should be done via <i>pull requests</i> on GitHub. I assume, that you are acquainted with
+    contributing to GitHub projects and you have already a GitHub account. From this point, below
+    I provide step-by-step guide how to start your contribution to Specvis with the use of
+    <a href="https://www.jetbrains.com/idea/download/#section=windows">IntelliJ IDEA</a> environment.
+</p>
 
-<h3>Citing Specvis</h3>
+<ul>
+    <li>Download, install, and launch <a href="https://www.jetbrains.com/idea/download/#section=windows">IntelliJ IDEA</a> environment.</li>
 
-If you use Specvis in your research, please cite:
+    <li>Log into your GitHub account via IntelliJ, by choosing File/Settings/Version Control/GitHub
+    and filling up all text fields with appropriate information. In Host text field write <code>github.com</code>.
+    In Login and Password text fields write your GitHub account credensials. Next, hit Test button,
+    in order to test IntelliJ connection with your GitHub account. Finally, click Apply/OK button.</li>
 
-Dzwiniel P, Gola M, Wójcik-Gryciuk A, Waleszczyk WJ (2017) Specvis: Free and open-source software for visual field examination. PLoS ONE 12 (10): e0186224. <a href="https://doi.org/10.1371/journal.pone.0186224">https://doi.org/10.1371/journal.pone.0186224</a>.
+    <li>Clone Specvis repository (https://github.com/piotrdzwiniel/Specvis.git) based on guidelines
+    available <a href="https://www.jetbrains.com/help/idea/using-git-integration.html">here</a>.</li>
 
-<h3>Example screen-shots</h3>
+    <li>Work only on branch <code>version-X-X-X</code>. More on branches below.</li>
+</ul>
 
-<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/1.png" width="60%">
-<b>Figure 2.</b> Specvis starting window. Here you can manage patient data as well as choose previously saved settings, so there is no need to adjust everything at each diagnostic session.
+<h4 id="CodingGuidelines">Coding Guidelines</h4>
+<h5 id="Branches">Branches</h5>
+<p>
+    Specvis GitHub repository will always have two active branches: <code>master</code> and
+    <code>version-X-X-X</code>. Work only on the second one.
+</p>
 
-&nbsp;
+<h5 id="PullRequests">Pull Requests</h5>
+<ul>
+    <li>Address one issue per pull request (PR).</li>
+    <li>Avoid unnecessary cosmetic changes in PRs.</li>
+    <li>Update the <code>Specvis/doc/whats_new.txt</code> file last, after PR acceptance and before merge,
+    to avoid merge conflicts.</li>
+</ul>
 
-<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/2.png" width="60%">
-<b>Figure 3.</b> You can easily preview patient's visual field results for example in a form of a visual field graphical map. Here, we present example results for stroke patient with homonymous right hemianopia.
+<h5 id="CodeStyle">Code Style</h5>
+<ul>
+    <li>I recommend to use <a href="https://www.jetbrains.com/idea/download/#section=windows">IntelliJ IDEA
+    </a> environment for coding in Java.</li>
 
-&nbsp;
+    <li>Please follow <a href="https://google.github.io/styleguide/javaguide.html">Google Java Style Guide</a>.</li>
 
-<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/3.png" width="60%">
-<b>Figure 4.</b> Specvis offers at the moment three different fixation monitor techniques. One of them called "Both" incorporates testing assumed blind spot location as well as displaying test stimulus in a fixation point location.
+    <li>Please write self-descriptive code with detailed comments where needed (especially describe
+    with javadoc comments functionality of the implemented methods).</li>
+</ul>
 
-&nbsp;
-
-<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/4.png" width="60%">
-<b>Figure 5.</b> If you use Specvis on computer with two screens you can supervise conductance of the test procedure in a dedicated window.
-
-&nbsp;
-
-<img src="https://github.com/piotrdzwiniel/Specvis/raw/master/readme_content/img/5.png" width="60%">
-<b>Figure 6.</b> From Specvis in version 1.1.0 you can also compare two datasets for the same patient, so it is possible to monitor visual field condition between subsequent tests.
+<h3 id="Support">Support</h3>
+<p>
+    If there is any technical problem with Specvis, please go to the issues section on
+    <a href="https://github.com/piotrdzwiniel/Specvis/issues">Specvis GitHub</a> and try to look
+    for the solution to your problem among existing topics. If you can't find the solution, than create
+    a new issue and describe your problem as accurate as it is possible. If something is not working
+    in Specvis (it freezes, behave oddly etc.), than try to run it from the terminal/ command window
+    and than try to force this situation when something is not working. If any error will appear
+    in the terminal/ command window, copy it and include it in the description of the issue. Remember,
+    the more information you'll provide about the problem you've encountered using Specvis, the bigger chance
+    that this problem will be solved and will not occur any more.
+</p>

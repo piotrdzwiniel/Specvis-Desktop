@@ -1,0 +1,5 @@
+CURRENT
+- Change Log
+    -- Change 1, by Piotr Dzwiniel, at dd/mm/yyyy.
+- Bug
+    -- Fix bug in [file] [fix description], by Piotr Dzwiniel, at dd/mm/yyyy.
