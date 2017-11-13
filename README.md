@@ -27,7 +27,7 @@ Specvis is a desktop application designed for fast and reliable perimetry-like <
 
 <h3 id="Requirements">Requirements</h3>
 <p>
-Specvis requires <a href="https://en.wikipedia.org/wiki/Java_virtual_machine#Execution_environment"> Java Runtime Environment (JRE)</a></p> in version 8u121 or above. You can check whether your computer has an appropriate JRE version by typing <code>java -version</code> in the terminal/ command window. You can download the newest JRE version <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">here</a>.
+Specvis requires <a href="https://en.wikipedia.org/wiki/Java_virtual_machine#Execution_environment"> Java Runtime Environment (JRE)</a> in version 8u121 or above. You can check whether your computer has an appropriate JRE version by typing <code>java -version</code> in the terminal/ command window. You can download the newest JRE version <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">here</a>.
 </p>
 
 <h3 id="Download">Download</h3>
