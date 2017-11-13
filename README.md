@@ -73,11 +73,8 @@ Any contributions to Specvis, whether bug fixes, improvements or completely new 
 
 <ul>
     <li>Download, install, and launch <a href="https://www.jetbrains.com/idea/download/#section=windows">IntelliJ IDEA</a> environment.</li>
-
     <li>Log into your GitHub account via IntelliJ, by choosing File/Settings/Version Control/GitHub and filling up all text fields with appropriate information. In Host text in order to test IntelliJ connection with your GitHub account. Finally, click Apply/OK button.</li>
-
     <li>Clone Specvis repository (https://github.com/piotrdzwiniel/Specvis.git) based on guidelines available <a href="https://www.jetbrains.com/help/idea/using-git-integration.html">here</a>.</li>
-
     <li>Work only on branch <code>version-X-X-X</code>. More on branches below.</li>
 </ul>
 
@@ -98,13 +95,9 @@ Any contributions to Specvis, whether bug fixes, improvements or completely new 
 
 <h5 id="CodeStyle">Code Style</h5>
 <ul>
-    <li>I recommend to use <a href="https://www.jetbrains.com/idea/download/#section=windows">IntelliJ IDEA
-    </a> environment for coding in Java.</li>
-
+    <li>I recommend to use <a href="https://www.jetbrains.com/idea/download/#section=windows">IntelliJ IDEA</a> environment for coding in Java.</li>
     <li>Please follow <a href="https://google.github.io/styleguide/javaguide.html">Google Java Style Guide</a>.</li>
-
-    <li>Please write self-descriptive code with detailed comments where needed (especially describe
-    with javadoc comments functionality of the implemented methods).</li>
+    <li>Please write self-descriptive code with detailed comments where needed (especially describe with javadoc comments functionality of the implemented methods).</li>
 </ul>
 
 <h3 id="Support">Support</h3>
