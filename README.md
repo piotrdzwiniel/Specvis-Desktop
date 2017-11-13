@@ -104,3 +104,5 @@ Any contributions to Specvis, whether bug fixes, improvements or completely new 
 <p>
 If there is any technical problem with Specvis, please go to the issues section on <a href="https://github.com/piotrdzwiniel/Specvis/issues">Specvis GitHub</a> and try to look for the solution to your problem among existing topics. If you can't find the solution, than create a new issue and describe your problem as accurate as it is possible. If something is not working in Specvis (it freezes, behave oddly etc.), than try to run it from the terminal/ command window and than try to force this situation when something is not working. If any error will appear in the terminal/ command window, copy it and include it in the description of the issue. Remember, the more information you'll provide about the problem you've encountered using Specvis, the bigger chance that this problem will be solved and will not occur any more.
 </p>
+
+<p>For any questions write at <b>piotr.dzwiniel@gmail.com</b>.</p>
