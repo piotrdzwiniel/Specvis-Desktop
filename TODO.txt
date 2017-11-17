@@ -1,37 +1,52 @@
-===== Things planned to do in Specvis in future =====
-- [!!!] [UTILITY] Add transparency parameter for the stimuli, so it would be possible to perform eg.
-blue on yellow visual field examination (similar to the Humphrey Zeiss perimeter possibilities).
-- [UTILITY] Add exponential gamma fit for luminance scales creation pipeline.
-- [UTILITY] Add reading time reactions.
-- [UTILITY] Use different approach for generation of visual field graphical maps than the current one.
-- [UTILITY] Add menu bar.
-- [UTILITY] Add functionality of printing/saving patient's results in *.pdf.
-- [UTILITY] Create procedure for kinetic perimetry.
-- [UTILITY] Create procedure for static perimetry, where you will can choose specific area to test.
-- [UTILITY] Add possibility to average chosen results of one patient.
-- [UTILITY] Add possibility to use unicode symbols in message after fixation loss, such as arrows etc.
-- [UTILITY] Add border and transparent background options for message box shown after fixation loss.
-- [UTILITY] Add elipsoid indicators of the visual field in the stimuli distribution
-preview (10° step).
+===== [ENG] For Contributors =====
+Common Path (CP) - Specvis/src/org
 
-- [NOT YET CONFIRMED] [BUG] When going back to the initial Specvis window, button START is
-enabled, but it does not answer to any action.
+- [1] [CP/specvis/view/miscellaneous/ViewStimuliDistribution.java] Implement ellipsoid indicators of 10° visual field step. The center of each ellipsoid indicator should be at the fixation point location. The width and height of each ellipsoid indicator should be equal to 20°*n, where n is the number of each visual field step.
 
-===== Done for version 1.1.1 =====
-- [FIXED] [BUG] When using fixation monitor technique "Blindspot" or "Both", Specvis had displayed
-"message after fixation loss" after lack of patient's response to control stimulus shown in the predefined
-blind spot location. Now, it displays mentioned message properly, ie. when patient respond to the control
-stimulus shown in the predefined blind spot location, which should not be perceived.
-- [FIXED] [BUG] When loading settings which use fixation monitor technique "Both", XY positions
-of the "message after fixation loss" were placed in the fields corresponding to predefined
-blind spot location in the Specvis GUI. Now, settings are loading properly.
-- [FIXED] [BUG] When using fixation monitor technique "Both", Specvis did not display information
-about its settings in the text area located on the left of the procedure preview window. Now, it
-displays it properly.
-- [MATERIALS] 6 new predefined settings templates added to the "Settings" folder.
-- [MATERIALS] 5 new predefined luminance scales based on relative luminance principles
-(https://en.wikipedia.org/wiki/Relative_luminance) added to the "screenLuminanceScales.s" file.
-All new luminance scales names start with "RELATIVE" prefix. I recommend using this scales, if you
-don't have access to the photometer needed for configuration real luminance scales expressed in cd/m2.
+- [2] [CP/specvis/view/miscellaneous/ViewStimuliDistribution.java] Change stimuli, blind spot, and fixation point location indicators from squares with letters in them, to simple filled circles of appropriate color: stimuli = white, blind spot = red, fixation point = green. Width and height of those new indicators can be equal to 0.5°.
 
+- [3] [CP/contour2dplot] Implementation of new, more efficient functionality for drawing 2D contour maps.
 
+- [4] [CP/specvis/view/procedure/ViewProcedureResultsController.java and patient/ViewPatientResultsMapController.java] Add functionality for saving visual field graphical map in *.jpg/*.png files.
+
+- [5] [CP/specvis/view/patient/ViewPatientResultsController.java] Add functionality for saving chosen patient results compilation (graphical map + numerical results, such as fixation accuracy etc.) as a *.pdf file.
+
+- [6] [CP/specvis/view/procedure/ViewProcedureResultsController.java and patient/ViewPatientResultsMapController.java] Use only mono-color scales for visual field graphical maps.
+
+===== [PL] Do zrobienia w wersji 1.2.0 [ustalić kolejność realizacji] =====
+- Zapisywanie mapy graficznej w postaci np. *.jpg;
+- Zapisywanie wyników (mapa + dane liczbowe) w postaci pliku *.pdf;
+- Zmienić technikę malowania map. Rysować mapę po prostu "piksel-po-pikselu" w oparciu o wartości
+z macierzy 300x300. Tym samym uniemożliwić robienie badania pola widzenia z większą rozdzielczością
+lokalizacji bodźców niż 300x300. Jeżeli rozdzielczość lokalizacji bodźców jest niższa, to wykonać
+interpolację;
+- Korzystać wyłącznie ze skal kolorystycznych jednokolorowych;
+- Zamienić duże, kwadratowe markery oznaczające punkty fiksacyjne i predefiniowaną lokalizację plamki
+ślepej na małe, kolorowe kropki. Zrobić to zarówno na mapie graficznej, jak i na podglądzie
+rozmieszczenia lokalizacji bodźców na ekranie. W przypadku mapy graficznej, umożliwić włączanie i
+wyłączanie markerów bez konieczności odmalowywania całej mapy (może skorzystać z metody "setVisible"?);
+- Rysowanie mapy "konturowej" oprzeć po prostu na zakresach wartości, tj. mając daną skalę koloru
+dzielę ją na np. 10 stopni i w ten sposób dzielę na 10 stopni (zakresy) wartości w macierzy,
+które "będą kolorowane" w jednym z wybranych 10 stopni kolorów;
+- Colorbar ma być "płynny" z niezmienną ilością "ticków", np. 5. Dokładne informacje o wartości
+na mapie użytkownik uzyska po najechaniu na nią, po czym obok kursora wyświetli się tooltip z wartością
+konkretnego piksela w dB;
+- Wybór pacjenta, oka i ustawień pozostawić na jednej stronie. Całą resztę ustawień umieścić w kroku
+drugim w indywidualnych zakładkach (tabach). Trzecie okno, to już okno podglądu procedury;
+- Dodać przycisk "Start examination" na środku czarnego paska w każdym z trzech okien (kroków).
+Będzie odblokowywany, gdy będzie wybrany pacjent, oko oraz ustawienia. Jego naciśnięcie będzie od razu
+przenosiło użytkownika do trzeciego okienka i rozpoczynało badanie;
+- Na górze okienka dodać trzy radio buttony z nazwami kolejnych kroków i umożliwić przełączanie się
+pomiędzy nimi;
+- W oknie "Results" wybranego pacjenta dodać po prawej stronie kolumnę na podgląd wyników (góra-mapa,
+doł-dane-liczbowe), natomiast w tabeli po lewej wyświetlać najbardziej kluczbowe dane dla identyfikacji
+badania (kiedy zostało wykonane, które oko było badane, i info na temat najważniejszych ustawień);
+- Dodać możliwość testowania pola widzenia w oparciu o wyświetlanie bodźców na skali przezroczystości,
+a nie tylko jasności. Dzięki temu możliwe byłyby badania np. "blue-on-yellow", co obecnie jest raczej
+niemożliwe;
+- W zakładce ustawień ekranu dodać przycisk, po którego naciśnięciu wyświetli się okno podobne do
+bez-ramkowego okna wyświetlanego na potrzeby podglądu lokalizacji bodźców. Okno to ma służyć do ułatwienia
+zmierzenia szerokości i wysokości ekranu;
+- Dodać elipsoidalne indykatory zakresu badanego pola widzenia (co 10°) w oknie podglądu lokalizacji
+bodźców;
+- Dodać czytanie czasów reakcji;
