@@ -1,3 +1,18 @@
+===== [ENG] For Contributors =====
+Common Path (CP) - Specvis/src/org
+
+- [1] [CP/specvis/view/miscellaneous/ViewStimuliDistribution.java] Implement ellipsoid indicators of 10° visual field step. The center of each ellipsoid indicator should be at the fixation point location. The width and height of each ellipsoid indicator should be equal to 20°*n, where n is the number of each visual field step.
+
+- [2] [CP/specvis/view/miscellaneous/ViewStimuliDistribution.java] Change stimuli, blind spot, and fixation point location indicators from squares with letters in them, to simple filled circles of appropriate color: stimuli = white, blind spot = red, fixation point = green. Width and height of those new indicators can be equal to 0.5°.
+
+- [3] [CP/contour2dplot] Implementation of new, more efficient functionality for drawing 2D contour maps.
+
+- [4] [CP/specvis/view/procedure/ViewProcedureResultsController.java and patient/ViewPatientResultsMapController.java] Add functionality for saving visual field graphical map in *.jpg/*.png files.
+
+- [5] [CP/specvis/view/patient/ViewPatientResultsController.java] Add functionality for saving chosen patient results compilation (graphical map + numerical results, such as fixation accuracy etc.) as a *.pdf file.
+
+- [6] [CP/specvis/view/procedure/ViewProcedureResultsController.java and patient/ViewPatientResultsMapController.java] Use only mono-color scales for visual field graphical maps.
+
 ===== [PL] Do zrobienia w wersji 1.2.0 [ustalić kolejność realizacji] =====
 - Zapisywanie mapy graficznej w postaci np. *.jpg;
 - Zapisywanie wyników (mapa + dane liczbowe) w postaci pliku *.pdf;
