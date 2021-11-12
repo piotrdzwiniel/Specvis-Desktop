@@ -31,7 +31,7 @@ Specvis requires <a href="https://en.wikipedia.org/wiki/Java_virtual_machine#Exe
 
 <h2 id="Download">Download</h2>
 <p>
-You can download Specvis on its <a href="http://specvis.pl/index.html">website</a>. What will be downloaded is a *.zip archive. Unzip it in a desired location. The content of the unzipped folder should contain <code>Specvis.jar</code> file. You will use this file to launch Specvis application.
+You can download Specvis by clicking <a href="https://github.com/piotrdzwiniel/Specvis/raw/master/latest_build/Specvis_v1_1_1/Specvis.zip">this link</a>. What will be downloaded is a *.zip archive. Unzip it in a desired location. The content of the unzipped folder should contain <code>Specvis.jar</code> file. You will use this file to launch Specvis application.
 </p>
 
 <h2 id="QuickStart">Quick Start</h2>
