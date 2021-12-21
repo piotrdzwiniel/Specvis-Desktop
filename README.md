@@ -5,28 +5,28 @@
     <li><a href="#Requirements">Requirements</a></li>
     <li><a href="#Download">Download</a></li>
     <li><a href="#QuickStart">Quick Start</a></li>
-    <li><a href="#Resources">Resources for Learning Specvis</a></li>
+    <li><a href="#AcademicalValidation">Academical Validation</a></li>
     <li><a href="#CiteSpecvis">Cite Specvis</a></li>
-    <li><a href="#Contribute">Contribute</a></li>
-        <ul>
-            <li><a href="#CodingGuidelines">Coding Guidelines</a></li>
-            <ul>
-                <li><a href="#Branches">Branches</a></li>
-                <li><a href="#PullRequests">Pull Requests</a></li>
-                <li><a href="#CodeStyle">Code Style</a></li>
-            </ul>
-        </ul>
+    <li><a href="#License">License</a></li>
     <li><a href="#Support">Support</a></li>
+    <li><a href="#Contribute">Contribute</a></li>
+    <li><a href="#Contact">Contact</a></li>
 </ul>
 
 <h2 id="About">About</h2>
 <p>
-Specvis is a desktop application designed for fast and reliable perimetry-like <a href="https://en.wikipedia.org/wiki/Visual_field_test">visual field examination</a>. It is written in <a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a> to ensure considerable portability and is licensed under <a href="https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3">GNU GPLv3</a>.
+Specvis Desktop is a free, open-source and academically verified software for visual field examination using <a href="https://en.wikipedia.org/wiki/Visual_field_test#Static_perimetry">static perimetry</a>, which consists of displaying visual stimuli in various places on the screen in the form of points of different brightness, to which the subject responds when he sees them. As a result, we obtain a visual field sensitivity map based on the basis of which we can conclude about its condition.
 </p>
 
 <h2 id="Requirements">Requirements</h2>
 <p>
-Specvis requires <a href="https://en.wikipedia.org/wiki/Java_virtual_machine#Execution_environment"> Java Runtime Environment (JRE)</a> in version 8u121 or above. You can check whether your computer has an appropriate JRE version by typing <code>java -version</code> in the terminal/ command window. You can download the newest JRE version <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">here</a>.
+In order to ensure the multiplatformity of the application (which runs on Windows, Linux, and Mac), it was written in the Java programming language. This means that the application needs Java Runtime Environment (JRE; platform for running Java applications) to be installed on your computer to run. That said you need specifally JRE in version 8.121 or above, **but not 10 and above** due to the fact, that Specvis Desktop uses JavaFX for which Oracle (a company that oficially develops Java) stopped its support starting with JRE 10. Nevertheless, if you must use JRE 10 or above, you can find installing <a href="https://openjfx.io/">openjfx</a> as a solution to your possible problem with running Specvis Desktop. You just have to point to the openjfx directly and add required modules when launching Specvis Desktop from the command prompt by typing for example:
+
+`    
+java --module-path openjfx/lib --add-modules javafx.controls,javafx.fxml -jar Specvis.jar
+`
+   
+But I strongly suggest to stick to the JRE 8.121 if possible. You can check whether your computer has an appropriate JRE version by typing <code>java -version</code> in the command prompt. You can download a specific JRE version <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">here</a>/
 </p>
 
 <h2 id="Download">Download</h2>
@@ -35,20 +35,22 @@ You can download Specvis by clicking <a href="https://github.com/piotrdzwiniel/S
 </p>
 
 <h2 id="QuickStart">Quick Start</h2>
-<p>
-In order to launch Specvis application double click on the <code>Specvis.jar</code> file, or type <code>java -jar Specvis.jar</code> in the terminal/ command window (while in the Specvis main directory). For further information about conducting a very first visual field examination please visit Specvis <a href="http://specvis.pl/quick-start.html#step-4">quick start guide</a> on its website.
-</p>
+<h4>Launch</h4>
+<p>In order to launch Specvis Desktop double click on the <code>Specvis.jar</code> file or tye <code>java -jar Specvis.jar</code> in the command prompt, remembering, that you have to include Specvis directory in the command you want to execute or while being in the appropriate directory from the level of the command prompt.</p>
 
-<h2 id="Resources">Resources for Learning Specvis</h2>
-<ul>
-    <li><a href="http://specvis.pl/index.html">Specvis Website</a></li>
-    <li><a href="http://specvis.pl/documentation.pdf">Specvis Documentation</a></li>
-    <li><a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0186224">Article in PLoS ONE describing Specvis validation and implementation</a></li>
-</ul>
+<h4>Performing Visual Field Test</h4>
+<p>First, add new or choose an existing patient in the Specvis Desktop window. Second, choose which eye you want to test. Third, select one of the predefined settins templates or choose testing settings by your own. Fourth, conduct the visual field test. For more detailed information about all Specvis Desktop functionalities look into its <a href="">documentation</a>.</p>
+
+<h2 id="AcademicalValidation">Academical Validation</h2>
+<p>
+Specvis Desktop was tested on glaucomatous, retinitis pigmentosa and stroke patients and the results were compared to results using the Medmont M700 Automated Static Perimeter, which is a commercially available, certified medical equipment used widely in different ophthalmology offices around the world. The application was also tested for inter-test intrapersonal variability. The results from both validation studies indicated low inter-test intrapersonal variability, and suitable reliability for a fast and simple assessment of visual field impairement. Specvis easily identifies visual field areas of zero sensitivity and allows for evaluation of its levels throughout the visual field. Thus, Specvis is a new, reliable application that can be successfully used for visual field examination and can fill the gap between confrontation and perimetry tests.
+    
+The software itself and corresponding validation studies were thoroughly described in the article <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0186224">Specvis: Free and open-source software for visual field examination</a> published in PLoS ONE scientific journal.
+</p>
 
 <h2 id="CiteSpecvis">Cite Specvis</h2>
 <p>
-    If you use Specvis in your research, please cite:
+    If you use Specvis in your research that will be described in a scientific journal, please cite         Specvis Desktop by referring to the following citation:
     <ul>
         <li>Dzwiniel P, Gola M, Wójcik-Gryciuk A, Waleszczyk WJ (2017) Specvis: Free and open-source
         software for visual field examination. PLoS ONE 12 (10): e0186224.
@@ -57,51 +59,20 @@ In order to launch Specvis application double click on the <code>Specvis.jar</co
     </ul>
 </p>
 
-<h2 id="Contribute">Contribute</h2>
+<h2 id="License">License</h2>
 <p>
-I'm open to many types of contributions, from bugfixes to functionality enhancement and introduction. Specvis was created by one person, but is meant to be maintained by a community of academics and clinicians, and as such, I seek enhancements that will likely benefit a large proportion of the users who use the application.
+Specvis Desktop is currently licensed under <a href="https://en.wikipedia.org/wiki/GNU_General_Public_License#Version_3">GNU GPLv3</a> but it can change for its future, upcoming versions. However, future versions of Specvis Desktop will always include the basic functionality to reliably evaluate the field of view for free. Accesibility of the application was my main idea when creating it, so I can asure you, that it will not change in the future.
 </p>
-
-<p>
-Before starting new code, I highly recommend to get acquainted with <code>Specvis/TODO.txt</code> list and opening an issue on <a href="https://github.com/piotrdzwiniel/Specvis/issues"> Specvis GitHub</a> to discuss potential changes. Getting on the same page as the maintainers about changes or enhancements before to much coding is done saves everyone time and effort! Of course, I encourage to propose changes, that are not listed in <code>Specvis/TODO.txt</code>.
-</p>
-
-<p>
-Any contributions to Specvis, whether bug fixes, improvements or completely new functionalities, should be done via <i>pull requests</i> on GitHub. I assume, that you are acquainted with contributing to GitHub projects and you have already a GitHub account. From this point, below I provide step-by-step guide how to start your contribution to Specvis with the use of <a href="https://www.jetbrains.com/idea/download/#section=windows">IntelliJ IDEA</a> environment.
-</p>
-
-<ul>
-    <li>Download, install, and launch <a href="https://www.jetbrains.com/idea/download/#section=windows">IntelliJ IDEA</a> environment.</li>
-    <li>Log into your GitHub account via IntelliJ, by choosing File/Settings/Version Control/GitHub and filling up all text fields with appropriate information. In Host text field write <code>github.com</code>. In Login and Password text fields provide your GitHub account credentials. Next, hit Test button, in order to test IntelliJ connection with your GitHub account. Finally, click Apply/OK button.</li>
-    <li>Clone Specvis repository (https://github.com/piotrdzwiniel/Specvis.git) based on guidelines available <a href="https://www.jetbrains.com/help/idea/using-git-integration.html">here</a>.</li>
-    <li>Work only on branch <code>version-X-X-X</code>. More on branches below.</li>
-</ul>
-
-<h3 id="CodingGuidelines">Coding Guidelines</h3>
-<h4 id="Branches">Branches</h4>
-<p>
-    Specvis GitHub repository will always have two active branches: <code>master</code> and
-    <code>version-X-X-X</code>. Work only on the second one.
-</p>
-
-<h4 id="PullRequests">Pull Requests</h4>
-<ul>
-    <li>Address one issue per pull request (PR).</li>
-    <li>Avoid unnecessary cosmetic changes in PRs.</li>
-    <li>Update the <code>Specvis/doc/whats_new.txt</code> file last, after PR acceptance and before merge,
-    to avoid merge conflicts.</li>
-</ul>
-
-<h4 id="CodeStyle">Code Style</h4>
-<ul>
-    <li>I recommend to use <a href="https://www.jetbrains.com/idea/download/#section=windows">IntelliJ IDEA</a> environment for coding in Java.</li>
-    <li>Please follow <a href="https://google.github.io/styleguide/javaguide.html">Google Java Style Guide</a>.</li>
-    <li>Please write self-descriptive code with detailed comments where needed (especially describe with javadoc comments functionality of the implemented methods).</li>
-</ul>
 
 <h2 id="Support">Support</h2>
 <p>
-If there is any technical problem with Specvis, please go to the issues section on <a href="https://github.com/piotrdzwiniel/Specvis/issues">Specvis GitHub</a> and try to look for the solution to your problem among existing topics. If you can't find the solution, than create a new issue and describe your problem as accurate as it is possible. If something is not working in Specvis (it freezes, behave oddly etc.), than try to run it from the terminal/ command window and than try to force this situation when something is not working. If any error will appear in the terminal/ command window, copy it and include it in the description of the issue. Remember, the more information you'll provide about the problem you've encountered using Specvis, the bigger chance that this problem will be solved and will not occur any more.
+If there is any technical problem with Specvis, please go to <a href="https://github.com/piotrdzwiniel/Specvis/issues">the issues section</a> and try to look for the solution to your problem among existing topics. If you can't find the solution, than create a new issue and describe your problem as accurate as it is possible. If something is not working in Specvis (it freezes, behave oddly etc.), than try to run it from the command prompt and than try to force this situation when something is not working. If any error will appear in the command prompt, copy it and include it in the description of the issue. Remember, the more information you'll provide about the problem you've encountered using Specvis, the bigger chance that this problem will be solved and will not occur any more.
 </p>
 
+<h2 id="Contribute">Contribute</h2>
+<p>
+If you have an idea how Specvis Desktop can be improved, for example what new functionalities can be introduced to its future versions, please don't hesitate to contact me. Remember, that Specvis Desktop aims to be a vision diagnostic software tool.
+</p>
+
+<h2 id="Contact">Contact</h2>
 <p>For any questions write at <b>piotr.dzwiniel@gmail.com</b>.</p>
