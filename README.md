@@ -26,7 +26,7 @@ In order to ensure the multiplatformity of the application (which runs on Window
 java --module-path openjfx/lib --add-modules javafx.controls,javafx.fxml -jar Specvis.jar
 `
    
-But I strongly suggest to stick to the JRE 8.121 if possible. You can check whether your computer has an appropriate JRE version by typing <code>java -version</code> in the command prompt. You can download a specific JRE version <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">here</a>/
+But I strongly suggest to stick to the JRE 8.121 if possible. You can check whether your computer has an appropriate JRE version by typing <code>java -version</code> in the command prompt. You can download a specific JRE version <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">here</a>.
 </p>
 
 <h2 id="Download">Download</h2>
