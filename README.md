@@ -39,7 +39,10 @@ You can download Specvis Desktop by clicking <a href="https://github.com/piotrdz
 <p>In order to launch Specvis Desktop double click on the <code>Specvis.jar</code> file or tye <code>java -jar Specvis.jar</code> in the command prompt, remembering, that you have to include Specvis directory in the command you want to execute or while being in the appropriate directory from the level of the command prompt.</p>
 
 <h4>Performing Visual Field Test</h4>
-<p>First, add new or choose an existing patient in the Specvis Desktop window. Second, choose which eye you want to test. Third, select one of the predefined settins templates or choose testing settings by your own. Fourth, conduct the visual field test. For more detailed information about all Specvis Desktop functionalities look into its <a href="">documentation</a>.</p>
+<p>First, add new or choose an existing patient in the Specvis Desktop window. Second, choose which eye you want to test. Third, select one of the predefined settins templates or choose testing settings by your own. Fourth, conduct the visual field test.</p>
+
+<h4>Documentation</h4>
+<p>For more detailed information about all Specvis Desktop functionalities look into its <a href="documentation_2021_12_27.pdf">documentation</a>.</p>
 
 <h2 id="AcademicalValidation">Academical Validation</h2>
 <p>
