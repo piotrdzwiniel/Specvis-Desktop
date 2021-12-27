@@ -6,9 +6,9 @@
     <li><a href="#Download">Download</a></li>
     <li><a href="#QuickStart">Quick Start</a></li>
         <ul>
-            <li><a href"#Launch">Launch</a></li>
-            <li><a href"#PerformingVisualFieldTest">Performing Visual Field Test</a></li>
-            <li><a href"#Documentation">Documentation</a></li>
+            <li><a href="#Launch">Launch</a></li>
+            <li><a href="#PerformingVisualFieldTest">Performing Visual Field Test</a></li>
+            <li><a href="#Documentation">Documentation</a></li>
         </ul>
     <li><a href="#AcademicalValidation">Academical Validation</a></li>
     <li><a href="#CiteSpecvis">Cite Specvis</a></li>
