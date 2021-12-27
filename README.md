@@ -1,4 +1,4 @@
-<h1>Specvis v1.1.1</h1>
+<h1>Specvis Desktop v1.1.1</h1>
 <h2>Contents</h2>
 <ul>
     <li><a href="#About">About</a></li>
