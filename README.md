@@ -15,7 +15,7 @@
     <li><a href="#License">License</a></li>
     <li><a href="#Support">Support</a></li>
     <li><a href="#Contribute">Contribute</a></li>
-    <li><a href="#KnownIssues">Known Issues</a></li>
+    <li><a href="#KnownIssues">Known Issues (FAQ)</a></li>
     <li><a href="#Contact">Contact</a></li>
 </ul>
 
@@ -83,7 +83,7 @@ If there is any technical problem with Specvis, please go to <a href="https://gi
 If you have an idea how Specvis Desktop can be improved, for example what new functionalities can be introduced to its future versions, please don't hesitate to contact me. Remember, that Specvis Desktop aims to be a vision diagnostic software tool.
 </p>
 
-<h2 id="KnownIssues">Known Issues</h2>
+<h2 id="KnownIssues">Known Issues (FAQ)</h2>
 
 <ul>
     <li><b>Problem:</b> Specvis Desktop is not running when double clicked on</b> <code>Specvis.jar</code></li>
