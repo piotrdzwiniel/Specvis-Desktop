@@ -16,6 +16,7 @@
     <li><a href="#Support">Support</a></li>
     <li><a href="#Contribute">Contribute</a></li>
     <li><a href="#KnownIssues">Known Issues (FAQ)</a></li>
+    <li><a href="#UpcomingChanges">Upcoming Changes & Improvements</a></li>
     <li><a href="#Contact">Contact</a></li>
 </ul>
 
@@ -123,6 +124,36 @@ If you have an idea how Specvis Desktop can be improved, for example what new fu
         <li><i>Explanation:</i> Specvis Desktop uses pretty complicated computation to create visual field graphical map based on the results from the test. Thus, it takes time, to redraw the map after changing isofactor and interpolation values, whereas time it takes depends on the hardware configuration you are using (computational power). The lower the isofactor value and the higher the interpolation value, the longer time needed for the computations standing behind redraw function.</li>
         <li><i>Solution:</i> Wait. Specvis Desktop thinks. You can also use higher isofactor and lower interpolation values in order to decrease time needed for redrawing the visual field graphical map.</li>
     </ul>
+</ul>
+
+<h2 id="UpcomingChanges">Upcoming Changes & Improvements</h2>
+
+<ul>
+    <li><b>Rebuild of the existing graphical user interface (GUI).</b> Creation of a "traditional" GUI with resizable main window, menu bar with access to all application's functionalities, and possibility to arange main window with subwindows with desired functionalities (e.g. preview of the ongoing diagnostic test, patient's information, recommendations etc.).</li>
+    <li><b>Printout with the results.</b> Implementing a function allowing generation of printouts with the results from the vision diagnostic test in a form of *.pdf that can be previewed, saved, and/or printed. Printouts will look like and contain data similarly to the existing, commercial solutions, thus they will be easily comparable with the results obtained with other devices and easily interpretable by clinicians.</li>
+    <li><b>Improvements of the visual field examination.</b></li>
+    <ul>
+        <li>Recording of the patient's response times to the displayed visual stimuli.</li>
+        <li>Clinical-like way of presenting the examination results similar to those present in commercial solution/devices.</li>
+        <li>Possibility of comparing the obtained results to the population mean. The database standing behind the mean results will be successively enlarged with time and in future also include results for patient's with various vision deficits, e.g. glaucoma, retinitis pigmentosa, hemianopia etc.</li>
+        <li>Using Heijl-Krakau technique for monitoring patient's fixation (gaze) during the test.</li>
+        <li>Using computer's front camera for recognizing pupillary's position and using it to monitor patient's fixation (gaze) during the test.</li>
+        <li>Organizing visual field diagnosis functionality in three main test types.</li>
+        <ul>
+            <li><i>Fast.</i> Visual field examination with test duration in mind. Procedure will take around 4-8 minutes per eye. Examination pattern: 30-2. Stimulus size: Goldmann III. Stimulus display time: 200 ms. Stimulus colour: white. Inter-stimulus interval: 800 ms. Fixation point size: Goldmann III. Fixation point colour: white. Fixation point location: centre. Background colour: black. Examination strategy: top, dynamic. Monitoring fixation: Heijl-Krakau.</li>
+            <li><i>Accurate.</i> Visual field examination with test accuracy in mind. Procedure will take around 8-12 minutes per eye. Examination pattern: 30-2 + 10-2. Stimulus size: Goldmann III. Stimulus display time: 200 ms. Stimulus colour: white. Inter-stimulus interval: 800 ms. Fixation point size: Goldmann III. Fixation point colour: white. Fixation point location: centre.  Background colour: black. Examination strategy: dynamic, normal. Monitoring fixation: Heil-Krakau or Heil-Krakau + Camera.</li>
+            <li><i>Custom.</i> Visual field examination extensively customizable by the user, where it will have the possibility to change: stimulus size (Goldmann I, II, III, IV, V, custom in degrees), stimulus display time, inter-stimulus interval, fixation point size, fixation point colour, fixation point location, background colour, examination pattern (10-1/2, 24-1/2, 30-1/2, combination of mentioned patterns, custom pattern), examination strategy (top, dynamic, low vision, normal), metrics that will be included in the printout with the results.</li>
+        </ul>
+    </ul>
+    <li><b>New vision diagnostic tools.</b> </li>
+    <ul>
+        <li>Colour vision diagnosis.</li>
+        <li>Visual acuity diagnosis.</li>
+    </ul>
+    <li><b>Database with basic knowledge about vision, its hygiene, prevention, and diagnosis.</b></li>
+    <li><b>Automation of diagnostic inference with the use of machine learning techniques.</b></li>
+    <li><b>Telemedicine solutions.</b></li>
+    <li><b>Preparation of the application installer in order to make the process of launching Specvis Desktop for the first time easier fot the end user.</b></li>
 </ul>
 
 <h2 id="Contact">Contact</h2>
