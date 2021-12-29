@@ -151,9 +151,7 @@ If you have an idea how Specvis Desktop can be improved, for example what new fu
         <li>Visual acuity diagnosis.</li>
     </ul>
     <li><b>Database with basic knowledge about vision, its hygiene, prevention, and diagnosis.</b> Specvis Desktop is aiming mostly at clinicians and academics. However, around 20% of users described themselves as "patients". Thus, assuming that there is a high potential for self-diagnosis with the use of Specvis Desktop it is important to focus on the education about vision and its diagnosis as well.</li>
-    
     <li><b>Automation of diagnostic inference with the use of machine learning techniques.</b> With the use of academically verified diagnostic solutions based on machine learning principles Specvis Desktop will allow automatic, early diagnosis of the most common visual deficits, such as glaucoma. Patients who perform tests by themselves will get information about the need to contact or visit with a ophthalmologist if such deficit will be recognized.</li>
-    
     <li><b>Telemedicine solutions.</b> Taking into account rapid development of various digital technologie Specvis Desktop will offer solutions from the field of telemedicine and self-diagnosis allowing patients to perform tests in their home and contact with ophthalmologists remotely via internet.</li>
     <li><b>Preparation of the application installer in order to make the process of launching Specvis Desktop for the first time easier fot the end user.</b> Knowing, that current way of dealing with Specvis Desktop files is a little bit tricky and it can be of some problems for users, Specvis Desktop will allow installation on the Windows computers as any other applications you install on your machine.</li>
 </ul>
