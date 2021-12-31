@@ -1,3 +1,4 @@
 theme: jekyll-theme-cayman
 title: Specvis Desktop
 description: Specvis Desktop Website
+show_downloads: true
