@@ -24,12 +24,12 @@
 
 <h2 id="About">About</h2>
 <p>
-Specvis Desktop is a free, open-source and <a href="#AcademicalValidation">academically verified</a> software for visual field examination using <a href="https://en.wikipedia.org/wiki/Visual_field_test#Static_perimetry">static perimetry</a>, which consists of displaying visual stimuli in various places on the screen in the form of points of different brightness, to which the subject responds when he sees them. As a result, we obtain a visual field sensitivity map based on the basis of which we can conclude about its condition.
+Specvis Desktop is a free, open-source and <a href="#AcademicalValidation">academically verified</a> software for visual field examination using <a href="https://en.wikipedia.org/wiki/Visual_field_test#Static_perimetry">static perimetry</a>, which consists of displaying visual stimuli in various places on the screen in the form of points of different brightness, to which the subject responds when he sees them. As a result, we obtain a visual field sensitivity map based on the basis of which we can conclude about its condition. <b>Specvis Desktop has very low hardware requirements and can be launched on any today laptop computer.</b>
 </p>
 
 <img src="figure_plosone.jpg">
 
-<p><b>Figure.</b> Visual field graphical maps from retinitis pigmentosa patient. <b>A.</b> The results from Medmont M700 professional perimeter. <b>B.</b> The results from Specvis Desktop application.</p>
+<p><b>Figure.</b> Visual field graphical maps from <a href="https://en.wikipedia.org/wiki/Retinitis_pigmentosa">retinitis pigmentosa</a> patient. <b>A.</b> The results from Medmont M700 professional perimeter. <b>B.</b> The results from Specvis Desktop application.</p>
 
 <h2 id="Requirements">Requirements</h2>
 <p>
