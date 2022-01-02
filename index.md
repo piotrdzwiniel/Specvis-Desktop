@@ -51,7 +51,7 @@ You can download Specvis Desktop as a <a href="https://github.com/piotrdzwiniel/
 <p>First, add new or choose an existing patient in the Specvis Desktop window. Second, choose which eye you want to test. Third, select one of the predefined settins templates or choose testing settings by your own. Fourth, conduct the visual field test.</p>
 
 <h4 id="Documentation">Documentation</h4>
-<p>For more detailed information about all Specvis Desktop functionalities look into its <a href="documentation_2022_01_02.pdf">documentation</a>.</p>
+<p>For more detailed information about all Specvis Desktop functionalities look into its <a href="documentation_2022_01_02.pdf" target="_blank">documentation</a>.</p>
 
 <h2 id="AcademicalValidation">Academical Validation</h2>
 <p>
