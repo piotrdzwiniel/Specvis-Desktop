@@ -128,7 +128,7 @@ If you have an idea how Specvis Desktop can be improved, for example what new fu
 
 <h2 id="UpcomingChanges">Upcoming Changes & Improvements</h2>
 
-<ul>
+<ol>
     <li><b>Rebuild of the existing graphical user interface (GUI).</b> Creation of a "traditional" GUI with resizable main window, menu bar with access to all application's functionalities, and possibility to arange main window with subwindows with desired functionalities (e.g. preview of the ongoing diagnostic test, patient's information, recommendations etc.).</li>
     <li><b>Printout with the results.</b> Implementing a function allowing generation of printouts with the results from the vision diagnostic test in a form of *.pdf that can be previewed, saved, and/or printed. Printouts will look like and contain data similarly to the existing, commercial solutions, thus they will be easily comparable with the results obtained with other devices and easily interpretable by clinicians.</li>
     <li><b>Improvements of the visual field examination.</b></li>
@@ -154,7 +154,7 @@ If you have an idea how Specvis Desktop can be improved, for example what new fu
     <li><b>Automation of diagnostic inference with the use of machine learning techniques.</b> With the use of academically verified diagnostic solutions based on machine learning principles Specvis Desktop will allow automatic, early diagnosis of the most common visual deficits, such as glaucoma. Patients who perform tests by themselves will get information about the need to contact or visit with a ophthalmologist if such deficit will be recognized.</li>
     <li><b>Telemedicine solutions.</b> Taking into account rapid development of various digital technologie Specvis Desktop will offer solutions from the field of telemedicine and self-diagnosis allowing patients to perform tests in their home and contact with ophthalmologists remotely via internet.</li>
     <li><b>Preparation of the application installer in order to make the process of launching Specvis Desktop for the first time easier fot the end user.</b> Knowing, that current way of dealing with Specvis Desktop files is a little bit tricky and it can be of some problems for users, Specvis Desktop will allow installation on the Windows computers as any other applications you install on your machine.</li>
-</ul>
+</ol>
 
 <h2 id="Donate">Donate</h2>
 <p>Specvis Desktop is a free and open-source application for visual field examination developed by one person pro publico bono (for free) aiming mostly at developing regions of the World where access to a professional ophthalmic healthcare is very problematic. Taking into account that I want to retain free access to the application as long as its possible and to keep working on its future versions I would be very grateful if you consider helping in Specvis Desktop development by providing a donation to it.</p>
