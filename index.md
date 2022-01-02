@@ -81,7 +81,7 @@ If there is any technical problem with Specvis, please go to <a href="https://gi
 
 <h2 id="Contribute">Contribute</h2>
 <p>
-If you have an idea how Specvis Desktop can be improved, for example what new functionalities can be introduced to its future versions, please don't hesitate to contact me. Remember, that Specvis Desktop aims to be a vision diagnostic software tool.
+If you have an idea how Specvis Desktop can be improved, for example what new functionalities can be introduced to its future versions, please don't hesitate to <a href="#Contact">contact me</a>. Remember, that Specvis Desktop aims to be a vision diagnostic software tool.
 </p>
 
 <h2 id="KnownIssues">Known Issues (FAQ)</h2>
