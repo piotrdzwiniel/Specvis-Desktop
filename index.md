@@ -87,7 +87,7 @@ If you have an idea how Specvis Desktop can be improved, for example what new fu
 <h2 id="KnownIssues">Known Issues (FAQ)</h2>
 
 <ul>
-    <li><b>Problem:</b> Specvis Desktop is not running when double clicked on</b> <code>Specvis.jar</code></li>
+    <li><b>Problem:</b> Specvis Desktop is not running when double clicked on <code>Specvis.jar</code></li>
     <ul>
     <li><i>Explanation:</i> The most plausible explanation to this problem is that you try to run Specvis Desktop from the location where you need to have administrative permissions. For example, if you downloaded Specvis Desktop on your main drive/partition (most likely "C") which is also a drive with an operating system installed on it and drive/partition is protected with administrative permissions then running Specvis Desktop by simply double clicking on it can be impossible.</li>
     <li><i>Solution:</i> If you want to keep Specvis Desktop on a restricted drive/partition, then you can run the application via command prompt. However, commant prompt should be launched with the use of "run as the administrator" mode. Other, simpler solution to the problem, is to just place Specvis Desktop folder in a location, where any administrative permissions are not required for the user.</li>
