@@ -1,6 +1,7 @@
-<h1>Specvis Desktop v1.1.1</h1>
+<!-- http://piotrdzwiniel.github.io/Specvis-Desktop/ -->
+
 <h2>Contents</h2>
-<ul>
+<ol>
     <li><a href="#About">About</a></li>
     <li><a href="#Requirements">Requirements</a></li>
     <li><a href="#Download">Download</a></li>
@@ -17,17 +18,22 @@
     <li><a href="#Contribute">Contribute</a></li>
     <li><a href="#KnownIssues">Known Issues (FAQ)</a></li>
     <li><a href="#UpcomingChanges">Upcoming Changes & Improvements</a></li>
+    <li><a href="#Donate">Donate</a></li>
     <li><a href="#Contact">Contact</a></li>
-</ul>
+</ol>
 
 <h2 id="About">About</h2>
 <p>
-Specvis Desktop is a free, open-source and academically verified software for visual field examination using <a href="https://en.wikipedia.org/wiki/Visual_field_test#Static_perimetry">static perimetry</a>, which consists of displaying visual stimuli in various places on the screen in the form of points of different brightness, to which the subject responds when he sees them. As a result, we obtain a visual field sensitivity map based on the basis of which we can conclude about its condition.
+Specvis Desktop is a free, open-source and <a href="#AcademicalValidation">academically verified</a> software for visual field examination using <a href="https://en.wikipedia.org/wiki/Visual_field_test#Static_perimetry">static perimetry</a>, which consists of displaying visual stimuli in various places on the screen in the form of points of different brightness, to which the subject responds when he sees them. As a result, we obtain a visual field sensitivity map based on the basis of which we can conclude about its condition. <b>Specvis Desktop has very low hardware requirements and can be launched on any today laptop computer.</b>
 </p>
+
+<img src="figure_plosone.jpg">
+
+<p><b>Figure.</b> Visual field graphical maps from <a href="https://en.wikipedia.org/wiki/Retinitis_pigmentosa">retinitis pigmentosa</a> patient. <b>A.</b> The results from Medmont M700 professional perimeter. <b>B.</b> The results from Specvis Desktop application.</p>
 
 <h2 id="Requirements">Requirements</h2>
 <p>
-In order to ensure the multiplatformity of the application (which runs on Windows, Linux, and Mac), it was written in the Java programming language. This means that the application needs Java Runtime Environment (JRE; platform for running Java applications) to be installed on your computer to run. That said you need specifally JRE in version 8.121 or above, **but not 10 and above** due to the fact, that Specvis Desktop uses JavaFX for which Oracle (a company that officially develops Java) stopped its support starting with JRE 10. Nevertheless, if you must use JRE 10 or above, you can find installing <a href="https://openjfx.io/">openjfx</a> as a solution to your possible problem with running Specvis Desktop. You just have to point to the openjfx directly and add required modules when launching Specvis Desktop from the command prompt by typing for example:
+In order to ensure the multiplatformity of the application (which runs on Windows, Linux, and Mac), it was written in the Java programming language. This means that the application needs Java Runtime Environment (JRE; platform for running Java applications) to be installed on your computer to run. That said you need specifally JRE in version 8.121 or above, but not 10 and above due to the fact, that Specvis Desktop uses JavaFX for which Oracle (a company that officially develops Java) stopped its support starting with JRE 10. Nevertheless, if you must use JRE 10 or above, you can find installing <a href="https://openjfx.io/">openjfx</a> as a solution to your possible problem with running Specvis Desktop. You just have to point to the openjfx directly and add required modules when launching Specvis Desktop from the command prompt by typing for example:
 
 `    
 java --module-path openjfx/lib --add-modules javafx.controls,javafx.fxml -jar Specvis.jar
@@ -38,7 +44,7 @@ But I strongly suggest to stick to the JRE 8.121 if possible. You can check whet
 
 <h2 id="Download">Download</h2>
 <p>
-You can download Specvis Desktop by clicking <a href="https://github.com/piotrdzwiniel/Specvis/raw/master/latest_build/Specvis_v1_1_1/Specvis.zip">this link</a>. What will be downloaded is a *.zip archive. Unzip it in a desired location. The content of the unzipped folder should contain <code>Specvis.jar</code> file. You will use this file to launch Specvis application.
+You can download Specvis Desktop as a <a href="https://github.com/piotrdzwiniel/Specvis/raw/master/latest_build/Specvis_v1_1_1/Specvis.zip">*.zip</a> or <a href="https://github.com/piotrdzwiniel/Specvis/raw/master/latest_build/Specvis_v1_1_1/Specvis.tar.gz">*.tar.gz</a>. After downlod unpack the archive in a desired location. The content of the unpacked archive should contain <code>Specvis.jar</code> file. You will use this file to launch Specvis application.
 </p>
 
 <h2 id="QuickStart">Quick Start</h2>
@@ -49,7 +55,7 @@ You can download Specvis Desktop by clicking <a href="https://github.com/piotrdz
 <p>First, add new or choose an existing patient in the Specvis Desktop window. Second, choose which eye you want to test. Third, select one of the predefined settins templates or choose testing settings by your own. Fourth, conduct the visual field test.</p>
 
 <h4 id="Documentation">Documentation</h4>
-<p>For more detailed information about all Specvis Desktop functionalities look into its <a href="documentation_2021_12_27.pdf">documentation</a>.</p>
+<p>For more detailed information about all Specvis Desktop functionalities look into its <a href="documentation_2022_01_02.pdf" target="_blank">documentation</a>.</p>
 
 <h2 id="AcademicalValidation">Academical Validation</h2>
 <p>
@@ -156,5 +162,18 @@ If you have an idea how Specvis Desktop can be improved, for example what new fu
     <li><b>Preparation of the application installer in order to make the process of launching Specvis Desktop for the first time easier fot the end user.</b> Knowing, that current way of dealing with Specvis Desktop files is a little bit tricky and it can be of some problems for users, Specvis Desktop will allow installation on the Windows computers as any other applications you install on your machine.</li>
 </ul>
 
+<h2 id="Donate">Donate</h2>
+<p>Specvis Desktop is a free and open-source application for visual field examination developed by one person pro publico bono (for free) aiming mostly at developing regions of the World where access to a professional ophthalmic healthcare is very problematic. Taking into account that I want to retain free access to the application as long as its possible and to keep working on its future versions I would be very grateful if you consider helping in Specvis Desktop development by providing a donation to it.</p>
+
+<p><b>Donations are realized and protected by <a href="https://stripe.com/">Stripe</a>, thus their are totally safe. You can also repeat donations as often, as you will find it appropriate.</b></p>
+
+<p>Thank you very much for your support!</p>
+
+<button class="button" onclick="window.open('https://buy.stripe.com/dR616276d5GBa7m288', '_blank')">€5.00 EUR</button>
+<button class="button" onclick="window.open('https://buy.stripe.com/00g5micqx3yt3IY9AB', '_blank')">€10.00 EUR</button>
+<button class="button" onclick="window.open('https://buy.stripe.com/dR67uq9el1ql7Ze28a', '_blank')">€25.00 EUR</button>
+<button class="button" onclick="window.open('https://buy.stripe.com/8wM7uqbmt4Cx7Ze7sv', '_blank')">€50.00 EUR</button>
+<button class="button" onclick="window.open('https://buy.stripe.com/7sIbKGduBfhb2EU9AE', '_blank')">€100.00 EUR</button>
+
 <h2 id="Contact">Contact</h2>
-<p>For any questions write at <b>piotr.dzwiniel@gmail.com</b>.</p>
+<p>In any matter please write at <b>specvis.desktop@gmail.com</b>.</p>
