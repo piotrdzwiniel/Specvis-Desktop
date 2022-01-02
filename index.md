@@ -172,4 +172,4 @@ If you have an idea how Specvis Desktop can be improved, for example what new fu
 <button class="button" onclick="window.open('https://buy.stripe.com/7sIbKGduBfhb2EU9AE', '_blank')">€100.00 EUR</button>
 
 <h2 id="Contact">Contact</h2>
-<p>For any questions write at <b>specvis.desktop@gmail.com</b>.</p>
+<p>In any matter please write at <b>specvis.desktop@gmail.com</b>.</p>
