@@ -165,7 +165,7 @@ If you have an idea how Specvis Desktop can be improved, for example what new fu
 
 <p>Thank you very much for your support!</p>
 
-<button href="https://buy.stripe.com/dR616276d5GBa7m288" type="button">€5.00 EUR</button>
+<button onclick="https://buy.stripe.com/dR616276d5GBa7m288" target="_blank">€5.00 EUR</button>
 <a href="https://buy.stripe.com/00g5micqx3yt3IY9AB" class="btn">€10.00 EUR</a>
 <a href="https://buy.stripe.com/dR67uq9el1ql7Ze28a" class="btn">€25.00 EUR</a>
 <a href="https://buy.stripe.com/8wM7uqbmt4Cx7Ze7sv" class="btn">€50.00 EUR</a>
