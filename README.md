@@ -169,11 +169,13 @@ If you have an idea how Specvis Desktop can be improved, for example what new fu
 
 <p>Thank you very much for your support!</p>
 
-<button class="button" onclick="window.open('https://buy.stripe.com/dR616276d5GBa7m288', '_blank')">€5.00 EUR</button>
-<button class="button" onclick="window.open('https://buy.stripe.com/00g5micqx3yt3IY9AB', '_blank')">€10.00 EUR</button>
-<button class="button" onclick="window.open('https://buy.stripe.com/dR67uq9el1ql7Ze28a', '_blank')">€25.00 EUR</button>
-<button class="button" onclick="window.open('https://buy.stripe.com/8wM7uqbmt4Cx7Ze7sv', '_blank')">€50.00 EUR</button>
-<button class="button" onclick="window.open('https://buy.stripe.com/7sIbKGduBfhb2EU9AE', '_blank')">€100.00 EUR</button>
+<ul>
+    <li><a href="https://buy.stripe.com/dR616276d5GBa7m288" target="_blank">€5.00 EUR</a></li>
+    <li><a href="https://buy.stripe.com/00g5micqx3yt3IY9AB" target="_blank">€10.00 EUR</a></li>
+    <li><a href="https://buy.stripe.com/dR67uq9el1ql7Ze28a" target="_blank">€25.00 EUR</a></li>
+    <li><a href="https://buy.stripe.com/8wM7uqbmt4Cx7Ze7sv" target="_blank">€50.00 EUR</a></li>
+    <li><a href="https://buy.stripe.com/7sIbKGduBfhb2EU9AE" target="_blank">€100.00 EUR</a></li>
+</ul>
 
 <h2 id="Contact">Contact</h2>
 <p>In any matter please write at <b>specvis.desktop@gmail.com</b>.</p>
