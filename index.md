@@ -157,7 +157,7 @@ If you have an idea how Specvis Desktop can be improved, for example what new fu
 </ol>
 
 <h2 id="Donate">Donate</h2>
-<p>Specvis Desktop is a free and open-source application for visual field examination developed by one person pro publico bono (for free) aiming mostly at developing regions of the World where access to a professional ophthalmic healthcare is very problematic. Taking into account that I want to retain free access to the application as long as its possible and to keep working on its future versions I would be very grateful if you consider helping in Specvis Desktop development by providing a donation to it.</p>
+<p>Specvis Desktop is a free and open-source application for visual field examination developed by one person pro publico bono (for free) aiming mostly at developing regions of the World where access to a professional ophthalmic healthcare is very problematic. Taking into account that I want to retain free access to the application as long as it's possible and to keep working on its future versions I would be very grateful if you consider helping in Specvis Desktop development by providing a donation to it.</p>
 
 <p><b>Donations are realized and protected by <a href="https://stripe.com/">Stripe</a>, thus their are totally safe. You can also repeat donations as often, as you will find it appropriate.</b></p>
 
