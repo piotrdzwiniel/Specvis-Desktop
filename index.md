@@ -37,7 +37,7 @@
 <p><b>Figure.</b> Visual field graphical maps from <a href="https://en.wikipedia.org/wiki/Retinitis_pigmentosa">retinitis pigmentosa</a> patient. <b>A.</b> The results from Medmont M700 professional perimeter. <b>B.</b> The results from Specvis Desktop application.</p>
 
 <p>
-    <b>Over time, the application will be enriched with new diagnostic, training and rehabilitation functionalities.</b> This also includes application's versions for VR, Mobile and Web.
+    <b>IMPORTANT:</b> Over time, the application will be enriched with new diagnostic, training and rehabilitation functionalities. This also includes application's versions for VR, Mobile and Web.
 </p>
 
 <h2 id="Requirements">Requirements</h2>
