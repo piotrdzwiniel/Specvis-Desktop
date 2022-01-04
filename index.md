@@ -25,7 +25,7 @@
 <h2 id="About">About</h2>
 
 <p>
-    SPECVIS Desktop is a free, open-source and <a href="#AcademicalValidation">academically verified</a> software for personal and clinical vision examination, training and rehabilitation, which for desktop version works on personal (laptops) and stationary (desktop) computers. 
+    SPECVIS Desktop is a free, open-source and <a href="#AcademicalValidation">academically verified</a> software for personal and clinical vision examination, training and rehabilitation, which in desktop version works on personal (laptops) and stationary (desktop) computers. 
 </p>
 
 <p>
